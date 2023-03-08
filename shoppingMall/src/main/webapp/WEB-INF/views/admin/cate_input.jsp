@@ -13,21 +13,22 @@
 			</div>
 			
 			<div class="my-3">
-				<label for ="cname">Name. </label>
+				<label for ="cate_name">Name. </label>
 				<input type="text" class ="form-control" id="cate_name"
 					placeholder="카테고리 명을 입력하세요" name="cate_name"/>
 			</div>
 			
 			<div class="text-center">
-				<input type="submit" class="btn btn-sm text-white" style="background-color: black;" value="등록"
-					onclick="inputChk()"/>
+				<input type="button" class="btn btn-sm text-white" style="background-color: black;" value="등록"
+					onclick="cateInputChk()"/>
 				<input type="reset" value="취소" class="btn btn-secondary btn-sm"/>
 			</div>
 			
-		
 		</form>
 		
 	</div>
+	
+	<script src="${ctxPath}/js/cateValidChk.js"></script>
 	
 
 <%@ include file ="inc/ad_footer.jsp"%>
