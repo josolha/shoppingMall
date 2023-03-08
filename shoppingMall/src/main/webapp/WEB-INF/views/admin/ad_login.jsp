@@ -7,7 +7,7 @@
 	
 		<h3>관리자 로그인</h3>
 		
-		<form action="${ctxPath}/adminLoginOk.do" method="post">
+		<form action="${ctxPath}/adminLogin.do" method="post">
 		
 			<div class="my-3">
 				<label>아이디 : </label>
@@ -16,14 +16,18 @@
 				<%-- <c:if test="${loginErr == 'idErr'}"> --%>
 				<p class="text-danger">관리자 아이디를 확인하세요!!</p>
 				<%-- </c:if> --%>
+				
 			</div>			
 			
 			<div class="my-3">
 				<label>비밀번호</label>
-				<input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호" value=""/>
+				<input type="password" class="form-control" id="password" name="password" placeholder="비밀번호" value=""/>
+				
 				<%-- <c:if test="${loginErr == 'pwErr'}"> --%>
 				<p class="text-danger">비밀번호를 확인하세요!!</p>
 				<%-- </c:if> --%>
+				
+				
 			</div>
 			
 			<div class="text-center">

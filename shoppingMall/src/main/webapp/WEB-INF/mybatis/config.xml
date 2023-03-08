@@ -4,5 +4,6 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+			<typeAlias type="com.web.jomaltwo.model.AdminDTO" alias ="AdminDTO"/>
 	</typeAliases>
 </configuration>

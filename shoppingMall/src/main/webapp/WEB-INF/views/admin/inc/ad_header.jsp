@@ -37,11 +37,7 @@
 	          <a class="text-black" href="${ctxPath}" style="text-decoration:none"><p class="text-center">JO MALTWO</br> SEOUL</p></a>
 	        </ul>
 	        
-     <%--        <c:if test="${sessionScope.isLogin != null}">
-   	        	<li class="nav-item" style="color:black; line-height:40px">
-	         		 ${sessionScope.name}님 안녕하세요
-	        	</li>
-        	</c:if> --%>
+ 
         	
     <%-- 	   <c:if test="${sessionScope.isLogin == null}">
 	       		 <li class="nav-item">
@@ -53,29 +49,41 @@
         	</c:if> --%>
 	        
 	        <ul class="navbar-nav">
-	        <li class="nav-item">
-	          <a class="nav-link" href="javascript:void(0)"><i class="bi bi-search"style="vertical-align: middle;"></i></a>
-	        </li>
-	        <%-- <c:if test="${sessionScope.isLogin != null}"> --%>
-     	    <li class="nav-item ">
-	          <a class="nav-link" href="cartList.do"><i class="bi bi-cart" style="vertical-align: middle;"></i></a>
-	        </li>
-	        <%-- </c:if> --%>
+	        
+	        
+	    		<c:if test="${sessionScope.loginDto.id != null}">
+	   	        	<li class="nav-item" style="color:black; line-height:40px">
+		         		 ${sessionScope.loginDto.name}님 
+		        	</li>
+	        	</c:if> 
+	        	
+		        <li class="nav-item">
+		          <a class="nav-link" href="javascript:void(0)"><i class="bi bi-search"style="vertical-align: middle;"></i></a>
+		        </li>
+		        <%-- <c:if test="${sessionScope.isLogin != null}"> --%>
+	     	    <li class="nav-item ">
+		          <a class="nav-link" href="cartList.do"><i class="bi bi-cart" style="vertical-align: middle;"></i></a>
+		        </li>
+	        
 	        
 	        <!--ms - start,  me - end   -->
 	        <li class="nav-item dropdown">
   				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-person fs-5" style="vertical-align: middle;"></i></a>
   					<ul class="dropdown-menu">
-  						<c:if test="${sessionScope.isLogin == null}">
-    					<li><a class="dropdown-item" href="${ctxPath}/ad_login.do">로그인</a></li>
-  					    <li><a class="dropdown-item" href="">회원가입</a></li>
+  					
+  					
+  						<c:if test="${sessionScope.loginDto.id == null}">
+    					<li><a class="dropdown-item" href="${ctxPath}/adminLogin.do">관리자 로그인</a></li>
+  					    <li><a class="dropdown-item" href="${ctxPath}/adminOut.do">관리자 회원가입</a></li>
     					</c:if>
+    					
     					<%-- <c:if test="${sessionScope.isLogin != null && sessionScope.memberInfo == 'user'}"> --%>
-    					<li><a class="dropdown-item" href="">로그아웃</a></li>
+    					<li><a class="dropdown-item" href="${ctxPath}/adminLogout.do">관리자 로그아웃</a></li>
     					<%-- </c:if> --%>
+    					
     					<%-- <c:if test="${sessionScope.isLogin != null && sessionScope.memberInfo == 'admin'}"> --%>
     						<li><a class="dropdown-item" href="">관리자 페이지</a></li>
-    						<li><a class="dropdown-item" href="${ctxPath}/adminLogOut.do">관리자 로그아웃</a></li>
+    						
     					<%-- </c:if> --%>
   					</ul>
 			</li>

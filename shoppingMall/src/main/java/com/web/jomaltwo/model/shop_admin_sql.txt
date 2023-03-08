@@ -1,0 +1,12 @@
+drop table shop_admin;
+
+create table shop_admin(
+    id varchar(20) not null,
+    password varchar(20) not null,
+    name varchar(20) not null,
+    email varchar(50) not null
+);
+
+insert into shop_admin values ('admin','1234','관리자','admin@gmail.com');
+select * from shop_admin;
+commit;

@@ -55,9 +55,9 @@
 	      </property>      
 	   	  </bean>
 		
-		<context:component-scan base-package="ez.web.jomaltwo.service" />
-		<context:component-scan base-package="ez.web.jomaltwo.model" />
-		<mybatis-spring:scan base-package="ez.web.jomaltwo.mapper" />
+		<context:component-scan base-package="com.web.jomaltwo.service" />
+		<context:component-scan base-package="com.web.jomaltwo.model" />
+		<mybatis-spring:scan base-package="com.web.jomaltwo.mapper" />
 		
 </beans>
 
