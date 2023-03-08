@@ -10,3 +10,14 @@ create table shop_admin(
 insert into shop_admin values ('admin','1234','관리자','admin@gmail.com');
 select * from shop_admin;
 commit;
+
+-------------------------------------------
+
+drop table category;
+
+create table category(
+    cate_num int primary key auto_increment,
+    code varchar(20) not null ,
+    cate_name varchar(20) not null
+);
+select * from category;

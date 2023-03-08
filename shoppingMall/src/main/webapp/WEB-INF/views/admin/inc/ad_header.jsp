@@ -29,7 +29,7 @@
 	    
 	        <ul class="navbar-nav">
 	        	<li class="nav-item">
-	           		<a class="nav-link fs-6" href="${ctxPath}">홈으로</a> 
+	           		<a class="nav-link fs-6" href="${ctxPath}">사용자 홈으로</a> 
 	        	</li>
 	        </ul>
 	        
@@ -37,23 +37,13 @@
 	          <a class="text-black" href="${ctxPath}" style="text-decoration:none"><p class="text-center">JO MALTWO</br> SEOUL</p></a>
 	        </ul>
 	        
- 
-        	
-    <%-- 	   <c:if test="${sessionScope.isLogin == null}">
-	       		 <li class="nav-item">
-	          		<a class="nav-link" href="userLogin.do">로그인</a>
-	        	</li>
-	        	<li class="nav-item">
-	          		<a class="nav-link" href="userJoin.do">회원가입</a>
-	        	</li>		
-        	</c:if> --%>
 	        
 	        <ul class="navbar-nav">
 	        
 	        
 	    		<c:if test="${sessionScope.loginDto.id != null}">
 	   	        	<li class="nav-item" style="color:black; line-height:40px">
-		         		 ${sessionScope.loginDto.name}님 
+		         		 안녕하세요 ${sessionScope.loginDto.name}님 
 		        	</li>
 	        	</c:if> 
 	        	
@@ -74,17 +64,15 @@
   					
   						<c:if test="${sessionScope.loginDto.id == null}">
     					<li><a class="dropdown-item" href="${ctxPath}/adminLogin.do">관리자 로그인</a></li>
-  					    <li><a class="dropdown-item" href="${ctxPath}/adminOut.do">관리자 회원가입</a></li>
     					</c:if>
     					
-    					<%-- <c:if test="${sessionScope.isLogin != null && sessionScope.memberInfo == 'user'}"> --%>
-    					<li><a class="dropdown-item" href="${ctxPath}/adminLogout.do">관리자 로그아웃</a></li>
-    					<%-- </c:if> --%>
+    					<c:if test="${sessionScope.loginDto.id != null}">    					
+    					<li><a class="dropdown-item" href="${ctxPath}/adminLogout.do">관리자 로그아웃</a></li>    					
+    					</c:if>
     					
-    					<%-- <c:if test="${sessionScope.isLogin != null && sessionScope.memberInfo == 'admin'}"> --%>
-    						<li><a class="dropdown-item" href="">관리자 페이지</a></li>
+    					<li><a class="dropdown-item" href="">관리자 페이지</a></li>
+   						
     						
-    					<%-- </c:if> --%>
   					</ul>
 			</li>
 	      </ul>

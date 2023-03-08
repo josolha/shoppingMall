@@ -5,7 +5,7 @@
 
 	<div class="container mt-5 border w-25 shadow-sm p-5">
 	
-		<h3>관리자 로그인</h3>
+		<h3 class="text-center">관리자 로그인</h3>
 		
 		<form action="${ctxPath}/adminLogin.do" method="post">
 		
@@ -31,7 +31,7 @@
 			</div>
 			
 			<div class="text-center">
-				<input type="submit" class="btn btn-primary btn-sm" value="로그인"/>				
+				<button type="submit" class="btn btn text-white" style="background-color: black;">로그인</button>				
 			</div>
 			
 		</form>
