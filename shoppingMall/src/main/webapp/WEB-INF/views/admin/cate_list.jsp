@@ -3,7 +3,7 @@
 <%@ include file ="inc/ad_header.jsp"%>
 
 	<div class="container mt-5 border shadow-sm p-5 mb-3 w-50">
-		<h3 class ="text-center">카테고리 리스트</h3>
+		<h3 class ="text-center">Category List</h3>
 		<table class="table mt-4">
 			<thead>
 				<tr>
@@ -15,17 +15,26 @@
 			</thead>
 			<tbody>
 			
-			<c:forEach var="dto" items="${requestScope.dtos}">
+			<!-- Ajax 처리 할꺼임 -->
+			
+			<c:forEach var="cDto" items="${requestScope.cDtos}">
 				<tr>
-					<td>${dto.cate_num}</td>
-					<td>${dto.code}</td>
-					<td>${dto.cate_name}</td>
-					<td><a href="categoryDel.do?cate_num=${dto.cate_num}" class= "btn btn-outline-danger btn-sm">삭제</a></td>
+					<td id="cnum">${cDto.cate_num}</td>
+					<td>${cDto.code}</td>
+					<td>${cDto.cate_name}</td>
+					<td><a href="${ctxPath}/categoryDel.do?cate_num=${cDto.cate_num}" class="btn btn-sm text-white" id="removeBtn" style="background-color: black;">delete</a></td>
+					<!-- categoryDel.do?cate_num=${cDto.cate_num} -->
 				</tr>
 			</c:forEach>
+			
 			
 			</tbody>
 		</table>
 	</div>
+	
+
+
+
+
 	
 <%@ include file ="inc/ad_footer.jsp"%>

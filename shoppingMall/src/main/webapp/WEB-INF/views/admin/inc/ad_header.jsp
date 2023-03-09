@@ -10,10 +10,11 @@
   <title>관리자 Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-  <script src="${ctxPath}/js/validChk2.js"></script>
+  <script src="${ctxPath}/js/cateValidChk.js"></script>
 </head>
 
 <body style="background : #fcf9ee">
@@ -29,7 +30,7 @@
 	    
 	        <ul class="navbar-nav">
 	        	<li class="nav-item">
-	           		<a class="nav-link fs-6" href="${ctxPath}">사용자 홈으로</a> 
+	           		<a class="nav-link fs-6" href="${ctxPath}">To User Home.</a> 
 	        	</li>
 	        </ul>
 	        

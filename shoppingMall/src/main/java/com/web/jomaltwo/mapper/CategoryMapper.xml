@@ -8,5 +8,13 @@
      <insert id="categoryInput" parameterType="CategoryDTO">
             INSERT INTO category (code,cate_name) VALUES(#{code},#{cate_name})
    	 </insert>
+   	 
+   	 <select id="categoryShow" resultType="CategoryDTO">
+   	 		SELECT * FROM category
+   	 </select>
+   	 
+   	 <delete id="categoryDelete" parameterType="Integer">
+   	 		DELETE FROM category WHERE cate_num = #{cate_num}
+   	 </delete>
    
 </mapper>

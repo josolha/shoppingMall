@@ -4,7 +4,7 @@
 
 
 	<div class="container mt-5 border shadow-sm p-5 mb-3 w-25">
-		<h3 class ="text-center">카테고리 등록</h3>
+		<h3 class ="text-center">Category Register</h3>
 		<form action="${ctxPath}/categoryAdd.do" method="post" name ="categoryForm">
 			<div class="mt-3">
 				<label for ="code">Code. </label>
@@ -19,9 +19,9 @@
 			</div>
 			
 			<div class="text-center">
-				<input type="button" class="btn btn-sm text-white" style="background-color: black;" value="등록"
+				<input type="button" class="btn btn-sm text-white" style="background-color: black;" value="Register"
 					onclick="cateInputChk()"/>
-				<input type="reset" value="취소" class="btn btn-secondary btn-sm"/>
+				<input type="reset" value="Cancle" class="btn btn-secondary btn-sm"/>
 			</div>
 			
 		</form>
