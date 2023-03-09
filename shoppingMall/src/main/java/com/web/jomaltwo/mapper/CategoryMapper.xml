@@ -16,5 +16,9 @@
    	 <delete id="categoryDelete" parameterType="Integer">
    	 		DELETE FROM category WHERE cate_num = #{cate_num}
    	 </delete>
+   	 
+   	 <update id="categoryUpdate" parameterType="CategoryDTO">
+   	 		UPDATE category SET code = #{code}, cate_name = #{cate_name} WHERE cate_num = #{cate_num}
+	 </update>
    
 </mapper>

@@ -35,4 +35,11 @@ public class CategoryImpl implements CategoryService {
 		return mapper.categoryDelete(cate_num);
 	}
 
+
+	@Override
+	public int categoryModify(CategoryDTO dto) {
+		
+		return mapper.categoryUpdate(dto);
+	}
+
 }

@@ -12,5 +12,7 @@ public interface CategoryMapper {
 	public List<CategoryDTO> categoryShow();
 	
 	public int categoryDelete(int cate_num);
+	
+	public int categoryUpdate(CategoryDTO dto);
 
 }

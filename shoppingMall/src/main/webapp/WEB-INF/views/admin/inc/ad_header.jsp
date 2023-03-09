@@ -14,7 +14,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
-  <script src="${ctxPath}/js/cateValidChk.js"></script>
+  
 </head>
 
 <body style="background : #fcf9ee">
@@ -34,19 +34,24 @@
 	        	</li>
 	        </ul>
 	        
-	        <ul class="nav-item mt-3 me-auto ms-auto">
-	          <a class="text-black" href="${ctxPath}" style="text-decoration:none"><p class="text-center">JO MALTWO</br> SEOUL</p></a>
-	        </ul>
+	        
+			  <div class="mt-3 mx-auto">
+	    		<a class="text-black" href="${ctxPath}" style="text-decoration:none">
+	      		<p class="text-center">JO MALTWO</br> SEOUL</p>
+	    	    </a>
+	  		  </div>
 	        
 	        
 	        <ul class="navbar-nav">
-	        
-	        
-	    		<c:if test="${sessionScope.loginDto.id != null}">
-	   	        	<li class="nav-item" style="color:black; line-height:40px">
-		         		 안녕하세요 ${sessionScope.loginDto.name}님 
-		        	</li>
-	        	</c:if> 
+	<%--     		<c:if test="${sessionScope.loginDto.id != null}">	        	
+					<div class="navbar-nav ms-auto">
+					  <li class="nav-item mt-3">
+					    <span class="nav-link" style="color:black; line-height:40px; margin-right: 15px">
+					      </i>안녕하세요 ${sessionScope.loginDto.name}님
+					    </span>
+					  </li>
+					</div>
+	        	</c:if>  --%>
 	        	
 		        <li class="nav-item">
 		          <a class="nav-link" href="javascript:void(0)"><i class="bi bi-search"style="vertical-align: middle;"></i></a>
@@ -58,24 +63,20 @@
 	        
 	        
 	        <!--ms - start,  me - end   -->
-	        <li class="nav-item dropdown">
-  				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-person fs-5" style="vertical-align: middle;"></i></a>
-  					<ul class="dropdown-menu">
-  					
-  					
-  						<c:if test="${sessionScope.loginDto.id == null}">
-    					<li><a class="dropdown-item" href="${ctxPath}/adminLogin.do">관리자 로그인</a></li>
-    					</c:if>
-    					
-    					<c:if test="${sessionScope.loginDto.id != null}">    					
-    					<li><a class="dropdown-item" href="${ctxPath}/adminLogout.do">관리자 로그아웃</a></li>    					
-    					</c:if>
-    					
-    					<li><a class="dropdown-item" href="">관리자 페이지</a></li>
-   						
-    						
-  					</ul>
-			</li>
+		        <li class="nav-item dropdown">
+	  				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-person fs-5" style="vertical-align: middle;"></i></a>
+	  					<ul class="dropdown-menu">
+	  						<c:if test="${sessionScope.loginDto.id == null}">
+	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogin.do">관리자 로그인</a></li>
+	    					</c:if>
+	    					
+	    					<c:if test="${sessionScope.loginDto.id != null}">    					
+	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogout.do">관리자 로그아웃</a></li>    					
+	    					</c:if>
+	    					
+	    					<li><a class="dropdown-item" href="">관리자 페이지</a></li>
+	  					</ul>
+				</li>
 	      </ul>
 	    </div>
 	  </div>

@@ -47,8 +47,12 @@ public class CategoryController {
 		return "redirect:categoryList.do";
 	}
 	
-	
-	
+	@RequestMapping("/categoryUpdate.do")
+	public String categoryUpdate(CategoryDTO dto) {
+		System.out.println(dto);
+		int cnt =  service.categoryModify(dto);		
+		return "redirect:categoryList.do";
+	}
 	
 
 }

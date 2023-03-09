@@ -17,7 +17,7 @@ function cateInputChk(){
 }
 
 
-// --------------------adjax로 delete 활용-----------------------------
+// --------------------adjax-----------------------------
 
 //$(function() {
 //	  $(document).on("click", "#removeBtn", function(e) {

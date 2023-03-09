@@ -14,5 +14,7 @@ public interface CategoryService {
 	public List<CategoryDTO> categoryList();
 	
 	public int categoryRemove(int cate_num);
+	
+	public int categoryModify(CategoryDTO dto);
 
 }
