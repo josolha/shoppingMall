@@ -5,15 +5,14 @@
 <%@ include file ="inc/ad_header.jsp"%>
 
 	<div class="container mt-5 border shadow-sm p-5 mb-3 w-50">
-		<h3 class ="text-center">Category List</h3>
+		<h3 class ="text-center" style="text-decoration: underline; text-underline-position : under;">Category List</h3>
 		<table class="table mt-4">
 			<thead>
 				<tr>
 					<th width="25%">No.</th>
 					<th width="25%">Code.</th>
 					<th width="25%">Name.</th>
-					<th width="25%">Update.</th>
-					<th width="25%">Delete.</th>
+					<th width="25%">Modify / Delete.</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,8 +24,8 @@
 					<td id="cnum">${cDto.cate_num}</td>
 					<td>${cDto.code}</td>
 					<td>${cDto.cate_name}</td>
-					<td><button class="btn btn-secondary btn-sm" onclick="openModal(this)" data-cate-dto='{"cateNum":${cDto.cate_num},"cateCode": ${cDto.code},"cateName": "${cDto.cate_name}"}'>update</button></td>
-					<td><a href="${ctxPath}/categoryDel.do?cate_num=${cDto.cate_num}" class="btn btn-sm text-white" style="background-color: black;">delete</a></td>
+					<td><button class="btn btn-secondary btn-sm" onclick="openModal(this)" data-cate-dto='{"cateNum":${cDto.cate_num},"cateCode": ${cDto.code},"cateName": "${cDto.cate_name}"}'>modify</button>
+					<a href="${ctxPath}/categoryDel.do?cate_num=${cDto.cate_num}" class="btn btn-sm text-white" style="background-color: black;">delete</a></td>
 				</tr>
 			</c:forEach>
 			</tbody>

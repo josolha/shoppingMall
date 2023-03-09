@@ -4,7 +4,7 @@
 
 
 	<div class="container mt-5 border shadow-sm p-5 mb-3 w-25">
-		<h3 class ="text-center">Category Register</h3>
+		<h3 class ="text-center" style="text-decoration: underline; text-underline-position : under;" >Category Register</h3>
 		<form action="${ctxPath}/categoryAdd.do" method="post" name ="categoryForm">
 			<div class="mt-3">
 				<label for ="code">Code. </label>
