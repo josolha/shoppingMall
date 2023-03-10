@@ -21,3 +21,20 @@ create table category(
     cate_name varchar(20) not null
 );
 select * from category;
+
+--------------------------------------------
+drop table product;
+
+create table product(
+    pNum int primary key auto_increment,
+    pName varchar(50) not null,
+    pCategory_fk varchar(30) not null ,
+    pCompany varchar(50),
+    pImage varchar(100),
+    pQty int default 0,
+    price int default 0,
+    pSpec varchar(20),
+    pContent varchar(300),
+    pPoint int default 0,
+    pInputDate date
+);
