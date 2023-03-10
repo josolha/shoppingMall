@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.web.jomaltwo.model.CategoryDTO;
 import com.web.jomaltwo.service.CategoryService;
+import com.web.jomaltwo.util.ProdSpec;
 
 @Controller
 public class ProductController {
@@ -24,6 +25,10 @@ public class ProductController {
 	public  String productRegister(Model model) {
 		List<CategoryDTO> cDtos = service.categoryList();
 		model.addAttribute("categoryList",cDtos);
+		
+		ProdSpec[] pdSpecs = ProdSpec.values();
+		
+		model.addAttribute("pdSpecs",pdSpecs);
 		
 		return "admin/prod_input";
 	}

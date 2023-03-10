@@ -12,7 +12,7 @@
 					<td>
 						<select class="form-select form-select-sm" name="pCategory_fk">
 							<c:if test="${categoryList==null || categoryList.size()==0}">
-								<option value="">카테고리 없음</option>
+								<option value="">Empty Category.</option>
 							</c:if>
 							<c:if test="${categoryList!=null || categoryList.size()!=0}">
 								<c:forEach var="category" items="${categoryList}">
@@ -46,8 +46,8 @@
 						<td>Grade.</td>
 						<td>
 							<select class="form-select form-select-sm" name="pSpec">
-								<option value="none" selected> 일반</option>
-								<c:forEach var="spec" items="${requestScope.pdSpecs}">
+								<option value="none" selected> NORMAL</option>
+								<c:forEach var="spec" items="${pdSpecs}">
 									<option value="${spec.name()}">${spec.value}</option>
 								</c:forEach>
 							</select>
@@ -71,7 +71,7 @@
 			</table>
 		</form>	
 	</div>
-	<div id="sidebar">
+	<!-- <div id="sidebar"> -->
     
 <!-- <div id="nav-account">
 	<ul class="first_nav">
@@ -106,22 +106,6 @@
 
 </div> -->
 	
-	<!-- 유호성 검사 -->
-	<script type="text/javascript">
-		function inputChk(){
-			if(!categoryForm.code.value){
-				alert("카테고리 코드를 입력하세요!!!");
-				categoryForm.code.focus();
-				return;
-			}
-			if(!categoryForm.cname.value){ // cname이 널이면 참
-				alert("카테고리명을 입력하세요!!!");
-				categoryForm.cname.focus();
-				return;
-			}
-			
-			document.categoryForm.submit();
-		}
-	</script>
+	
 	
 <%@ include file ="inc/ad_footer.jsp"%>
