@@ -10,7 +10,7 @@ import com.web.jomaltwo.model.CategoryDTO;
 
 
 @Service
-public class CategoryImpl implements CategoryService {
+public class CategoryServiceImpl implements CategoryService {
 	
 	@Autowired
 	private CategoryMapper mapper;

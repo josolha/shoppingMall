@@ -6,5 +6,6 @@
 	<typeAliases>
 			<typeAlias type="com.web.jomaltwo.model.AdminDTO" alias ="AdminDTO"/>
 			<typeAlias type="com.web.jomaltwo.model.CategoryDTO" alias ="CategoryDTO"/>
+			<typeAlias type="com.web.jomaltwo.model.ProductDTO" alias ="ProductDTO"/>
 	</typeAliases>
 </configuration>

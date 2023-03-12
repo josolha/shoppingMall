@@ -32,7 +32,7 @@
 					</tr>
 					<tr>
 						<td>Image.</td>
-						<td><input type="file" class="form-control form-control-sm" name="pImage"/></td>
+						<td><input type="file" class="form-control form-control-sm" name="file"/></td>
 					</tr>
 					<tr>
 						<td>Quantity.</td>
