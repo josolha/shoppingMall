@@ -17,5 +17,9 @@ public interface ProductService {
 	public void uploadFile(MultipartFile file, HttpServletRequest request) throws Exception;
 	
 	public List<ProductDTO> productList();
+	
+	public int productRemove(int pNum);
+	
+	public void deleteFile(HttpServletRequest request,String pImage) throws Exception;
 
 }

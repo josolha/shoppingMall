@@ -37,8 +37,8 @@
 				<td>${dto.PCompany}</td>
 				<td>${dto.PQty}</td>				
 				<td>
-					<a href="productUpdate.do?pNum=${dto.PNum}"  class="btn btn-outline-danger btn-sm">수정</a>
-					<a href="javascript:pdDel('${dto.PNum}','${dto.PImage}')"  class="btn btn-outline-danger btn-sm">삭제</a>				
+					<a href="productUpdate.do?pNum=${dto.PNum}"  class="btn btn-secondary btn-sm">Modify</a>
+					<a href="javascript:pdDel('${dto.PNum}','${dto.PImage}')"  class="btn btn-sm text-white" style="background-color: black;">Delete</a>	
 				</td>
 			</tr>
 		</c:forEach>
@@ -48,7 +48,7 @@
 <script>
 	function pdDel(pNum, pImage){
 		var isDel = window.confirm("삭제 하시겠습니까?");
-		if(isDel) location.href = "prodDelete.do?pNum="+pNum+"&pImage="+pImage;
+		if(isDel) location.href = "productDel.do?pNum="+pNum+"&pImage="+pImage;
 	}
 </script>	
 

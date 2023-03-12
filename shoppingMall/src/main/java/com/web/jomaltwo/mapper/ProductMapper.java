@@ -9,5 +9,7 @@ public interface ProductMapper {
 	public int productInput(ProductDTO dto);
 	
 	public List<ProductDTO> productShow();
+	
+	public int productDelete(int pNum);
 
 }

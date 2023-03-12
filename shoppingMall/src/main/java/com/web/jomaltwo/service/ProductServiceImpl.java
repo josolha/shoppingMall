@@ -36,7 +36,7 @@ public class ProductServiceImpl implements ProductService{
     	
     	ServletContext servletContext = request.getSession().getServletContext();
     	
-    	System.out.println(servletContext.getRealPath(""));
+//    	System.out.println(servletContext.getRealPath(""));
     	
     	String uploadPath = servletContext.getRealPath("")+File.separator+UPLOAD_DIR;
     	
@@ -60,5 +60,32 @@ public class ProductServiceImpl implements ProductService{
 	public List<ProductDTO> productList() {
 		
 		return mapper.productShow();
+	}
+
+	@Override
+	public int productRemove(int pNum) {
+		
+		return mapper.productDelete(pNum);
+	}
+
+	@Override
+	public void deleteFile(HttpServletRequest request,String pImage) throws Exception {
+		
+		String FILE_DIR = "resources/file_repo";	
+    	
+    	ServletContext servletContext = request.getSession().getServletContext();
+    	
+    	String FilePath = servletContext.getRealPath("")+File.separator+FILE_DIR;
+    	
+    	File delFile = null;
+    	
+		if(pImage != null) {
+		
+			delFile = new File(FilePath+"/"+pImage);
+			if(delFile.exists()) { 
+				if(delFile.delete());
+			}
+		}
+    	
 	}
 }

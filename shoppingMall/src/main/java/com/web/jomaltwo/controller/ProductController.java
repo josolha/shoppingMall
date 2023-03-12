@@ -34,7 +34,7 @@ public class ProductController {
 	@RequestMapping("/productList.do")
 	public String productList(Model model) {
 		List<ProductDTO> productList = pService.productList();
-		System.out.println(productList);
+//		System.out.println(productList);
 		model.addAttribute("dtos",productList);
 		return "admin/prod_list";
 	}
@@ -91,15 +91,26 @@ public class ProductController {
 //    	}
 	
 	    
-	    @RequestMapping("/productAdd.do")
-	    public String productRegister(@RequestParam("file") MultipartFile file, @ModelAttribute ProductDTO dto,HttpServletRequest request, Model model) throws Exception {
-	        if (!file.isEmpty()) {
-	            pService.uploadFile(file,request);
-	            dto.setPImage(file.getOriginalFilename());
-	        }
+    @RequestMapping("/productAdd.do")
+    public String productRegister(@RequestParam("file") MultipartFile file, @ModelAttribute ProductDTO dto,HttpServletRequest request, Model model) throws Exception {
+        if (!file.isEmpty()) {
+            pService.uploadFile(file,request);
+            dto.setPImage(file.getOriginalFilename());
+        }
 //	        이미지가 null 일때 처리해야함..더 고민해보자
-	        pService.productInsert(dto);
-	        return "redirect:productList.do";
-	    }
+        pService.productInsert(dto);
+        return "redirect:productList.do";
+    }
+    
+    @RequestMapping("/productDel.do")
+    public String ProductDelete(HttpServletRequest request,int pNum ,String pImage) throws Exception {
+    	if(!pImage.isEmpty()) {
+    		pService.deleteFile(request, pImage);
+    	}
+    	int cnt = pService.productRemove(pNum);
+    	
+    	return "redirect:productList.do";
+    }
+    
 
 }

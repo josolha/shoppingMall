@@ -14,5 +14,10 @@
  	 <select id="productShow" resultType="productDTO">
    	 		SELECT * FROM product
    	 </select>
+   	 
+   	 <delete id="productDelete" parameterType="Integer">
+   	 	DELETE FROM product WHERE pNum = #{pNum} 
+   	 </delete>
+   	 
    
 </mapper>
