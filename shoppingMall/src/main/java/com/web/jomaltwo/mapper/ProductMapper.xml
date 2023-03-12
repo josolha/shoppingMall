@@ -7,7 +7,12 @@
   
      <insert id="productInput" parameterType="ProductDTO">
             INSERT INTO product(pName, pCategory_fk, pCompany, pImage, pQty, price,pSpec,pContent,pPoint,pInputdate)
-            VALUES(#{pNum},#{pCategory_fk},#{pCompany},#{pImage},#{pQty},#{price},#{pSpec},#{pContent},#{pPoint},now())
+            VALUES(#{pName},#{pCategory_fk},#{pCompany},#{pImage},#{pQty},#{price},#{pSpec},#{pContent},#{pPoint},now())
    	 </insert>
+   	 
+   	 
+ 	 <select id="productShow" resultType="productDTO">
+   	 		SELECT * FROM product
+   	 </select>
    
 </mapper>

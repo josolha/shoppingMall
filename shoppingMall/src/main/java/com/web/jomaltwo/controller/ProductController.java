@@ -32,7 +32,10 @@ public class ProductController {
 	private ProductService pService;
 	
 	@RequestMapping("/productList.do")
-	public String productList() {
+	public String productList(Model model) {
+		List<ProductDTO> productList = pService.productList();
+		System.out.println(productList);
+		model.addAttribute("dtos",productList);
 		return "admin/prod_list";
 	}
 	
@@ -86,6 +89,7 @@ public class ProductController {
 //		    
 //		    return "redirect:productList.do";
 //    	}
+	
 	    
 	    @RequestMapping("/productAdd.do")
 	    public String productRegister(@RequestParam("file") MultipartFile file, @ModelAttribute ProductDTO dto,HttpServletRequest request, Model model) throws Exception {

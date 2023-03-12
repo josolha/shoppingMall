@@ -27,18 +27,18 @@
 		<tbody>
 		<c:forEach var="dto" items="${requestScope.dtos}">
 			<tr>
-				<td>${dto.pNum}</td>
-				<td>${dto.pCategory_fk}</td>
+				<td>${dto.PNum}</td>
+				<td>${dto.PCategory_fk}</td>
 				<td>
-					<img src="${ctxPath}/uploadedFile/${dto.pImage}" style="width:60px"/>
+					<img src="${ctxPath}/resources/file_repo/${dto.PImage}" style="width:60px"/>
 				</td>
-				<td>${dto.pName}</td>
+				<td>${dto.PName}</td>
 				<td>${dto.price}</td>
-				<td>${dto.pCompany}</td>
-				<td>${dto.pQty}</td>				
+				<td>${dto.PCompany}</td>
+				<td>${dto.PQty}</td>				
 				<td>
-					<a href="productUpdate.do?pNum=${dto.pNum}"  class="btn btn-outline-danger btn-sm">수정</a>
-					<a href="javascript:pdDel('${dto.pNum}','${dto.pImage}')"  class="btn btn-outline-danger btn-sm">삭제</a>				
+					<a href="productUpdate.do?pNum=${dto.PNum}"  class="btn btn-outline-danger btn-sm">수정</a>
+					<a href="javascript:pdDel('${dto.PNum}','${dto.PImage}')"  class="btn btn-outline-danger btn-sm">삭제</a>				
 				</td>
 			</tr>
 		</c:forEach>

@@ -2,6 +2,7 @@ package com.web.jomaltwo.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -53,5 +54,11 @@ public class ProductServiceImpl implements ProductService{
 	        }
 			file.transferTo(uploadFile);
 				
+	}
+
+	@Override
+	public List<ProductDTO> productList() {
+		
+		return mapper.productShow();
 	}
 }
