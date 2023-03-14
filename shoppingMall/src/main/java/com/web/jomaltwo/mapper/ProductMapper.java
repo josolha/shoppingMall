@@ -11,5 +11,9 @@ public interface ProductMapper {
 	public List<ProductDTO> productShow();
 	
 	public int productDelete(int pNum);
+	
+	public ProductDTO productInfo(int pNum);
+	
+	public int productUpdate(ProductDTO dto);
 
 }

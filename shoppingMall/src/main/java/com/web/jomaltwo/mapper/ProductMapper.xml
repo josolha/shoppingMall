@@ -15,9 +15,20 @@
    	 		SELECT * FROM product
    	 </select>
    	 
+   	 <select id="productInfo" parameterType="Integer" resultType="productDTO">
+   	 		SELECT * FROM product WHERE pNum = #{pNum}
+   	 </select>
+   	 
+   	 
    	 <delete id="productDelete" parameterType="Integer">
-   	 	DELETE FROM product WHERE pNum = #{pNum} 
+   	 		DELETE FROM product WHERE pNum = #{pNum} 
    	 </delete>
+   	 
+   	 <update id="productUpdate" parameterType="productDTO" >
+   	 		UPDATE product SET pCategory_fk = #{pCategory_fk}, pName = #{pName}, pCompany= #{pCompany},
+   	 		pImage = #{pImage}, pQty = #{pQty}, price = #{price}, pSpec =#{pSpec}, pContent = #{pContent}, pPoint =#{pPoint}, pInputDate=now()
+   	 		WHERE pNum = #{pNum}
+   	 </update>
    	 
    
 </mapper>

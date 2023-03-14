@@ -28,7 +28,7 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public void uploadFile(MultipartFile file, HttpServletRequest request) throws Exception {
+	public File uploadFile(MultipartFile file, HttpServletRequest request) throws Exception {
 		
 		String fileName = file.getOriginalFilename();
 		
@@ -53,7 +53,7 @@ public class ProductServiceImpl implements ProductService{
 	            uploadFile = new File(uploadPath + File.separator + fileName);
 	        }
 			file.transferTo(uploadFile);
-				
+			return uploadFile;			
 	}
 
 	@Override
@@ -80,12 +80,24 @@ public class ProductServiceImpl implements ProductService{
     	File delFile = null;
     	
 		if(pImage != null) {
-		
-			delFile = new File(FilePath+"/"+pImage);
+			delFile = new File(FilePath+ File.separator+pImage);
 			if(delFile.exists()) { 
 				if(delFile.delete());
 			}
 		}
     	
 	}
+
+	@Override
+	public ProductDTO productInfo(int pNum) {
+		
+		return mapper.productInfo(pNum);
+	}
+
+	@Override
+	public int productModify(ProductDTO dto) {
+		
+		return mapper.productUpdate(dto);
+	}
+	
 }

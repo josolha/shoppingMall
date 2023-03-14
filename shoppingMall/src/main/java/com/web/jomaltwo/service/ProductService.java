@@ -14,12 +14,16 @@ public interface ProductService {
 	
 	public int productInsert(ProductDTO dto);
 	
-	public void uploadFile(MultipartFile file, HttpServletRequest request) throws Exception;
+	public File uploadFile(MultipartFile file, HttpServletRequest request) throws Exception;
 	
 	public List<ProductDTO> productList();
 	
 	public int productRemove(int pNum);
 	
 	public void deleteFile(HttpServletRequest request,String pImage) throws Exception;
+	
+	public ProductDTO productInfo(int pNum);
+	
+	public int productModify(ProductDTO dto);
 
 }

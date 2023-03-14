@@ -94,8 +94,8 @@ public class ProductController {
     @RequestMapping("/productAdd.do")
     public String productRegister(@RequestParam("file") MultipartFile file, @ModelAttribute ProductDTO dto,HttpServletRequest request, Model model) throws Exception {
         if (!file.isEmpty()) {
-            pService.uploadFile(file,request);
-            dto.setPImage(file.getOriginalFilename());
+            File uploadedFile = pService.uploadFile(file,request);
+            dto.setPImage(uploadedFile.getName());
         }
 //	        이미지가 null 일때 처리해야함..더 고민해보자
         pService.productInsert(dto);
@@ -103,13 +103,54 @@ public class ProductController {
     }
     
     @RequestMapping("/productDel.do")
-    public String ProductDelete(HttpServletRequest request,int pNum ,String pImage) throws Exception {
+    public String productDelete(HttpServletRequest request,int pNum ,String pImage) throws Exception {
     	if(!pImage.isEmpty()) {
     		pService.deleteFile(request, pImage);
     	}
     	int cnt = pService.productRemove(pNum);
     	
     	return "redirect:productList.do";
+    }
+    
+    @RequestMapping("/productUpdate.do")
+    public String productUpdate(Model model,int pNum) {
+    		
+    	ProductDTO productInfo = pService.productInfo(pNum);
+    	
+    	System.out.println(productInfo);
+    	model.addAttribute("pDto",productInfo);
+    	
+    	
+    	List<CategoryDTO> cDtos = service.categoryList();
+    	model.addAttribute("categoryList", cDtos);
+    	
+    	ProdSpec[] pdSpecs = ProdSpec.values();
+ 	    model.addAttribute("pdSpecs", pdSpecs);
+ 	    
+    	
+    	return "admin/prod_update";
+    }
+    
+    @RequestMapping("/productUpdateOk.do")
+    public String productUpdateOk(@RequestParam("file") MultipartFile file, @ModelAttribute ProductDTO dto,HttpServletRequest request, Model model) throws Exception {
+    	
+    	String pImage = file.getOriginalFilename();
+    	
+//    	System.out.println("새로운 이미지 :"+pImage);
+    	
+//    	System.out.println("기존 이미지 :"+ dto.getPImage());
+    	
+    	if(pImage == "") {
+    		int cnt = pService.productModify(dto);
+    	}
+    	else {
+    		File uploadedFile = pService.uploadFile(file,request);
+            dto.setPImage(uploadedFile.getName());
+		    int cnt = pService.productModify(dto);
+    	}
+	    	
+    	System.out.println("수정완료");
+    	return "redirect:productList.do"; 
     }
     
 
