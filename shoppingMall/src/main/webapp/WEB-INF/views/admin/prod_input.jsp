@@ -2,7 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file ="inc/ad_header.jsp"%>
 
-<div class="container mt-5 border shadow-sm p-5 mb-3 w-50">
+<%@ include file ="inc/ad_sidebar.jsp"%>
+
+<div class="container mt-5 border shadow-sm p-5 mb-3 w-75">
 	<h3 class="text-center" style="text-decoration: underline; text-underline-position : under;" >Product Register</h3>
 	<form action="productAdd.do" method="post" enctype="multipart/form-data">
 		<table class="table table-borderless mt-4">
@@ -71,41 +73,6 @@
 			</table>
 		</form>	
 	</div>
-	<!-- <div id="sidebar"> -->
-    
-<!-- <div id="nav-account">
-	<ul class="first_nav">
-		<li><a href="/account/index.tmpl">마이페이지</a></li>
-		<li class="logout"><a href="/account/signin.tmpl?_SUBMIT=signout" data-test-id="myaccount_menu_signout">로그아웃</a></li>
-	</ul>
-
-	<ul class="main_nav">
-		<li id="nav_account_profile"><a href="/account/registration.tmpl" data-test-id="myaccount_menu_profile">회원정보 입력</a></li>
-		<li id="nav_address_book"><a href="/account/address_book/index.tmpl" data-test-id="myaccount_menu_shipping_billing">배송주소록</a></li>
-		li id="nav_payment_info"><a href="/account/payment_info/index.tmpl" >결제 정보</a></li
-		<li id="nav_orders"><a href="/account/order_history/index.tmpl" data-test-id="myaccount_menu_orders">주문내역 보기</a></li>
-        
-		<li id="nav_favorites"><a href="/account/favorites.tmpl" data-test-id="myaccount_menu_favorites">관심상품 리스트</a></li>
-		<li id="nav_reorder"><a href="/account/order_history/purchases.tmpl" data-test-id="myaccount_menu_reorder">지난 구매제품 다시구매</a></li>
-		<li id="nav_appointments"><a href="/account/appointments/index.tmpl" data-test-id="myaccount_menu_myappointment">나의 예약</a></li>
-	</ul>
-	z
-	
-
-<div id="customer-service">
-	<h1 class="customer-service-header"><center><strong>고객관리지원팀</strong></center></h1>
-	<div class="customer-service-content">
-		<p></p><p>문의 사항이 있으시거나 고객관리지원팀과 상담을 원하실 경우 다음 링크 <a href="mailto:consumercare-kr@jomalone.com">consumercare-kr@jomalone.com</a>를 눌러 이메일 문의 서비스로 보내주시면 응대를 도와드리겠습니다.<br>
-도움이 필요하시면 고객관리지원팀으로 문의 바랍니다. 02-6971-3228<br>
-라이브 챗 또는 이메일 문의 서비스를 이용하시면 보다 신속하게 응대를 도와드리겠습니다.<br>
-감사합니다.</p><p></p>
-	</div>
-</div>
-</div>
-
-
-</div> -->
-	
 	
 	
 <%@ include file ="inc/ad_footer.jsp"%>

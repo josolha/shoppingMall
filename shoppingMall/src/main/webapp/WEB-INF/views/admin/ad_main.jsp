@@ -19,6 +19,7 @@
 			<li><a href="" style="text-decoration:none">사용자 홈으로 가기</a></li>			
 		</ul>
 	</div>
+	
 <%@include file ="inc/ad_footer.jsp" %>
 
 

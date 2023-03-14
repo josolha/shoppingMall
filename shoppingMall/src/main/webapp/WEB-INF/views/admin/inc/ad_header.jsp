@@ -35,12 +35,12 @@
 	        </ul>
 	        
 	        
-			  <div class="mt-3 mx-auto">
-	    		<a class="text-black" href="${ctxPath}" style="text-decoration:none">
-	      		<p class="text-center">JO MALTWO</br> SEOUL</p>
-	    	    </a>
-	  		  </div>
-	        
+			 <div class="col-3 col-md-10 ms-auto"> <!-- 그리드 시스템 추가 -->
+	          <a class="text-black" href="${ctxPath}" style="text-decoration:none">
+	            <p class="text-center mt-2">JO MALTWO</br> SEOUL</p>
+	          </a>
+	        </div>
+		        
 	        
 	        <ul class="navbar-nav">
 	<%--     		<c:if test="${sessionScope.loginDto.id != null}">	        	
@@ -81,7 +81,13 @@
 	    </div>
 	  </div>
 	</nav>
+	</header>
 	          <%--  <div class="text-center">
                 <img class="img-fluid" src="${ctxPath}/img/23B02_Landing-page_Hero_Desktop.jpg" alt="...">
             </div> --%>
-	</header>
+            <!-- Sidebar -->
+		
+    
+<!-- /#sidebar-wrapper -->
+            
+	

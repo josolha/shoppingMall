@@ -4,7 +4,10 @@
     
 <%@ include file ="inc/ad_header.jsp"%>
 
-	<div class="container mt-5 border shadow-sm p-5 mb-3 w-50">
+<%@ include file ="inc/ad_sidebar.jsp"%>
+
+
+	<div class="container mt-5 border shadow-sm p-5 mb-3 w-75">
 		<h3 class ="text-center" style="text-decoration: underline; text-underline-position : under;">Category List</h3>
 		<table class="table mt-4">
 			<thead>
