@@ -2,6 +2,7 @@ package com.web.jomaltwo.service;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -14,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.web.jomaltwo.mapper.CategoryMapper;
 import com.web.jomaltwo.mapper.ProductMapper;
 import com.web.jomaltwo.model.ProductDTO;
+import com.web.jomaltwo.util.ProdSpec;
 
 @Service
 public class ProductServiceImpl implements ProductService{
@@ -98,6 +100,19 @@ public class ProductServiceImpl implements ProductService{
 	public int productModify(ProductDTO dto) {
 		
 		return mapper.productUpdate(dto);
+	}
+
+	@Override
+	public HashMap<String, List<ProductDTO>> productBySpecs() {
+		
+		HashMap<String, List<ProductDTO>> prodBySpecs = new HashMap<>();
+		
+		ProdSpec[] pdSpecs = ProdSpec.values();
+		
+		for (int i = 0; i < pdSpecs.length; i++) {
+			prodBySpecs.put(pdSpecs[i].toString(),mapper.productBySpec(pdSpecs[i].toString()));
+		}
+		return prodBySpecs;
 	}
 	
 }

@@ -45,5 +45,10 @@ public class AdminController {
 		
 		return "redirect:/";
 	}
+	@RequestMapping("/adminMain.do")
+	public String adminMain() {
+		return "admin/ad_main";
+	}
+	
 }
 

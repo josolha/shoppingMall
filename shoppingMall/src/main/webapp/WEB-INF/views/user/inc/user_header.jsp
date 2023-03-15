@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>관리자 Home</title>
+  <title>사용자 Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

@@ -101,7 +101,7 @@
 					<tr>
 						<td colspan="2" class="text-center">
 							<input type="submit"  class="btn btn-sm text-white" style="background-color: black;" value="Modify"/>
-							<input type="reset" class="btn btn-sm btn-secondary" value="Cancle"/>
+							<input type="reset" class="btn btn-sm btn-secondary" onclick="javascript:window.location='productList.do'" value="Cancle"/>
 						</td>
 					</tr>
 				</tbody>			

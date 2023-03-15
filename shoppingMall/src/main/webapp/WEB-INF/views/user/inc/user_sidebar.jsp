@@ -3,7 +3,7 @@
     
 <div class="container-fluid">
   <div class="row">
-    <nav class="col-md-2 d-none d-md-block sidebar mt-5">
+    <nav class="col-md-2 d-none d-md-block sidebar mt-5 fixed-top" style="z-index: 100; top: 100px;">
       <div class="sidebar-sticky" style="display: flex; justify-content: end;">
         <ul class="nav flex-column">
         

@@ -1,6 +1,7 @@
 package com.web.jomaltwo.service;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,5 +26,7 @@ public interface ProductService {
 	public ProductDTO productInfo(int pNum);
 	
 	public int productModify(ProductDTO dto);
+	
+	public HashMap<String,List<ProductDTO>> productBySpecs();
 
 }

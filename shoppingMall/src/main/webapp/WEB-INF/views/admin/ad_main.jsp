@@ -9,16 +9,12 @@
 
 <%@include file ="inc/ad_header.jsp" %>
 
-	<div class="container mt-5">
-		<h5>Menu</h5>
-		<ul>
-			<li><a href="${ctxPath}/categoryInput.do" style="text-decoration:none">카테고리 등록</a></li>
-			<li><a href="${ctxPath}/categoryList.do" style="text-decoration:none">카테고리 리스트</a></li>
-			<li><a href="${ctxPath}/productInput.do" style="text-decoration:none">상품 등록</a></li>
-			<li><a href="${ctxPath}/productList.do" style="text-decoration:none">상품 리스트</a></li>
-			<li><a href="" style="text-decoration:none">사용자 홈으로 가기</a></li>			
-		</ul>
-	</div>
+<%@include file ="inc/ad_sidebar.jsp" %>
+<!-- 마이페이지 자리 -->
+
+<div class= mt-5>
+	<p class=text-center"><b>반갑습니다. ${sessionScope.loginDto.name}님<b><p>
+</div>
 	
 <%@include file ="inc/ad_footer.jsp" %>
 

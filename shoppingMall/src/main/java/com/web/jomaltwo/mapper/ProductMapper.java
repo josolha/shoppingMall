@@ -15,5 +15,6 @@ public interface ProductMapper {
 	public ProductDTO productInfo(int pNum);
 	
 	public int productUpdate(ProductDTO dto);
-
+	
+	public List<ProductDTO> productBySpec(String spec);
 }
