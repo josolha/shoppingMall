@@ -12,8 +12,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="${ctxPath}/css/main.css">
   
 </head>
 
@@ -57,12 +59,12 @@
 	  				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-person fs-5" style="vertical-align: middle;"></i></a>
 	  					<ul class="dropdown-menu">
 	  						<c:if test="${sessionScope.loginDto.id == null}">
-	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogin.do">로그인</a></li>
-	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogin.do">회원가입</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/userLogin.do">로그인</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/userLogin.do">회원가입</a></li>
 	    					</c:if>
 	    					
 	    					<c:if test="${sessionScope.loginDto.id != null}">    					
-	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogout.do">로그아웃</a></li>    					
+	    					<li><a class="dropdown-item" href="${ctxPath}/userLogout.do">로그아웃</a></li>    					
 	    					</c:if>
 	    					
 	  					</ul>
