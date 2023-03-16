@@ -4,7 +4,7 @@
 <%@ include file="inc/user_header.jsp" %>  
 <div class="container w-25 shadow rounded border p-5 mt-5">
 
-   <form action="${ctxPath}/userInsert.do" method="post">
+   <form action="${ctxPath}/user/insert.do" method="post">
       <h3 class="text-center mb-4" style="text-decoration: underline; text-underline-position : under;">User Register</h3>
             
          <div class="row">
@@ -34,7 +34,7 @@
 	           	 </div>
          	</div>
 	         <input class="form-control mb-2" type="text" id="sample2_address" placeholder="도로명주소" name="road_addr"/>
-         	 <input class="form-control mb-2" type="text" id="jibunAddress" placeholder="지번주소" name="detail_addr"/>
+         	 <input class="form-control mb-2" type="text" id="jibunAddress" placeholder="지번주소" name="jibun_addr"/>
         	 <input class="form-control" type="text" id="sample2_detailAddress" placeholder="상세주소" name="detail_addr"/>  
             </div>
          
@@ -103,8 +103,8 @@
    
    
 </script>
-
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="js/zipcode.js"></script>
+<script src="${ctxPath}/js/zipcode.js"></script>
+
 
 <%@ include file="inc/user_footer.jsp" %>

@@ -4,7 +4,7 @@
 <%@ include file="../inc/user_header.jsp" %>  
 <div class="container w-25 shadow rounded border p-5 mt-5">
 
-   <form action="${ctxPath}/userLogin.do" method="post">
+   <form action="${ctxPath}/user/login.do" method="post">
    	<input type="hidden" name="moveUrl" value="${moveUrl}"/>
       <h3 class="text-center mb-4">Login</h3>      
 		
@@ -28,8 +28,8 @@
    </form>
    <div class= "mt-3 w-100 findIdPw">
    		<div class = "d-flex justify-content-between">
-   			<div><i class="fa fa-lock"></i> <a href="${ctxPath}/idPwFind2.do?find=id">아이디</a> <a href="${ctxPath}/idPwFind2.do?find=pw">비밀번호 찾기</a></div>
-   			<div><i class="fa fa-user-plus"></i> <a href="${ctxPath}/userRegister.do">회원가입</a></div>
+   			<div><i class="fa fa-lock"></i> <a href="${ctxPath}/user/idPwFind.do?find=id">아이디</a> <a href="${ctxPath}/user/idPwFind.do?find=pw">비밀번호 찾기</a></div>
+   			<div><i class="fa fa-user-plus"></i> <a href="${ctxPath}/user/register.do">회원가입</a></div>
    		</div>
    </div>
 </div>

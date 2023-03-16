@@ -59,12 +59,12 @@
 	  				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-person fs-5" style="vertical-align: middle;"></i></a>
 	  					<ul class="dropdown-menu">
 	  						<c:if test="${sessionScope.loginDto.id == null}">
-	    					<li><a class="dropdown-item" href="${ctxPath}/userLogin.do">로그인</a></li>
-	    					<li><a class="dropdown-item" href="${ctxPath}/userLogin.do">회원가입</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/user/login.do">로그인</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/user/login.do">회원가입</a></li>
 	    					</c:if>
 	    					
 	    					<c:if test="${sessionScope.loginDto.id != null}">    					
-	    					<li><a class="dropdown-item" href="${ctxPath}/userLogout.do">로그아웃</a></li>    					
+	    					<li><a class="dropdown-item" href="${ctxPath}/user/logout.do">로그아웃</a></li>    					
 	    					</c:if>
 	    					
 	  					</ul>
