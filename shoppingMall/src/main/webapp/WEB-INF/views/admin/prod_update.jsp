@@ -78,11 +78,11 @@
 								<c:forEach var="spec" items="${pdSpecs}">
 								
 									<c:if test="${pDto.PSpec == spec.name()}">
-										<option value="${spec.name()}" selected>${spec.value}</option>
+										<option value="${spec.name()}" selected>${spec.name()}</option>
 									</c:if>
 									
 									<c:if test="${pDto.PSpec != spec.name()}">
-										<option value="${spec.name()}">${spec.value}</option>
+										<option value="${spec.name()}">${spec.name()}</option>
 									</c:if>
 									
 								</c:forEach>

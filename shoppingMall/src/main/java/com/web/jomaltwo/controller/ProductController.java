@@ -50,6 +50,8 @@ public class ProductController {
 
 	    // 등급 Enum 담기
 	    ProdSpec[] pdSpecs = ProdSpec.values();
+	    System.out.println(pdSpecs);
+	    
 	    model.addAttribute("pdSpecs", pdSpecs);
 		
 		return "admin/prod_input";

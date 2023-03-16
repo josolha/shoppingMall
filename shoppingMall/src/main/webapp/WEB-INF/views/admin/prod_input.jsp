@@ -50,7 +50,7 @@
 							<select class="form-select form-select-sm" name="pSpec">
 								<option value="none" selected> NORMAL</option>
 								<c:forEach var="spec" items="${pdSpecs}">
-									<option value="${spec.name()}">${spec.value}</option>
+									<option value="${spec.name()}">${spec.name()}</option>
 								</c:forEach>
 							</select>
 						</td>
