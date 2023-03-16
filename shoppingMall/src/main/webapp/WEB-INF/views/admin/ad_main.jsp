@@ -13,7 +13,7 @@
 <!-- 마이페이지 자리 -->
 
 <div class= mt-5>
-	<p class=text-center"><b>반갑습니다. ${sessionScope.loginDto.name}님<b><p>
+	<p class=text-center"><b>반갑습니다. ${sessionScope.loginDto.name}님</b><p>
 </div>
 	
 <%@include file ="inc/ad_footer.jsp" %>

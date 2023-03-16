@@ -10,6 +10,10 @@
    	 </insert>
    	 
    	 <select id="categoryShow" resultType="CategoryDTO">
+   	 		SELECT * FROM category limit #{startIndex}, #{cntPerPage}
+   	 </select>
+   	 
+   	 <select id="categoryAllShow" resultType="CategoryDTO">
    	 		SELECT * FROM category
    	 </select>
    	 
@@ -18,7 +22,12 @@
    	 </delete>
    	 
    	 <update id="categoryUpdate" parameterType="CategoryDTO">
+   	 		<!-- 상품에있는 Pname과 연관시켜서 상풍 변경 시켜야함 -->
    	 		UPDATE category SET code = #{code}, cate_name = #{cate_name} WHERE cate_num = #{cate_num}
 	 </update>
+	 
+	 <select id="totalCnt" resultType="Integer">
+   		SELECT count(*) FROM category
+	  </select>
    
 </mapper>

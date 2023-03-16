@@ -11,8 +11,12 @@
    	 </insert>
    	 
    	 
- 	 <select id="productShow" resultType="productDTO">
+ 	 <select id="productAllShow" resultType="productDTO">
    	 		SELECT * FROM product
+   	 </select>
+   	 
+   	 <select id="productShow" resultType="productDTO">
+   	 		SELECT * FROM product limit #{startIndex}, #{cntPerPage}
    	 </select>
    	 
    	 <select id="productInfo" parameterType="Integer" resultType="productDTO">
@@ -33,6 +37,10 @@
  	 <select id="productBySpec" parameterType="String" resultType="productDTO">
    	 		SELECT * FROM product WHERE pSpec = #{pSpec}
    	 </select>
+   	 
+  	 <select id="totalCnt" resultType="Integer">
+   		SELECT count(*) FROM product
+	  </select>
    	 
    
 </mapper>

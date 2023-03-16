@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.web.jomaltwo.mapper.CategoryMapper;
 import com.web.jomaltwo.mapper.ProductMapper;
+import com.web.jomaltwo.model.PageDTO;
 import com.web.jomaltwo.model.ProductDTO;
 import com.web.jomaltwo.util.ProdSpec;
 
@@ -59,10 +60,21 @@ public class ProductServiceImpl implements ProductService{
 	}
 
 	@Override
-	public List<ProductDTO> productList() {
+	public List<ProductDTO> productList(PageDTO pDto) {
 		
-		return mapper.productShow();
+		int totalCnt = mapper.totalCnt(pDto);
+		
+		pDto.setValue(totalCnt, pDto.getCntPerPage());
+		
+		return mapper.productShow(pDto);
 	}
+
+	@Override
+	public List<ProductDTO> productAllList() {
+		// TODO Auto-generated method stub
+		return mapper.productAllShow();
+	}
+	
 
 	@Override
 	public int productRemove(int pNum) {
@@ -114,5 +126,7 @@ public class ProductServiceImpl implements ProductService{
 		}
 		return prodBySpecs;
 	}
-	
+
+
+
 }

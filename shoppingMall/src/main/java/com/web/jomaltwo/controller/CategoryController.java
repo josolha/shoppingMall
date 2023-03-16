@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.web.jomaltwo.model.CategoryDTO;
+import com.web.jomaltwo.model.PageDTO;
 import com.web.jomaltwo.service.CategoryService;
 
 @Controller
@@ -34,9 +35,11 @@ public class CategoryController {
 	}
 	
 	@RequestMapping("/categoryList.do")
-	public String categoryList(Model model) {
-		List<CategoryDTO> cDtos = service.categoryList();
+	public String categoryList(PageDTO pDto,Model model) {
+		List<CategoryDTO> cDtos = service.categoryList(pDto);
 		model.addAttribute("cDtos",cDtos);
+		model.addAttribute("pageDto",pDto);
+		
 		return "admin/cate_list";
 		
 	}

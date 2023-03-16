@@ -35,10 +35,12 @@ public class AdminServiceImpl implements AdminService {
 			return true;
 			
 		}else { // 비밀번호와 일치하지 않는 겨우
+			req.setAttribute("loginErr", "pwErr");
 			return false;
 		}
 		
 	}else { // 일치하는 아이디가 없는 경우
+		req.setAttribute("loginErr","idErr");
 		return false;	
 	}
 	}

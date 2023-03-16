@@ -9,26 +9,23 @@
         
         <!-- css로 맨 item 마다 맨 오른쪽에 > 표시 작성 필요 -->
           <li class="nav-item ml-0">
-  			 <a class="nav-link text-dark" href="${ctxPath}/adminMain.do" style="text-decoration:none">마이페이지 &gt; </a>  
+  			 <a class="nav-link text-dark" href="" style="text-decoration:none">마이페이지 &gt; </a>  
           </li>	
           <li class="nav-item ml-0">
-  			 <a class="nav-link text-dark" href="${ctxPath}/categoryInput.do" style="text-decoration:none">카테고리 등록 &gt; </a>  
+  			 <a class="nav-link text-dark" href="" style="text-decoration:none">장바구니 &gt; </a>  
           </li>
           <li class="nav-item">
-          <a class="nav-link text-dark" href="${ctxPath}/categoryList.do" style="text-decoration:none">카테고리 리스트 &gt;</a>
+          <a class="nav-link text-dark" href="" style="text-decoration:none">구매 리스트 &gt;</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark" href="${ctxPath}/productInput.do" style="text-decoration:none">상품 등록 &gt;</a>
+            <a class="nav-link text-dark" href="" style="text-decoration:none">상품 등록 &gt;</a>
           </li>
           <li class="nav-item">
-          	<a class="nav-link text-dark" href="${ctxPath}/productList.do" style="text-decoration:none">상품 리스트 &gt;</a>
+          	<a class="nav-link text-dark" href="" style="text-decoration:none">상품 리스트 &gt;</a>
           </li>
-          <li class="nav-item">
-          	<a class="nav-link text-dark" href="${ctxPath}/userMain.do" style="text-decoration:none">사용자 홈으로 가기 &gt;</a>
-          </li>
-          
+         
         </ul>
       </div>
     </nav>
-    <div class="col-md-8">
-    		
+    <div class="container mt-5  col-md-8 mx-auto">
+   <div class="border shadow-sm p-5 mb-3 w-100"> 		

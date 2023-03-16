@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.web.jomaltwo.model.CategoryDTO;
+import com.web.jomaltwo.model.PageDTO;
 import com.web.jomaltwo.model.ProductDTO;
 
 public interface ProductService {
@@ -17,7 +18,9 @@ public interface ProductService {
 	
 	public File uploadFile(MultipartFile file, HttpServletRequest request) throws Exception;
 	
-	public List<ProductDTO> productList();
+	public List<ProductDTO> productList(PageDTO pDto);
+	
+	public List<ProductDTO> productAllList();
 	
 	public int productRemove(int pNum);
 	
@@ -28,5 +31,6 @@ public interface ProductService {
 	public int productModify(ProductDTO dto);
 	
 	public HashMap<String,List<ProductDTO>> productBySpecs();
+	
 
 }

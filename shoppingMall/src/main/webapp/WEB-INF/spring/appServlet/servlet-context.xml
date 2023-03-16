@@ -45,6 +45,7 @@
    	 	         <mapping path="/categoryInput.do"/>
    	 	         <mapping path="/productInput.do"/>
    	 	         <mapping path="/productList.do"/>
+   	 	         <mapping path="/adminMain.do"/>
    	 	         
    	 	         
          		 <beans:ref bean="LoginInterceptor"/>

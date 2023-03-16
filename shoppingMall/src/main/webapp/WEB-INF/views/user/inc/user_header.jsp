@@ -43,15 +43,6 @@
 		        
 	        
 	        <ul class="navbar-nav">
-	<%--     		<c:if test="${sessionScope.loginDto.id != null}">	        	
-					<div class="navbar-nav ms-auto">
-					  <li class="nav-item mt-3">
-					    <span class="nav-link" style="color:black; line-height:40px; margin-right: 15px">
-					      </i>안녕하세요 ${sessionScope.loginDto.name}님
-					    </span>
-					  </li>
-					</div>
-	        	</c:if>  --%>
 	        	
 		        <li class="nav-item">
 		          <a class="nav-link" href="javascript:void(0)"><i class="bi bi-search"style="vertical-align: middle;"></i></a>
@@ -62,19 +53,18 @@
 		        </li>
 	        
 	        
-	        <!--ms - start,  me - end   -->
 		        <li class="nav-item dropdown">
 	  				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-person fs-5" style="vertical-align: middle;"></i></a>
 	  					<ul class="dropdown-menu">
 	  						<c:if test="${sessionScope.loginDto.id == null}">
-	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogin.do">관리자 로그인</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogin.do">로그인</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogin.do">회원가입</a></li>
 	    					</c:if>
 	    					
 	    					<c:if test="${sessionScope.loginDto.id != null}">    					
-	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogout.do">관리자 로그아웃</a></li>    					
+	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogout.do">로그아웃</a></li>    					
 	    					</c:if>
 	    					
-	    					<li><a class="dropdown-item" href="">관리자 페이지</a></li>
 	  					</ul>
 				</li>
 	      </ul>
@@ -82,12 +72,6 @@
 	  </div>
 	</nav>
 	</header>
-	          <%--  <div class="text-center">
-                <img class="img-fluid" src="${ctxPath}/img/23B02_Landing-page_Hero_Desktop.jpg" alt="...">
-            </div> --%>
-            <!-- Sidebar -->
-		
-    
-<!-- /#sidebar-wrapper -->
+	
             
 	

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.web.jomaltwo.mapper.CategoryMapper;
 import com.web.jomaltwo.model.CategoryDTO;
+import com.web.jomaltwo.model.PageDTO;
 
 
 @Service
@@ -24,9 +25,15 @@ public class CategoryServiceImpl implements CategoryService {
 
 
 	@Override
-	public List<CategoryDTO> categoryList() {
+	public List<CategoryDTO> categoryList(PageDTO pDto) {
+		
+		int totalCnt = mapper.totalCnt(pDto);
+		
+		pDto.setCntPerPage(5);
+		
+		pDto.setValue(totalCnt, pDto.getCntPerPage());
 	
-		return mapper.categoryShow();
+		return mapper.categoryShow(pDto);
 	}
 
 
@@ -40,6 +47,13 @@ public class CategoryServiceImpl implements CategoryService {
 	public int categoryModify(CategoryDTO dto) {
 		
 		return mapper.categoryUpdate(dto);
+	}
+
+
+	@Override
+	public List<CategoryDTO> categoryAllList() {
+		// TODO Auto-generated method stub
+		return mapper.categoryAllShow();
 	}
 
 }

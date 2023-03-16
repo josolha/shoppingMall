@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.web.jomaltwo.model.CategoryDTO;
+import com.web.jomaltwo.model.PageDTO;
 import com.web.jomaltwo.model.ProductDTO;
 import com.web.jomaltwo.service.CategoryService;
 import com.web.jomaltwo.service.ProductService;
@@ -32,17 +33,19 @@ public class ProductController {
 	private ProductService pService;
 	
 	@RequestMapping("/productList.do")
-	public String productList(Model model) {
-		List<ProductDTO> productList = pService.productList();
+	public String productList(PageDTO pDto,Model model) {
+		List<ProductDTO> productList = pService.productList(pDto);
 //		System.out.println(productList);
 		model.addAttribute("dtos",productList);
+		model.addAttribute("pageDto",pDto);
+		
 		return "admin/prod_list";
 	}
 	
 	@RequestMapping("/productInput.do")
 	public String productRegisterfrom(Model model) {
 	    // 카테고리 리스트 담기
-	    List<CategoryDTO> cDtos = service.categoryList();
+	    List<CategoryDTO> cDtos = service.categoryAllList();
 	    model.addAttribute("categoryList", cDtos);
 
 	    // 등급 Enum 담기
@@ -121,7 +124,7 @@ public class ProductController {
     	model.addAttribute("pDto",productInfo);
     	
     	
-    	List<CategoryDTO> cDtos = service.categoryList();
+    	List<CategoryDTO> cDtos = service.categoryAllList();
     	model.addAttribute("categoryList", cDtos);
     	
     	ProdSpec[] pdSpecs = ProdSpec.values();

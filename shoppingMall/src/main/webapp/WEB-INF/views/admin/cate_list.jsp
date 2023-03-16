@@ -33,6 +33,22 @@
 			</c:forEach>
 			</tbody>
 		</table>
+		
+		<ul class="pagination justify-content-center mt-4">
+		  <li class="page-item ${pageDto.prevPage <= 0 ? 'disabled':''}">
+		     <a class="page-link bg-dark text-light" href="categoryList.do?viewPage=${pageDto.prevPage}&cntPerPage=${pageDto.cntPerPage}">Prev</a>
+		  </li>
+		  
+		  <c:forEach var="i" begin="${pageDto.blockStart}" end="${pageDto.blockEnd}">
+		     <li class="page-item ${pageDto.viewPage == i ? 'active':''}">
+		        <a class="page-link bg-secondary text-light ${pageDto.viewPage == i ? 'border border-dark':''}" href="categoryList.do?viewPage=${i}&cntPerPage=${pageDto.cntPerPage}">${i}</a>
+		     </li>
+		  </c:forEach>
+		  
+		  <li class="page-item ${pageDto.blockEnd >= pageDto.totalPage ? 'disabled':''}">
+		     <a class="page-link bg-dark text-light" href="categoryList.do?viewPage=${pageDto.nextPage}&cntPerPage=${pageDto.cntPerPage}">Next</a>
+		  </li>
+		</ul>
 	</div>
 	
 			<!-- Cate update Modal -->
