@@ -9,6 +9,24 @@
 
 	<div class="container mt-5 border shadow-sm p-5 mb-3 w-75">
 		<h3 class ="text-center" style="text-decoration: underline; text-underline-position : under;">Category List</h3>
+		
+		<div class="mt-3 d-flex justify-content-between">
+			   <div>
+			      <b>${pageDto.viewPage}</b> / ${pageDto.totalPage} pages 
+			   </div>
+			
+			   <div>
+			      <select class="form-select form-select-sm" id="cntPerPage">         
+			         <option value="5"
+			            <c:out value="${pageDto.cntPerPage == 5 ? 'selected':''}"/>>View by 5</option>
+			         <option value="10"
+			            <c:out value="${pageDto.cntPerPage == 10 ? 'selected':''}"/>>View by 10</option>
+			         <option value="20"
+			            <c:out value="${pageDto.cntPerPage == 20 ? 'selected':''}"/>>View by 20</option>
+			      </select>
+			   </div>
+		   </div>
+		  
 		<table class="table mt-4">
 			<thead>
 				<tr>
@@ -119,6 +137,11 @@
 				  // 모달 창을 열음
 				  $('#cateModal').modal('show');
 				}
+				
+				 $("#cntPerPage").change(function(e){
+				      let cntVal = $("#cntPerPage option:selected").val();
+				      location.href="<c:url value='categoryList.do?viewPage=1&cntPerPage='/>"+cntVal;      
+				   });
 
 			</script>
 

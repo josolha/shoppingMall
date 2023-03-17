@@ -29,8 +29,6 @@ public class CategoryServiceImpl implements CategoryService {
 		
 		int totalCnt = mapper.totalCnt(pDto);
 		
-		pDto.setCntPerPage(5);
-		
 		pDto.setValue(totalCnt, pDto.getCntPerPage());
 	
 		return mapper.categoryShow(pDto);
