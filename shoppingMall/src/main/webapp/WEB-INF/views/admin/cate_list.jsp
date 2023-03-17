@@ -21,16 +21,24 @@
 			<tbody>
 			
 			<!-- Ajax 처리 시도 -->
-			
+			<c:set var="rowNum" value="${pageDto.startRowNum}"/>
 			<c:forEach var="cDto" items="${requestScope.cDtos}">
 				<tr>
-					<td id="cnum">${cDto.cate_num}</td>
+					<%-- <td id="cnum">${cDto.cate_num}</td> --%>
+					<td>${rowNum}</td>
 					<td>${cDto.code}</td>
 					<td>${cDto.cate_name}</td>
-					<td><button class="btn btn-secondary btn-sm" onclick="openModal(this)" data-cate-dto='{"cateNum":${cDto.cate_num},"cateCode": ${cDto.code},"cateName": "${cDto.cate_name}"}'>modify</button>
+					<td><button class="btn btn-secondary btn-sm" onclick="openModal(this)" 
+							data-cate-dto='{"cateNum": "${cDto.cate_num}",
+									       "cateCode": "${cDto.code}",
+									       "cateName": "${cDto.cate_name}",
+									       "rowNum": "${rowNum}"
+									       	}'>modify</button>
 					<a href="${ctxPath}/categoryDel.do?cate_num=${cDto.cate_num}" class="btn btn-sm text-white" style="background-color: black;">delete</a></td>
 				</tr>
+				<c:set var="rowNum" value="${rowNum-1}"/>
 			</c:forEach>
+			
 			</tbody>
 		</table>
 		
@@ -68,7 +76,8 @@
 			        
 					   <div class="mb-3">
 			            <label for="cate_num" class="form-label">No.</label>
-			            <input type="text" class="form-control" id="cate_num" name="cate_num" readonly>
+			            <input type="text" class="form-control" id="rowNum" name="rowNum" readonly>
+			            <input type="hidden" class="form-control" id="cate_num" name="cate_num">
 			          </div>	
 								        
 			          <div class="mb-3">
@@ -97,17 +106,15 @@
 			<script>
 				function openModal(button) {
 					
-				  // 선택한 행의 데이터를 가져옴
-				  var row = button.parentNode.parentNode;
-				  var cate_num = row.cells[0].textContent;
-				  var code = row.cells[1].textContent;
-				  var cate_name = row.cells[2].textContent;
-				  
+				  // html에 저장한 data 가져옴
+				  var cateDtoStr = button.getAttribute('data-cate-dto');
+				  var cateDto = JSON.parse(cateDtoStr);
 				   
 				  // 모달 폼에 데이터를 채움
-				  document.getElementById('code').value = code;
-				  document.getElementById('cate_name').value = cate_name;
-				  document.getElementById('cate_num').value = cate_num;
+				  document.getElementById('code').value = cateDto.cateCode;
+				  document.getElementById('cate_name').value = cateDto.cateName;
+				  document.getElementById('rowNum').value = cateDto.rowNum;
+				  document.getElementById('cate_num').value = cateDto.cateNum;
 
 				  // 모달 창을 열음
 				  $('#cateModal').modal('show');
