@@ -9,4 +9,13 @@
 		INSERT INTO shop_member (id,pw,name,age,email,phone,zipcode,road_addr,jibun_addr,detail_addr) 
 		VALUES(#{id},#{pw},#{name},#{age},#{email},#{phone},#{zipcode},#{road_addr},#{jibun_addr},#{detail_addr})
 	</insert>
+	
+	<select id="idCheck" resultType="UserDTO">
+		SELECT * FROM shop_member WHERE id = #{uid}
+	</select>
+	
+	<select id="userLogin" parameterType="UserDTO" resultType="UserDTO">
+		SELECT id,pw,name FROM shop_member WHERE id = #{id}
+	</select>
+	
 </mapper> 

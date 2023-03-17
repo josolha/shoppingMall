@@ -55,13 +55,13 @@
 </div>
 
 <!-- 아이디 중복체크 Modal -->
-<div class="modal fade" id="chkModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
+<div class="modal fade" id="chkModal" >
+  <div class="modal-dialog modal-sm modal-dialog-centered mb-auto">
+    <div class="modal-content" style="background : #fcf9ee">
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">중복체크 확인</h4>
+        <h4 class="modal-title ms-auto ps-4 text-center">Duplicate Check.</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -70,7 +70,7 @@
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn bg-dark text-light" data-bs-dismiss="modal">닫기</button>
       </div>
 
     </div>
@@ -83,17 +83,17 @@
       var uid = $("#id").val();
       
       $.ajax({
-         url:"<c:url value='userIdCheck.do'/>",
+         url:"<c:url value='/user/idCheck.do'/>",
          type:"get",
          data:{"uid":uid}, //서버에 전송할 데이터
          success : function(responseData){
+        	 
             // responseData = "yes" : 사용가능, "no":사용불가
             // alert(responseData);
-            
             if(responseData=="yes"){
-               $("#chkMsg").html("사용가능한 아이디 입니다!!");
+               $("#chkMsg").html("사용가능한 아이디 입니다.");
             }else{
-               $("#chkMsg").html("사용할 수 없는 아이디 입니다!!");
+               $("#chkMsg").html("사용할 수 없는 아이디 입니다.");
             }
             $("#chkModal").modal("show");
          },

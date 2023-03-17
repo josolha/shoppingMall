@@ -38,17 +38,17 @@
 <script>
 function inputChk(){
    if(document.joinForm.id.value.length == 0){
-      alert("아이디를 입력하세요!!");
+      alert("아이디를 입력하세요.");
       joinForm.id.focus();
       return;
    }
    if(document.joinForm.pw.value.length == 0){
-      alert("비밀번호를 입력하세요!!");
+      alert("비밀번호를 입력하세요.");
       joinForm.pw.focus();
       return;
    }
    if(document.joinForm.pw.value != document.joinForm.pwConfirm.value){
-      alert("비밀번호가 일치하지 않습니다!!");
+      alert("비밀번호가 일치하지 않습니다.");
       joinForm.pwConfirm.focus();
       return;
    }
