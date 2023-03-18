@@ -21,7 +21,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			session.setAttribute("loginMsg", "로그인이 필요한 서비스 입니다");
 //			System.out.println("request.getQueryString()"+ request.getQueryString());
 			response.sendRedirect("adminLogin.do");
-			return false;
+			return true;
 		}
 		
 		return true;

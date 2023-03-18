@@ -34,7 +34,9 @@
 			      </div>
 			      
 			   </form>
-			
+			  
+			  <!-- 검색이 없을 경우 -->
+			  <c:if test="${pageDto.searchType == null || pageDto.searchType == ''}">
 			   <div class="mt-2">
 			      <select class="form-select form-select-sm" id="cntPerPage">         
 			         <option value="5"
@@ -45,6 +47,37 @@
 			            <c:out value="${pageDto.cntPerPage == 20 ? 'selected':''}"/>>View by 20</option>
 			      </select>
 			   </div>
+			   </c:if>
+			   
+			   <!-- 검색할 경우 -->
+			   <c:if test="${pageDto.searchType != null && pageDto.searchType != ''}">
+			   <div>
+			      <select class="form-select form-select-sm" id="cntPerPage">
+			      <c:choose>
+			         <c:when test = "${pageDto.totalCnt <= 5}">
+			            <option value="5" <c:out value="${pageDto.cntPerPage == 5 ? 'selected':''}"/>>No Option</option>
+			         </c:when>
+			         
+			         <c:when test = "${pageDto.totalCnt > 5 && pageDto.totalCnt< 10}">            
+			            <option value="5" <c:out value="${pageDto.cntPerPage == 5 ? 'selected':''}"/>>View by 5</option>
+			            <option value="10"<c:out value="${pageDto.cntPerPage == 10 ? 'selected':''}"/>>View by 10</option>
+			         </c:when>
+			         
+			         <c:when test = "${pageDto.totalCnt >= 10 && pageDto.totalCnt < 20}">
+			            <option value="5" <c:out value="${pageDto.cntPerPage == 5 ? 'selected':''}"/>>View by 5</option>
+			         	<option value="10" <c:out value="${pageDto.cntPerPage == 10 ? 'selected':''}"/>>View by 10</option>         
+			         </c:when>
+			         
+			         <c:otherwise>
+				         <option value="5" <c:out value="${pageDto.cntPerPage == 5 ? 'selected':''}"/>>View by 5</option>
+				         <option value="10" <c:out value="${pageDto.cntPerPage == 10 ? 'selected':''}"/>>View by 10</option>
+				         <option value="20" <c:out value="${pageDto.cntPerPage == 20 ? 'selected':''}"/>>View by 20</option>	
+			         </c:otherwise>
+			         
+			         </c:choose>
+			      </select>
+			   </div>
+			   </c:if>
 		   </div>
 		  
 		<table class="table mt-4">
@@ -72,6 +105,7 @@
 									       "cateName": "${cDto.cate_name}",
 									       "rowNum": "${rowNum}"
 									       	}'>modify</button>
+									       	
 					<a href="${ctxPath}/categoryDel.do?cate_num=${cDto.cate_num}" class="btn btn-sm text-white" style="background-color: black;">delete</a></td>
 				</tr>
 				<c:set var="rowNum" value="${rowNum-1}"/>
@@ -82,17 +116,17 @@
 		
 		<ul class="pagination justify-content-center mt-4">
 		  <li class="page-item ${pageDto.prevPage <= 0 ? 'd-none':''}">
-		     <a class="page-link bg-dark text-light" href="categoryList.do?viewPage=${pageDto.prevPage}&cntPerPage=${pageDto.cntPerPage}">Prev</a>
+		     <a class="page-link bg-dark text-light" href="categoryList.do?viewPage=${pageDto.prevPage}&cntPerPage=${pageDto.cntPerPage}&searchType=${pageDto.searchType}&keyWord=${pageDto.keyWord}">Prev</a>
 		  </li>
 		  
 		  <c:forEach var="i" begin="${pageDto.blockStart}" end="${pageDto.blockEnd}">
 		     <li class="page-item ${pageDto.viewPage == i ? 'active':''}">
-		        <a class="page-link bg-secondary text-light ${pageDto.viewPage == i ? 'border border-dark':''}" href="categoryList.do?viewPage=${i}&cntPerPage=${pageDto.cntPerPage}">${i}</a>
+		        <a class="page-link bg-secondary text-light ${pageDto.viewPage == i ? 'border border-dark':''}" href="categoryList.do?viewPage=${i}&cntPerPage=${pageDto.cntPerPage}&searchType=${pageDto.searchType}&keyWord=${pageDto.keyWord}">${i}</a>
 		     </li>
 		  </c:forEach>
 		  
 		  <li class="page-item ${pageDto.blockEnd >= pageDto.totalPage ? 'd-none':''}">
-		     <a class="page-link bg-dark text-light" href="categoryList.do?viewPage=${pageDto.nextPage}&cntPerPage=${pageDto.cntPerPage}">Next</a>
+		     <a class="page-link bg-dark text-light" href="categoryList.do?viewPage=${pageDto.nextPage}&cntPerPage=${pageDto.cntPerPage}&searchType=${pageDto.searchType}&keyWord=${pageDto.keyWord}">Next</a>
 		  </li>
 		</ul>
 	</div>
@@ -154,6 +188,8 @@
 				  document.getElementById('cate_name').value = cateDto.cateName;
 				  document.getElementById('rowNum').value = cateDto.rowNum;
 				  document.getElementById('cate_num').value = cateDto.cateNum;
+													
+			 
 
 				  // 모달 창을 열음
 				  $('#cateModal').modal('show');
@@ -161,7 +197,7 @@
 				
 				 $("#cntPerPage").change(function(e){
 				      let cntVal = $("#cntPerPage option:selected").val();
-				      location.href="<c:url value='categoryList.do?viewPage=1&cntPerPage='/>"+cntVal;      
+				      location.href="<c:url value='categoryList.do?viewPage=1&searchType=${pageDto.searchType}&keyWord=${pageDto.keyWord}&cntPerPage='/>"+cntVal;      
 				   });
 			</script>
 
