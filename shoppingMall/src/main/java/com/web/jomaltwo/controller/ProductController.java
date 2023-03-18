@@ -120,7 +120,7 @@ public class ProductController {
     }
     
     @RequestMapping("/productUpdate.do")
-    public String productUpdate(Model model,int pNum) {
+    public String productUpdate(Model model,int pNum, int rowNum) {
     		
     	ProductDTO productInfo = pService.productInfo(pNum);
     	
@@ -133,6 +133,8 @@ public class ProductController {
     	
     	ProdSpec[] pdSpecs = ProdSpec.values();
  	    model.addAttribute("pdSpecs", pdSpecs);
+ 	    
+ 	    model.addAttribute("rowNum",rowNum);
  	    
     	
     	return "admin/prod_update";

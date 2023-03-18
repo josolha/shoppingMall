@@ -11,7 +11,7 @@
 			<tbody>
 				<tr>
 					<td>Product No.</td>
-					<td>${pDto.PNum}<input type="hidden" class="form-control form-control-sm" name="pNum" value="${pDto.PNum}"/></td>
+					<td>${rowNum}<input type="hidden" class="form-control form-control-sm" name="pNum" value="${pDto.PNum}"/></td>
 				</tr> 
 			
 				<tr>

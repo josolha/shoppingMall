@@ -43,7 +43,7 @@
                 <td>${dto.PQty}</td>
                 <td>
                   <!-- <button onclick="openModal(this)" class="btn btn-secondary btn-sm">Modify</button> -->
-                  <a href="productUpdate.do?pNum=${dto.PNum}" class="btn btn-secondary btn-sm">Modify</a>
+                  <a href="productUpdate.do?pNum=${dto.PNum}&rowNum=${rowNum}" class="btn btn-secondary btn-sm">Modify</a>
                   <a href="javascript:pdDel('${dto.PNum}','${dto.PImage}')" class="btn btn-sm text-white" style="background-color: black;">Delete</a>
                 </td>
               </tr>
