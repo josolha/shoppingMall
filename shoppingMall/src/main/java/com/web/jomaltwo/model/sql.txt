@@ -1,3 +1,8 @@
+
+
+ 
+-------------------관리자 테이블-----------------------
+
 drop table shop_admin;
 
 create table shop_admin(
@@ -11,7 +16,7 @@ insert into shop_admin values ('admin','1234','관리자','admin@gmail.com');
 select * from shop_admin;
 commit;
 
--------------------------------------------
+---------------------카테고리 테이블----------------------
 
 drop table category;
 
@@ -22,7 +27,7 @@ create table category(
 );
 select * from category;
 
---------------------------------------------
+--------------------상품 테이블------------------------
 drop table product;
 
 create table product(
@@ -37,4 +42,21 @@ create table product(
     pContent varchar(300),
     pPoint int default 0,
     pInputDate date
+);
+-------------------유저 테이블--------------------------
+drop table shop_member;
+
+create table shop_member(
+    no int primary key auto_increment,
+    id varchar(50) not null,
+    pw varchar(100) not null,
+    name varchar(50) not null,
+    age int not null,
+    email varchar(50) not null,
+    phone varchar(50) not null,
+    zipcode varchar(10),
+    road_addr varchar(200),
+    jibun_addr varchar(200),
+    detail_addr varchar(200),
+    unique key(id)
 );
