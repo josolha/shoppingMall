@@ -7,15 +7,35 @@
 <%@ include file ="inc/ad_sidebar.jsp"%>
 
 
-	<div class="container mt-5 border shadow-sm p-5 mb-3 w-75">
+	<div class="container mt-5 border shadow-sm p-5 mb-3 w-100">
 		<h3 class ="text-center" style="text-decoration: underline; text-underline-position : under;">Category List</h3>
 		
-		<div class="mt-3 d-flex justify-content-between">
-			   <div>
+		<div class="mt-5 d-flex justify-content-between">
+		
+			   <div class="mt-2">
 			      <b>${pageDto.viewPage}</b> / ${pageDto.totalPage} pages 
 			   </div>
+			   
+			   <form id="searchForm" method="post" action="categoryList.do">
+			   
+			      <div class="d-flex justify-content-center">
+			         <select class="form-select me-2" style="width:100px" name="searchType">
+			         	<!-- 선택을 꼭 하게 js 설정 필요 -->
+			            <option value="">선택</option>
+			            <option value="C" <c:out value="${pageDto.searchType == 'C' ? 'selected' : ''}"/>>Code.</option>
+			            <option value="N" <c:out value="${pageDto.searchType == 'N' ? 'selected' : ''}"/>>Name.</option>
+			         </select>
+			         
+			         <input type="text" id="keyWord" name="keyWord" placeholder="검색어 입력"
+			            style="width:200px" class="form-control rounded-0 rounded-start" value="${pageDto.keyWord}"/>
+			            
+			         <button class="btn btn-dark text white rounded-0 rounded-end"><i class="bi bi-search"></i></button>
+			         
+			      </div>
+			      
+			   </form>
 			
-			   <div>
+			   <div class="mt-2">
 			      <select class="form-select form-select-sm" id="cntPerPage">         
 			         <option value="5"
 			            <c:out value="${pageDto.cntPerPage == 5 ? 'selected':''}"/>>View by 5</option>
@@ -61,7 +81,7 @@
 		</table>
 		
 		<ul class="pagination justify-content-center mt-4">
-		  <li class="page-item ${pageDto.prevPage <= 0 ? 'disabled':''}">
+		  <li class="page-item ${pageDto.prevPage <= 0 ? 'd-none':''}">
 		     <a class="page-link bg-dark text-light" href="categoryList.do?viewPage=${pageDto.prevPage}&cntPerPage=${pageDto.cntPerPage}">Prev</a>
 		  </li>
 		  
@@ -71,7 +91,7 @@
 		     </li>
 		  </c:forEach>
 		  
-		  <li class="page-item ${pageDto.blockEnd >= pageDto.totalPage ? 'disabled':''}">
+		  <li class="page-item ${pageDto.blockEnd >= pageDto.totalPage ? 'd-none':''}">
 		     <a class="page-link bg-dark text-light" href="categoryList.do?viewPage=${pageDto.nextPage}&cntPerPage=${pageDto.cntPerPage}">Next</a>
 		  </li>
 		</ul>
@@ -121,6 +141,7 @@
 			  </div>
 			</div>
 			
+			
 			<script>
 				function openModal(button) {
 					
@@ -142,7 +163,6 @@
 				      let cntVal = $("#cntPerPage option:selected").val();
 				      location.href="<c:url value='categoryList.do?viewPage=1&cntPerPage='/>"+cntVal;      
 				   });
-
 			</script>
 
 <%@ include file ="inc/ad_footer.jsp"%>

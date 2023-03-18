@@ -10,7 +10,10 @@
    	 </insert>
    	 
    	 <select id="categoryShow" resultType="CategoryDTO">
-   	 		SELECT * FROM category limit #{startIndex}, #{cntPerPage}
+   	 		SELECT * FROM category
+   	 		<include refid="categoryBySearch"></include> 
+   	 		limit #{startIndex}, #{cntPerPage}
+   	 		
    	 </select>
    	 
    	 <select id="categoryAllShow" resultType="CategoryDTO">
@@ -28,6 +31,19 @@
 	 
 	 <select id="totalCnt" resultType="Integer">
    		SELECT count(*) FROM category
+   		<include refid="categoryBySearch"></include> 
 	  </select>
+	  
+	  <sql id="categoryBySearch">
+	  
+	  	<if test= "searchType == 'C'.toString()">
+	  		WHERE code LIKE CONCAT('%',#{keyWord},'%')
+	  	</if>
+	  	
+		<if test= "searchType == 'N'.toString()">
+	  		WHERE cate_name LIKE CONCAT('%',#{keyWord},'%')
+	  	</if>
+	  
+	  </sql>
    
 </mapper>

@@ -18,6 +18,10 @@ public class PageDTO {
 	private int cntPerPage = 10; // 페이지별 게시글 수
 	
 	private int startRowNum;
+	
+	/////검색/////
+	private String searchType;
+	private String keyWord;
 
 
 	public void setValue(int totalCnt, int cntPerPage) {
