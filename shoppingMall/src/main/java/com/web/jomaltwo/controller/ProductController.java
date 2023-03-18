@@ -23,9 +23,11 @@ import com.web.jomaltwo.service.CategoryService;
 import com.web.jomaltwo.service.ProductService;
 import com.web.jomaltwo.util.ProdSpec;
 
+import lombok.AllArgsConstructor;
+
 @Controller
 public class ProductController {
-	
+		
 	@Autowired
 	private CategoryService service;
 	
@@ -35,7 +37,7 @@ public class ProductController {
 	@RequestMapping("/productList.do")
 	public String productList(PageDTO pDto,Model model) {
 		List<ProductDTO> productList = pService.productList(pDto);
-//		System.out.println(productList);
+		System.out.println(pDto.getStartRowNum());
 		model.addAttribute("dtos",productList);
 		model.addAttribute("pageDto",pDto);
 		

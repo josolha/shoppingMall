@@ -41,12 +41,11 @@ public class UserController {
 		return "user/login/login_form";
 	}
 	
-	
 	@RequestMapping(value= "login.do", method =RequestMethod.POST)
 	// RedirectAttributes extends Model : redirect시에 메시지 전달
 	public String memberLogin(@RequestParam(defaultValue="") String moveUrl, UserDTO dto,HttpServletRequest req, RedirectAttributes rttr) {
 		
-		System.out.println("id :" + dto.getId());
+//		System.out.println("id :" + dto.getId());
 		
 		boolean result = uService.userLogin(dto, req);
 		
@@ -62,8 +61,6 @@ public class UserController {
 		}
 		return "redirect:/";
 	}
-	
-	
 	
 	
 	@RequestMapping("/logout.do")

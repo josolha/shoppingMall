@@ -26,10 +26,13 @@
               <th>Modify/Delete.</th>
             </tr>
           </thead>
+          
+       
           <tbody>
+          	<c:set var ="rowNum" value= "${pageDto.startRowNum}"/>
             <c:forEach var="dto" items="${requestScope.dtos}">
               <tr>
-                <td>${dto.PNum}</td>
+                <td>${rowNum}</td>
                 <td>${dto.PCategory_fk}</td>
                 <td>
                   <img src="${ctxPath}/resources/file_repo/${dto.PImage}" style="width:60px" />
@@ -44,12 +47,14 @@
                   <a href="javascript:pdDel('${dto.PNum}','${dto.PImage}')" class="btn btn-sm text-white" style="background-color: black;">Delete</a>
                 </td>
               </tr>
+              <c:set var="rowNum" value="${rowNum-1}"/>
             </c:forEach>
           </tbody>
+          
         </table>
         		
 			<ul class="pagination justify-content-center mt-4">
-			  <li class="page-item ${pageDto.prevPage <= 0 ? 'disabled':''}">
+			  <li class="page-item ${pageDto.prevPage <= 0 ? 'd-none':''}">
 			     <a class="page-link bg-dark text-light" href="productList.do?viewPage=${pageDto.prevPage}&cntPerPage=${pageDto.cntPerPage}">Prev</a>
 			  </li>
 			  
@@ -59,7 +64,7 @@
 			     </li>
 			  </c:forEach>
 			  
-			  <li class="page-item ${pageDto.blockEnd >= pageDto.totalPage ? 'disabled':''}">
+			  <li class="page-item ${pageDto.blockEnd >= pageDto.totalPage ? 'd-none':''}">
 			     <a class="page-link bg-dark text-light" href="productList.do?viewPage=${pageDto.nextPage}&cntPerPage=${pageDto.cntPerPage}">Next</a>
 			  </li>
 			</ul>

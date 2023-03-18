@@ -42,6 +42,7 @@ public class CategoryController {
 	@RequestMapping("/categoryList.do")
 	public String categoryList(PageDTO pDto,Model model) {
 		List<CategoryDTO> cDtos = service.categoryList(pDto);
+		System.out.println("카테고리 row"+pDto.getStartRowNum());
 		model.addAttribute("cDtos",cDtos);
 		model.addAttribute("pageDto",pDto);
 		
