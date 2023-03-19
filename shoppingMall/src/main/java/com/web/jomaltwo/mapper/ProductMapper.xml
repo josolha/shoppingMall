@@ -16,7 +16,9 @@
    	 </select>
    	 
    	 <select id="productShow" resultType="productDTO">
-   	 		SELECT * FROM product limit #{startIndex}, #{cntPerPage}
+   	 		SELECT * FROM product
+   	 		<include refid="productBySearch"></include>  
+   	 		limit #{startIndex}, #{cntPerPage}
    	 </select>
    	 
    	 <select id="productInfo" parameterType="Integer" resultType="productDTO">
@@ -40,7 +42,24 @@
    	 
   	 <select id="totalCnt" resultType="Integer">
    		SELECT count(*) FROM product
+   		<include refid="productBySearch"></include> 
 	  </select>
+	  
+	  <sql id="productBySearch">
+	  
+	  	<if test= "searchType == 'C'.toString()">
+	  		WHERE pCategory_fk LIKE CONCAT('%',#{keyWord},'%')
+	  	</if>
+	  	
+		<if test= "searchType == 'N'.toString()">
+	  		WHERE pName LIKE CONCAT('%',#{keyWord},'%')
+	  	</if>
+	  	
+	  	<if test= "searchType == 'M'.toString()">
+	  		WHERE pCompany LIKE CONCAT('%',#{keyWord},'%')
+	  	</if>
+	  
+	  </sql>
    	 
    
 </mapper>

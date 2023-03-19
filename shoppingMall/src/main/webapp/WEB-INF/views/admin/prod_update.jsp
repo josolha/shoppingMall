@@ -6,7 +6,7 @@
 
 <div class="container mt-5 border shadow-sm p-5 mb-3 w-50">
 	<h3 class="text-center" style="text-decoration: underline; text-underline-position : under;" >Product Info.</h3>
-	<form action="productUpdateOk.do" method="post" enctype="multipart/form-data">
+	<form action="productUpdateOk.do?viewPage=${pageDto.viewPage}&cntPerPage=${pageDto.cntPerPage}&searchType=${pageDto.searchType}&keyWord=${pageDto.keyWord}" method="post" enctype="multipart/form-data">
 		<table class="table table-borderless mt-4">
 			<tbody>
 				<tr>

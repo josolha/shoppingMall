@@ -37,7 +37,7 @@ public class ProductController {
 	@RequestMapping("/productList.do")
 	public String productList(PageDTO pDto,Model model) {
 		List<ProductDTO> productList = pService.productList(pDto);
-		System.out.println(pDto.getStartRowNum());
+//		System.out.println(pDto.getStartRowNum());
 		model.addAttribute("dtos",productList);
 		model.addAttribute("pageDto",pDto);
 		
@@ -120,7 +120,7 @@ public class ProductController {
     }
     
     @RequestMapping("/productUpdate.do")
-    public String productUpdate(Model model,int pNum, int rowNum) {
+    public String productUpdate(Model model,int pNum,@ModelAttribute("pageDto") PageDTO pageDto, int rowNum) {
     		
     	ProductDTO productInfo = pService.productInfo(pNum);
     	
@@ -135,6 +135,8 @@ public class ProductController {
  	    model.addAttribute("pdSpecs", pdSpecs);
  	    
  	    model.addAttribute("rowNum",rowNum);
+ 	    
+ 	    model.addAttribute("pageDto",pageDto);
  	    
     	
     	return "admin/prod_update";

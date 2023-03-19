@@ -13,6 +13,80 @@
 
       <div class="container mt-5 border shadow-sm p-5 mb-3 w-100">
         <h3 class="text-center" style="text-decoration: underline; text-underline-position: under;">Product List</h3>
+        <div class="mt-5 d-flex justify-content-between">
+		
+			   <div class="mt-2">
+			      <b>${pageDto.viewPage}</b> / ${pageDto.totalPage} pages 
+			   </div>
+			   
+			   <form id="searchForm" method="post" action="productList.do">
+			   
+			      <div class="d-flex justify-content-center">
+			         <select class="form-select me-2" style="width:100px" name="searchType">
+			         
+			         	<!-- 선택을 꼭 하게 js 설정 필요 -->
+			         	
+			            <option value="">선택</option>
+			            <option value="C" <c:out value="${pageDto.searchType == 'C' ? 'selected' : ''}"/>>Code.</option>
+			            <option value="N" <c:out value="${pageDto.searchType == 'N' ? 'selected' : ''}"/>>Name.</option>
+			            <option value="M" <c:out value="${pageDto.searchType == 'M' ? 'selected' : ''}"/>>Made.</option>
+			         </select>
+			         
+			         <input type="text" id="keyWord" name="keyWord" placeholder="검색어 입력"
+			            style="width:200px" class="form-control rounded-0 rounded-start" value="${pageDto.keyWord}"/>
+			            
+			         <button class="btn btn-dark text white rounded-0 rounded-end"><i class="bi bi-search"></i></button>
+			         
+			      </div>
+			      
+			   </form>
+			  
+			  <!-- 검색이 없을 경우 -->
+			  <c:if test="${pageDto.searchType == null || pageDto.searchType == ''}">
+			   <div class="mt-2">
+			      <select class="form-select form-select-sm" id="cntPerPage">         
+			         <option value="5"
+			            <c:out value="${pageDto.cntPerPage == 5 ? 'selected':''}"/>>View by 5</option>
+			         <option value="10"
+			            <c:out value="${pageDto.cntPerPage == 10 ? 'selected':''}"/>>View by 10</option>
+			         <option value="20"
+			            <c:out value="${pageDto.cntPerPage == 20 ? 'selected':''}"/>>View by 20</option>
+			      </select>
+			   </div>
+			   </c:if>
+			   
+			   <!-- 검색할 경우 -->
+			   <c:if test="${pageDto.searchType != null && pageDto.searchType != ''}">
+			   <div>
+			      <select class="form-select form-select-sm" id="cntPerPage">
+			      <c:choose>
+			         <c:when test = "${pageDto.totalCnt <= 5}">
+			            <option value="5" <c:out value="${pageDto.cntPerPage == 5 ? 'selected':''}"/>>No Option</option>
+			         </c:when>
+			         
+			         <c:when test = "${pageDto.totalCnt > 5 && pageDto.totalCnt< 10}">            
+			            <option value="5" <c:out value="${pageDto.cntPerPage == 5 ? 'selected':''}"/>>View by 5</option>
+			            <option value="10"<c:out value="${pageDto.cntPerPage == 10 ? 'selected':''}"/>>View by 10</option>
+			         </c:when>
+			         
+			         <c:when test = "${pageDto.totalCnt >= 10 && pageDto.totalCnt < 20}">
+			            <option value="5" <c:out value="${pageDto.cntPerPage == 5 ? 'selected':''}"/>>View by 5</option>
+			         	<option value="10" <c:out value="${pageDto.cntPerPage == 10 ? 'selected':''}"/>>View by 10</option>         
+			         </c:when>
+			         
+			         <c:otherwise>
+				         <option value="5" <c:out value="${pageDto.cntPerPage == 5 ? 'selected':''}"/>>View by 5</option>
+				         <option value="10" <c:out value="${pageDto.cntPerPage == 10 ? 'selected':''}"/>>View by 10</option>
+				         <option value="20" <c:out value="${pageDto.cntPerPage == 20 ? 'selected':''}"/>>View by 20</option>	
+			         </c:otherwise>
+			         
+			         </c:choose>
+			      </select>
+			   </div>
+			   </c:if>
+		   </div>
+        
+        
         <table class="table mt-5">
           <thead>
             <tr>
@@ -43,7 +117,7 @@
                 <td>${dto.PQty}</td>
                 <td>
                   <!-- <button onclick="openModal(this)" class="btn btn-secondary btn-sm">Modify</button> -->
-                  <a href="productUpdate.do?pNum=${dto.PNum}&rowNum=${rowNum}" class="btn btn-secondary btn-sm">Modify</a>
+                  <a href="productUpdate.do?pNum=${dto.PNum}&rowNum=${rowNum}&viewPage=${pageDto.viewPage}&cntPerPage=${pageDto.cntPerPage}&searchType=${pageDto.searchType}&keyWord=${pageDto.keyWord}" class="btn btn-secondary btn-sm">Modify</a>
                   <a href="javascript:pdDel('${dto.PNum}','${dto.PImage}')" class="btn btn-sm text-white" style="background-color: black;">Delete</a>
                 </td>
               </tr>
@@ -60,7 +134,7 @@
 			  
 			  <c:forEach var="i" begin="${pageDto.blockStart}" end="${pageDto.blockEnd}">
 			     <li class="page-item ${pageDto.viewPage == i ? 'active':''}">
-			        <a class="page-link bg-secondary text-light ${pageDto.viewPage == i ? 'border border-dark':''}" href="productList.do?viewPage=${i}&cntPerPage=${pageDto.cntPerPage}">${i}</a>
+			        <a class="page-link bg-secondary text-light ${pageDto.viewPage == i ? 'border border-dark':''}" href="productList.do?viewPage=${i}&cntPerPage=${pageDto.cntPerPage}&searchType=${pageDto.searchType}&keyWord=${pageDto.keyWord}">${i}</a>
 			     </li>
 			  </c:forEach>
 			  
@@ -195,6 +269,11 @@
 	function openModal(button) {
 	  $('#productModal').modal('show');
 	}
+	
+	 $("#cntPerPage").change(function(e){
+	      let cntVal = $("#cntPerPage option:selected").val();
+	      location.href="<c:url value='productList.do?viewPage=1&searchType=${pageDto.searchType}&keyWord=${pageDto.keyWord}&cntPerPage='/>"+cntVal;      
+	 });
 </script>	
 
 
