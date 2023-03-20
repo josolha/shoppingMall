@@ -12,7 +12,7 @@
    	 <select id="categoryShow" resultType="CategoryDTO">
    	 		SELECT * FROM category
    	 		<include refid="categoryBySearch"></include> 
-   	 		limit #{startIndex}, #{cntPerPage}
+   	 		ORDER BY cate_num DESC LIMIT #{startIndex}, #{cntPerPage}
    	 		
    	 </select>
    	 

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.web.jomaltwo.mapper.BoardMapper">
+
+	<select id="boardAllShow" resultType="BoardDTO">
+   	 		SELECT * FROM board
+   	 </select>
+   	 
+   	 
+   	  <select id="boardShow" resultType="BoardDTO">
+   	 		SELECT * FROM board
+   	 		<include refid="boardBySearch"></include>
+   	 		ORDER BY bid DESC LIMIT #{startIndex}, #{cntPerPage};
+   	 </select>
+   	 
+   	 <insert id="boardInput" parameterType="BoardDTO">
+            INSERT INTO board (subject,contents,writer)
+   		VALUES (#{subject}, #{contents}, #{writer})
+   	 </insert>
+   	 
+   	 <select id="totalCnt" resultType="Integer">
+   		SELECT count(*) FROM board 
+   		<include refid="boardBySearch"></include>
+	  </select>
+	  
+      <select id="view" parameterType= "Integer" resultType="BoardDTO">
+   		SELECT * FROM board WHERE bid= #{bid}
+   	  </select>
+   	  
+   	   <update id="hitAdd" parameterType="Integer">
+   		UPDATE board SET hit= hit+1 WHERE bid=#{bid}
+   	 </update>
+	  
+	  <sql id="boardBySearch">
+   
+   		<if test="searchType == 'S'.toString()"> 
+   		<!-- <if test='searchType == "S"'> 위에랑 같다--> 
+   		
+   			WHERE subject LIKE CONCAT('%',#{keyWord},'%') 
+   		</if>
+   		<if test="searchType == 'C'.toString()"> 
+   			WHERE contents LIKE CONCAT('%',#{keyWord},'%')
+   		</if>
+   		<if test="searchType == 'W'.toString()"> 
+   			WHERE writer LIKE CONCAT('%',#{keyWord},'%')
+   		</if>	
+   		
+   		<if test="searchType == 'SC'.toString()"> 
+   			WHERE subject LIKE CONCAT('%',#{keyWord},'%') OR contents LIKE CONCAT('%',#{keyWord},'%') 
+   		</if>
+   		
+  		<if test="searchType == 'SW'.toString()"> 
+   			WHERE subject LIKE CONCAT('%',#{keyWord},'%') OR writer LIKE CONCAT('%',#{keyWord},'%') 
+   		</if>
+   		
+   		<if test="searchType == 'SCW'.toString()"> 
+   			WHERE subject LIKE CONCAT('%',#{keyWord},'%') 
+   			OR contents LIKE CONCAT('%',#{keyWord},'%')
+   			OR writer LIKE CONCAT('%',#{keyWord},'%') 
+   		</if>
+   </sql>
+   
+   
+   	 
+</mapper>

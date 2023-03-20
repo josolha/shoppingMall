@@ -24,7 +24,7 @@
           	<a class="nav-link text-dark" href="${ctxPath}/productList.do" style="text-decoration:none">Product List &gt;</a>
           </li>
            <li class="nav-item">
-          	<a class="nav-link text-dark" href="${ctxPath}/productList.do" style="text-decoration:none">User Board List &gt;</a>
+          	<a class="nav-link text-dark" href="${ctxPath}/board/list.do" style="text-decoration:none">User Board List &gt;</a>
           </li>
           
           <li class="nav-item">
