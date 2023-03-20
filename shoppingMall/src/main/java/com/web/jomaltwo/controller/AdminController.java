@@ -27,6 +27,7 @@ public class AdminController {
 		return "admin/ad_login";
 	}
 	
+	//rest API 수정 필요
 	@RequestMapping(value= "adminLogin.do", method =RequestMethod.POST)
 	public String adminLogin(AdminDTO dto, HttpServletRequest request, RedirectAttributes rttr) {
 				
@@ -38,6 +39,16 @@ public class AdminController {
 		}
 		return "redirect:/";
 	}
+	
+//    @PostMapping("/login")
+//    public ResponseEntity<?> adminLogin(@RequestBody AdminDTO dto, HttpServletRequest request) {
+//        boolean result = service.adminLogin(dto, request);
+//        if (!result) {
+//            return ResponseEntity.badRequest().build(); // 로그인 실패 시 400 Bad Request 반환
+//        }
+//        return ResponseEntity.ok().build(); // 로그인 성공 시 200 OK 반환
+//    }
+//    
 	@RequestMapping("/adminLogout.do")
 	public String adminLogout(HttpSession session) {
 		

@@ -7,6 +7,8 @@ import java.util.List;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.logging.log4j.LogManager;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,18 +26,26 @@ import com.web.jomaltwo.service.ProductService;
 import com.web.jomaltwo.util.ProdSpec;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
+import lombok.extern.slf4j.Slf4j;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+@Slf4j
 @Controller
 public class ProductController {
-		
+	
 	@Autowired
 	private CategoryService service;
 	
 	@Autowired
 	private ProductService pService;
 	
+	
 	@RequestMapping("/productList.do")
 	public String productList(PageDTO pDto,Model model) {
+		log.info(">>>>>>>>>>>>>This is an info message.<<<<<<<<<<<<<");
 		List<ProductDTO> productList = pService.productList(pDto);
 //		System.out.println(pDto.getStartRowNum());
 		model.addAttribute("dtos",productList);
