@@ -7,44 +7,44 @@
 
 <%@ include file ="../user/inc/user_sidebar.jsp"%>
 
-<div class="container d-flex mt-5 justify-content-center">
-	<div class="w-75 shadow p-5 rounded border">
-		<h3>글상세보기</h3>
-		<div class="form-group">
-			<label for="subject">번호</label>
-			<input type="text" class="form-control" id="bid" 
-				name="bid" disabled value="${dto.bid}"/>
-		</div>
 
-		<div class="form-group">
-			<label for="subject">제목</label>
-			<input type="text" class="form-control" id="subject" 
-				name="subject" disabled value="<c:out value='${dto.subject}'/>"/>
-		</div>
-
-		<div class="form-group">
-			<label for="contents">내용</label>
-			<textarea class="form-control" id="contents" 
-				name="contents" disabled rows="4" ><c:out value='${dto.contents}'/></textarea>
-		</div>
-		<div class="form-group">
-			<label for="writer">글쓴이</label>
-			<input type="text" class="form-control" id="writer" 
-				name="writer" disabled value="<c:out value='${dto.writer}'/>"/>
-		</div>
-		<div class="form-group mt-4">
-			<button type="button" id="btn-modify" class="btn btn-primary me-2">수정하기</button>
-			<button type="button" id="btn-remove" class="btn btn-danger me-2">삭제</button>
-			<button type="button" id="btn-list" class="btn btn-primary">리스트</button>
+	<div class="w-100 shadow p-5 rounded border">
+		<h3 class="text-center" style="text-decoration: underline; text-underline-position: under;">Board View</h3>
+		<table class="table table-borderless mt-4">
+		    <tbody>
+		      <tr>
+		        <td><label for="bid">No.</label></td>
+		        <td><input type="text" class="form-control" id="bid" name="bid" disabled value="${dto.bid}" /></td>
+		      </tr>
+		      <tr>
+		        <td><label for="subject">Subject.</label></td>
+		        <td><input type="text" class="form-control" id="subject" name="subject" disabled value="<c:out value='${dto.subject}'/>" /></td>
+		      </tr>
+		      <tr>
+		        <td><label for="contents">Contents.</label></td>
+		        <td><textarea class="form-control" id="contents" name="contents" disabled rows="4"><c:out value='${dto.contents}'/></textarea></td>
+		      </tr>
+		      <tr>
+		        <td><label for="writer">Writer.</label></td>
+		        <td><input type="text" class="form-control" id="writer" name="writer" disabled value="<c:out value='${dto.writer}'/>" /></td>
+		      </tr>
+		    </tbody>
+		  </table>
+		<div class="form-group justify-content-center mt-4 text-center">
+			<button type="button" id="btn-modify" class="btn btn-primary me-2">Modify</button>
+			<button type="button" id="btn-remove" class="btn btn-danger me-2">Delete</button>
+			<button type="button" id="btn-list" class="btn btn-primary">List</button>
 		</div>
 		
-		<!------------------------ 댓글 UI ---------------------------->
+		
+		
+		<!-------------------- 댓글 UI ----------------------->
 		
 		<!-- 댓글 버튼 -->
 		<div class="mt-5 mb-3 d-flex justify-content-between">
-			<h6><i class="fa fa-comments-o"></i>댓글</h6>
+			<h6><i class="fa fa-comments-o"></i>Comment</h6>
 			<button class="btn btn-sm btn-outline-secondary" id="btn-addReply"
-			 	data-bs-target="#replyModal" data-bs-toggle="modal">새 댓글</button>
+			 	data-bs-target="#replyModal" data-bs-toggle="modal">New Comment</button>
 		</div>
 		
 		
@@ -67,8 +67,10 @@
 				</div>
 			</li>
 		</ul>
+		<!---------------------------------------------------->
 		
-		<!-- pagination Area -->
+		
+		<!--------------- pagination Area -------------------->
 		<ul class="pagination justify-content-center my-5">
 		  <li class="page-item">
 		     <a class="page-link">이전</a>
@@ -81,9 +83,10 @@
 		     <a class="page-link">다음</a>
 		  </li>
 		</ul>
+		<!--------------------------------------------------->
 		
 	</div>
-</div>
+
 
 <!-- The Modal -->
 <div class="modal fade" id="replyModal">
@@ -125,31 +128,11 @@
   </div>
 </div>
 
-<script src="js/reply.js"></script>
+<script src="${ctxPath}/resources/js/reply.js"></script>
 <script>
 
-/* //////////////////////////즉시 실행함수 테스트 ////////////////////////////
-var replyFunc = (function(){
-	
-	function register(reply){
-		console.log(reply+".........");
-	}
-	
-	function register2(reply,cb){
-		console.log(reply+".........");
-		cb();
-	}
-	return{
-		register : register,
-		register2 : register2
-	};
-})();
-	console.log(replyFunc.register("하이"));
-	console.log(replyFunc.register2("하이",function(){console.log("콜백함수"))}); */
-
-////////////////////////////////////////////////////////////////
 $(document).ready(function(){
-
+	
    var bidValue = '<c:out value="${dto.bid}"/>';
 
    // 댓글 리스트 
@@ -158,36 +141,6 @@ $(document).ready(function(){
    var viewPage  =1;
    
    displayList(viewPage);
-   
-   /* displayList(); */
-   
-   /* function displayList(){
-	   
-      replyFunc.getList({bid:bidValue}, function(list){
-    	  
-         var str ="";
-         
-         // 댓글이 없는 경우에는 댓글 출력되지 않도록
-         if(list ==null || list.length == 0){
-            replyArea.html("");
-            return;
-         }
-         
-         // 댓글이 있는 경우
-         for(var i = 0; i <list.length; i++){
-        	 
-            str += '<li class="mb-2 p-0" data-rno="'+list[i].rno+'"style="cursor:pointer;">'
-            		+'<div class="form-control">'
-              			 +'<div class="d-flex justify-content-between">'
-              				 +'<h6>'+list[i].replyer+'</h6><span>'+list[i].r_date+'</span>'
-             			  +'</div>'
-              			  +'<p>'+list[i].r_contents+'</p>'                           
-              		+'</div></li>';
-         }
-         
-         replyArea.html(str);
-      });
-   }  */
    
    function displayList(viewPage){
 	   
@@ -207,12 +160,13 @@ $(document).ready(function(){
 	         for(var i = 0; i <list.length; i++){
 	        	 
 	            str += '<li class="mb-2 p-0" data-rno="'+list[i].rno+'"style="cursor:pointer;">'
-	            		+'<div class="form-control">'
-	              			 +'<div class="d-flex justify-content-between">'
-	              				 +'<h6>'+list[i].replyer+'</h6><span>'+replyFunc.showDateTime(list[i].r_date)+'</span>'
-	             			  +'</div>'
-	              			  +'<p>'+list[i].r_contents+'</p>'                           
-	              		+'</div></li>';
+	            			+'<div class="form-control">'
+	              				 +'<div class="d-flex justify-content-between">'
+	              					 +'<h6>'+list[i].replyer+'</h6><span>'+replyFunc.showDateTime(list[i].r_date)+'</span>'
+	             				  +'</div>'
+	              			  	+'<p>'+list[i].r_contents+'</p>'                           
+	              			+'</div>'
+	              		+'</li>';
 	         }
 	         
 	         replyArea.html(str);
@@ -295,8 +249,6 @@ $(document).ready(function(){
 		// closet()는 부모 중에 가장 가까운 조상을 선택
 		ipReplyDate.closest("div").hide();
 		
-		
-		
 		// 닫기 버튼을 제외한 세개의 버튼은 숨김
 		modal.find("button[id != 'btn-modal-close']").hide();
 		registerBtn.show();
@@ -377,62 +329,16 @@ $(document).ready(function(){
 			); 
 	});
 	
-	
-
-	
-////////////////////////////////////////////////////////////////
-
-	/* //등록 테스트
-	replyFunc.register(
-		{bid:bidValue, r_contents :"댓글 테스트입니다.. ", replyer: "고길동"},
-		function(result){
-			alert("result :" + result);
-		}
-	); */
-	
-/* 	//삭제 테스트
-	replyFunc.remove(3,function(result){
-		console.log(result);
-		
-		if(result =="success") alert("삭제 성공 !!");
-	});
-	
-	
-	//조회 테스트 
-	replyFunc.get(1, function(result){
-		console.log(result);
-	});
-	 */
-	
-	
-/* 	//수정 테스트 
-	replyFunc.update(
-		{rno : 4, r_contents: "수정 수정"},
-		function(result){
-			alert("수정완료 !!!");	
-		}
-	);  */
-	
-	/* // 댓글 리스트
-	replyFunc.getList({bid : bidValue}, function(result){
-		for(var i = 0; i<result.length; i++){
-			console.log(result[i]);
-		}
-	}); */
-	
-//////////////////////////////////////////////////////////////////// 		
 });
 
-
-
 	$("#btn-modify").click(()=>{
-		location.href="<c:url value='/modify.do?bid=${dto.bid}'/>";
+		location.href="<c:url value='/board/modify.do?bid=${dto.bid}'/>";
 	})
 	$("#btn-list").click(()=>{
-		location.href="<c:url value='/list.do?viewPage=${pDto.viewPage}&cntPerPage=${pDto.cntPerPage}&searchType=${pDto.searchType}&keyWord=${pDto.keyWord}'/>";
+		location.href="<c:url value='/board/list.do?viewPage=${pageDto.viewPage}&cntPerPage=${pageDto.cntPerPage}&searchType=${pageDto.searchType}&keyWord=${pageDto.keyWord}'/>";
 	})
 	$("#btn-remove").click(()=>{
-	location.href="<c:url value='/remove.do?bid=${dto.bid}'/>";
+		location.href="<c:url value='/board/remove.do?bid=${dto.bid}'/>";
 	})
 
 </script>
