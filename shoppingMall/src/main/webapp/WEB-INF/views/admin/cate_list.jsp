@@ -104,9 +104,9 @@
 									       "cateCode": "${cDto.code}",
 									       "cateName": "${cDto.cate_name}",
 									       "rowNum": "${rowNum}"
-									       	}'>modify</button>
+									       	}'>Modify</button>
 									       	
-					<a href="${ctxPath}/categoryDel.do?cate_num=${cDto.cate_num}" class="btn btn-sm text-white" style="background-color: black;">delete</a></td>
+					<a href="${ctxPath}/categoryDel.do?cate_num=${cDto.cate_num}" class="btn btn-sm text-white" style="background-color: black;">Delete</a></td>
 				</tr>
 				<c:set var="rowNum" value="${rowNum-1}"/>
 			</c:forEach>

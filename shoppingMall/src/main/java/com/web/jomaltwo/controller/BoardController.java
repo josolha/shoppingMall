@@ -59,6 +59,7 @@ public class BoardController {
 		BoardDTO dto = bService.view(bid,"view");
 		System.out.println(dto);
 		model.addAttribute("dto",dto);
+		model.addAttribute("pageDto",pDto);
 		
 		return "board/board_view";
 	}

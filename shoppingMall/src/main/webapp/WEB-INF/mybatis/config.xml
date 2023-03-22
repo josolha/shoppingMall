@@ -9,5 +9,7 @@
 			<typeAlias type="com.web.jomaltwo.model.ProductDTO" alias ="ProductDTO"/>
 			<typeAlias type="com.web.jomaltwo.model.UserDTO" alias ="UserDTO"/>
 			<typeAlias type="com.web.jomaltwo.model.BoardDTO" alias ="BoardDTO"/>
+			<typeAlias type="com.web.jomaltwo.model.ReplyDTO" alias="ReplyDTO" />
+			
 	</typeAliases>
 </configuration>

@@ -10,43 +10,58 @@
 
 	<div class="w-100 shadow p-5 rounded border">
 		<h3 class="text-center" style="text-decoration: underline; text-underline-position: under;">Board View</h3>
-		<table class="table table-borderless mt-4">
-		    <tbody>
-		      <tr>
-		        <td><label for="bid">No.</label></td>
-		        <td><input type="text" class="form-control" id="bid" name="bid" disabled value="${dto.bid}" /></td>
-		      </tr>
-		      <tr>
-		        <td><label for="subject">Subject.</label></td>
-		        <td><input type="text" class="form-control" id="subject" name="subject" disabled value="<c:out value='${dto.subject}'/>" /></td>
-		      </tr>
-		      <tr>
-		        <td><label for="contents">Contents.</label></td>
-		        <td><textarea class="form-control" id="contents" name="contents" disabled rows="4"><c:out value='${dto.contents}'/></textarea></td>
-		      </tr>
-		      <tr>
-		        <td><label for="writer">Writer.</label></td>
-		        <td><input type="text" class="form-control" id="writer" name="writer" disabled value="<c:out value='${dto.writer}'/>" /></td>
-		      </tr>
-		    </tbody>
-		  </table>
-		<div class="form-group justify-content-center mt-4 text-center">
-			<button type="button" id="btn-modify" class="btn btn-primary me-2">Modify</button>
-			<button type="button" id="btn-remove" class="btn btn-danger me-2">Delete</button>
-			<button type="button" id="btn-list" class="btn btn-primary">List</button>
+			<div class="container mt-4">
+			  <div class="row">
+			    <div class="col-sm-2">
+			      <label for="bid" class="form-label">No.</label>
+			    </div>
+			    <div class="col-sm-2">
+			      <input type="text" class="form-control" id="bid" name="bid" disabled value="${dto.bid}" />
+			    </div>
+			  </div>
+			  <div class="row mt-3">
+			    <div class="col-sm-2">
+			      <label for="subject" class="form-label">Subject.</label>
+			    </div>
+			    <div class="col-sm-10">
+			      <input type="text" class="form-control" id="subject" name="subject" disabled value="<c:out value='${dto.subject}'/>" />
+			    </div>
+			  </div>
+			  <div class="row mt-3">
+			    <div class="col-sm-2">
+			      <label for="contents" class="form-label">Contents.</label>
+			    </div>
+			    <div class="col-sm-10">
+			      <textarea class="form-control" id="contents" name="contents" disabled rows="4"><c:out value='${dto.contents}'/></textarea>
+			    </div>
+			  </div>
+			  <div class="row mt-3">
+			    <div class="col-sm-2">
+			      <label for="writer" class="form-label">Writer.</label>
+			    </div>
+			    <div class="col-sm-2">
+			      <input type="text" class="form-control" id="writer" name="writer" disabled value="<c:out value='${dto.writer}'/>" />
+			    </div>
+			  </div>
+			</div>
+
+		  
+		<div class="form-group d-flex justify-content-end mt-4 text-center">
+		    <button type="button" id="btn-modify" class="btn btn-secondary me-2">Modify</button>
+		    <button type="button" id="btn-remove" class="btn btn bg-dark text-white me-2">Delete</button>
 		</div>
-		
+		<hr/>
+				
 		
 		
 		<!-------------------- 댓글 UI ----------------------->
 		
 		<!-- 댓글 버튼 -->
-		<div class="mt-5 mb-3 d-flex justify-content-between">
-			<h6><i class="fa fa-comments-o"></i>Comment</h6>
-			<button class="btn btn-sm btn-outline-secondary" id="btn-addReply"
-			 	data-bs-target="#replyModal" data-bs-toggle="modal">New Comment</button>
+		<div class="mt-5 mb-3 d-flex align-items-center justify-content-between">
+		  <h6 class="me-2"><i class="fa fa-comments-o text-center"></i>Comment</h6>
+		  <button class="btn btn-sm btn-outline-secondary ms-auto" id="btn-addReply" data-bs-target="#replyModal" data-bs-toggle="modal">+New Comment</button>
 		</div>
-		
+					
 		
 		<!-- 댓글 리스트 영역 -->
 		<ul class="p-0 replyArea" style="list-style:none">
@@ -73,14 +88,15 @@
 		<!--------------- pagination Area -------------------->
 		<ul class="pagination justify-content-center my-5">
 		  <li class="page-item">
-		     <a class="page-link">이전</a>
+		  
+		    
 		  </li>
 		     <li class="page-item">
-		        <a class="page-link">1</a>
+		        <a class="page-link bg-secondary text-light">1</a>
 		     </li>
  
 		  <li class="page-item ">
-		     <a class="page-link">다음</a>
+		     
 		  </li>
 		</ul>
 		<!--------------------------------------------------->
@@ -91,36 +107,36 @@
 <!-- The Modal -->
 <div class="modal fade" id="replyModal">
   <div class="modal-dialog">
-    <div class="modal-content">
+    <div class="modal-content" style="background : #fcf9ee">
 
       <!-- Modal Header -->
-      <div class="modal-header border-0">
-      	<h5>댓글 달기</h5>
-      </div>
+      
+      <h5 class="text-center mt-5" style="text-decoration: underline; text-underline-position: under;">Comment</h5>
+     
 
       <!-- Modal body -->
       <form>
-         <div class="modal-body p-4">
+         <div class="modal-body p-4 ">
 			<div class="mb-3">
-				<label for="reply_contents">댓글 내용</label>
+				<label for="reply_contents">Comment Contents.</label>
 				<textarea class="form-control" id ="reply_contents"></textarea>
 			</div>
 			<div class="mb-3">
-				<label for="replyer">댓글 작성자</label>
+				<label for="replyer">Comment Writer.</label>
 				<input type ="text" class="form-control" id="replyer" name="replyer"/>
 			</div>
 			<div class="mb-3">
-				<label for="reply_date">등록일</label>
+				<label for="reply_date">Register Date.</label>
 				<input type ="text" class="form-control" id="reply_date" name="reply_date"/>
 			</div>
          </div>
          
          <!-- Modal footer -->
          <div class="modal-footer border-0">
-         	<button type="button" id="btn-modal-modify" class="btn btn-sm btn-success">수정</button>
-         	<button type="button" id="btn-modal-remove" class="btn btn-sm btn-danger">삭제</button>
-         	<button type="button" id="btn-modal-register" class="btn btn-sm btn-primary">등록</button>
-         	<button type="button" id="btn-modal-close" class="btn btn-sm btn-secondary">닫기</button>
+         	<button type="button" id="btn-modal-modify" class="btn btn-sm  bg-dark text-white">Update</button>
+         	<button type="button" id="btn-modal-remove" class="btn btn-sm  btn-secondary">Delete</button>
+         	<button type="button" id="btn-modal-register" class="btn btn-sm  bg-dark text-white">Register</button>
+         	<button type="button" id="btn-modal-close" class="btn btn-sm btn-secondary">Close</button>
          </div>
      </form>    
 
@@ -193,22 +209,24 @@ $(document).ready(function(){
 	   var str = "";
 	   
 	   if(prevPage){
-		   str += '<li class="page-item">'
-			   +'<a class="page-link" href="'+prevPage+'">이전</a>'
-			   +'</li>';
-	   }
-	   for(var i =blockStart; i<= blockEnd; i++){
+		    str += '<li class="page-item">'
+		        +'<a class="page-link bg-dark text-light" href="'+prevPage+'">Prev</a>'
+		        +'</li>';
+		}
+		for(var i =blockStart; i<= blockEnd; i++){
 		   var active = viewPage == i ? "active" : ""; 
+		   var activeBorder = viewPage == i ? "border border-dark" : ""; // 선택한 번호에 검정색 테두리 스타일 추가
 			   
 		   str += '<li class="page-item '+active+'">'
-			   +'<a class="page-link" href="'+i+'">'+i+'</a>'
-			   +'</li>';
-	   }
-	   if(blockEnd < totalPage){
-		   str += '<li class="page-item">'
-			   +'<a class="page-link" href="'+nextPage+'">다음</a>'
-			   +'</li>';
-	   }
+		       +'<a class="page-link bg-secondary text-light'+ activeBorder +'" href="'+i+'">'+i+'</a>' // activeBorder 추가
+		       +'</li>';
+		}
+		if(blockEnd < totalPage){
+		    str += '<li class="page-item">'
+		        +'<a class="page-link bg-dark text-light" href="'+nextPage+'">Next</a>'
+		        +'</li>';
+		}
+
 	   
 	   pageArea.html(str);
    }
@@ -244,10 +262,11 @@ $(document).ready(function(){
 	//새댓글 버튼에 click 이벤트 발생하면 즉시실행함수 수행
 	$("#btn-addReply").on("click",function(e){
 		taReplyContents.val("");
-		ipReplyer.val("");
-		
+		ipReplyer.val("").attr("readonly", false);
+		/* ipReplyer.val(""); */
+	
 		// closet()는 부모 중에 가장 가까운 조상을 선택
-		ipReplyDate.closest("div").hide();
+		ipReplyDate.closest("div").hide(); 
 		
 		// 닫기 버튼을 제외한 세개의 버튼은 숨김
 		modal.find("button[id != 'btn-modal-close']").hide();
@@ -272,6 +291,7 @@ $(document).ready(function(){
 		var reply = {bid:bidValue,r_contents:taReplyContents.val(),replyer:ipReplyer.val()};
 		
 		replyFunc.register(reply, function(result){
+			 		alert("등록 완료 했습니다.")
 					modal.modal("hide");
 					displayList();
 				}
@@ -292,7 +312,9 @@ $(document).ready(function(){
 		replyFunc.get(rno, function(reply){
 			taReplyContents.val(reply.r_contents);
 			ipReplyer.val(reply.replyer).attr("readonly", true);
-			ipReplyDate.val(reply.r_date).attr("readonly", true);;
+			ipReplyDate.closest("div").show();
+			ipReplyDate.val(replyFunc.showDateTime(reply.r_date)).attr("readonly", true);
+			
 			
 			modal.data("rno",reply.rno);
 			
@@ -309,7 +331,7 @@ $(document).ready(function(){
 		var rno = modal.data("rno");
 		
 		replyFunc.remove(rno,function(result){
-			alert(result);
+			alert("삭제 완료 했습니다.");
 			modal.modal("hide");
 			displayList();
 		});
@@ -322,7 +344,7 @@ $(document).ready(function(){
 		replyFunc.update(
 				reply,
 				function(result){
-					alert(result);	
+					alert("수정 완료 했습니다.");	
 					modal.modal("hide");
 					displayList();
 				}
