@@ -9,19 +9,16 @@
         
         <!-- css로 맨 item 마다 맨 오른쪽에 > 표시 작성 필요 -->
           <li class="nav-item ml-0">
-  			 <a class="nav-link text-dark" href="" style="text-decoration:none">마이페이지 &gt; </a>  
+  			 <a class="nav-link text-dark" href="" style="text-decoration:none">My Page &gt; </a>  
           </li>	
           <li class="nav-item ml-0">
-  			 <a class="nav-link text-dark" href="" style="text-decoration:none">장바구니 &gt; </a>  
+  			 <a class="nav-link text-dark" href="" style="text-decoration:none">Cart &gt; </a>  
+          </li>
+  		<li class="nav-item">
+          <a class="nav-link text-dark" href="${ctxPath}/board/list.do" style="text-decoration:none">Board &gt;</a>
           </li>
           <li class="nav-item">
-          <a class="nav-link text-dark" href="" style="text-decoration:none">구매 리스트 &gt;</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="" style="text-decoration:none">상품 등록 &gt;</a>
-          </li>
-          <li class="nav-item">
-          	<a class="nav-link text-dark" href="" style="text-decoration:none">상품 리스트 &gt;</a>
+          	<a class="nav-link text-dark" href="${ctxPath}/user/products.do" style="text-decoration:none">Product &gt;</a>
           </li>
          
         </ul>

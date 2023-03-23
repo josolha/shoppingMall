@@ -7,7 +7,7 @@
   <div class="card <c:if test="${cnt%4 !=0}">me-3</c:if>" style="width:20% ;height:100%">
   <div class="d-flex flex-column" style="height:100%;">
     <!-- 이미지 -->
-    <a href="prodView.do?pNum=${pDto.PNum}&pSpec=${pDto.PSpec}" style="overflow:hidden;">
+    <a href="${ctxPath}/user/productView.do?pNum=${pDto.PNum}&pSpec=${pDto.PSpec}" style="overflow:hidden;">
       <img class="card-img-top flex-grow-1" src="${ctxPath}/resources/file_repo/${pDto.PImage}" alt="Card image" style="width:100%; max-height :70%; background : #fcf9ee">
     </a>
 

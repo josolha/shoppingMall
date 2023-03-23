@@ -30,9 +30,7 @@ public class UserController {
 	
 	@Autowired
 	private UserService uService;
-	
-	@Autowired
-	private ProductService pService;
+		
 	
 	@RequestMapping(value= "login.do", method =RequestMethod.GET)
 	public String loginForm(@RequestParam(defaultValue="") String moveUrl, Model model) {
@@ -87,15 +85,6 @@ public class UserController {
 		int cnt = uService.userInsert(dto);
 		
 		return "redirect:/user/main.do";
-	}
-	
-	@RequestMapping(value = "/main.do", method = RequestMethod.GET)
-	public String userMain(Model model) {
-		
-		HashMap<String,List<ProductDTO>> map = pService.productBySpecs();
-		model.addAttribute("map", map);
-		
-		return "user/user_main";
 	}
 	
 	
