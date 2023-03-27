@@ -38,6 +38,7 @@ public class UserCartViewController {
     	List<CartDTO> cartList = cService.getCartList(loginDto.getId());
     	
     	System.out.println(cartList);
+    	// product에 담기해야함.
     	
 //		for (CartDTO cart : cartList) {
 //			ProductDTO product = pService.getProduct(cart.getProduct_id());
