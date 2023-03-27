@@ -57,6 +57,8 @@ public class UserController {
 		if(!moveUrl.equals("")) {
 			return "redirect:"+moveUrl;
 		}
+	
+		
 		return "redirect:/";
 	}
 	
@@ -84,7 +86,7 @@ public class UserController {
 		
 		int cnt = uService.userInsert(dto);
 		
-		return "redirect:/user/main.do";
+		return "redirect:/user/login.do";
 	}
 	
 	

@@ -12,7 +12,7 @@
   			 <a class="nav-link text-dark" href="" style="text-decoration:none">My Page &gt; </a>  
           </li>	
           <li class="nav-item ml-0">
-  			 <a class="nav-link text-dark" href="" style="text-decoration:none">Cart &gt; </a>  
+  			 <a class="nav-link text-dark" href="${ctxPath}/cart" style="text-decoration:none">Cart &gt; </a>  
           </li>
   		<li class="nav-item">
           <a class="nav-link text-dark" href="${ctxPath}/board/list.do" style="text-decoration:none">Board &gt;</a>

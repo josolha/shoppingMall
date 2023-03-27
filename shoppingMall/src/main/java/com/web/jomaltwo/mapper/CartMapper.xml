@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.web.jomaltwo.mapper.CartMapper">
+
+	 <insert id="cartInput" parameterType="CartDTO">
+			<!-- INSERT INTO cart (user_id,product_id,reg_date) VALUES(#{user_id},#{product_id},now()) -->
+			INSERT INTO cart (user_id, product_id, product_cnt)
+    				VALUES (#{user_id}, #{product_id}, #{product_cnt})
+    		<!--같은 회원이 같은 제품을 선택했을때 수량만 증가 시킴 -->		
+    		ON DUPLICATE KEY UPDATE product_cnt = product_cnt + #{product_cnt} 
+    		
+   	 </insert>
+   	 
+<!--    	 <select id="getCartList" parameterType="String" resultType="CartDTO">
+   	 		SELECT * FROM cart WHERE user_id = #{userId}
+   	 </select> -->
+   	 
+		<select id="getCartList" parameterType="String" resultType="CartDTO">
+			SELECT c.user_id, c.product_id, c.product_cnt, c.reg_date, p.*
+			FROM cart c
+			JOIN product p ON c.product_id = p.pNum
+			WHERE c.user_id = #{userId}
+		</select>
+
+   	   	 
+
+</mapper>

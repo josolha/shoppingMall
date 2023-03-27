@@ -48,7 +48,7 @@
 	  
 	  <sql id="productBySearch">
 	  
-	  	<if test= "searchType == 'C'.toString()">
+	  	<if test= 'searchType == "C"'>
 	  		WHERE pCategory_fk LIKE CONCAT('%',#{keyWord},'%')
 	  	</if>
 	  	

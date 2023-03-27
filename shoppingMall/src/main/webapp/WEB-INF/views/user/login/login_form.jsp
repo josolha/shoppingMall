@@ -12,7 +12,7 @@
 		 	<p class="text-center text-danger">사용자 아이디 또는 비밀번호를 다시 확인하세요.</p>
   		 </c:if>
   		 
-  		 <c:if test = "${sessionScope.loginMsg != null}">
+  		 <c:if test = "${loginMsg != null}">
 				<p class="text-center text-danger my-3">${sessionScope.loginMsg}</p>
 		 </c:if>
 		 

@@ -34,13 +34,12 @@
 			          <p class="about-content">${pDto.PContent}</p>
 			        </div>
 			        <!-- 로그인한 사용자만 장바구니 담기 허용 -->
-			        
-			        <c:if test="${sessionScope.isLogin != null}">
-			          <a href="javascript:goCart(${pDto.PNum})" class="btn btn-sm btn-primary">Add Cart</a>
+			        <c:if test="${loginDto != null}">
+			          <a href="javascript:goCart(${pDto.PNum},'${loginDto.id}')" class="btn btn-sm bg-dark text-white">Add Cart</a>
 			        </c:if> 
 			        <!-- 로그인을 안했을 경우-->
-			        <c:if test="${sessionScope.isLogin == null}">
-			          <a href="javascript:showMsg()" class="btn btn-sm bg-dark text-white">Add Cart</a>
+			        <c:if test="${loginDto == null}">
+			        	<a href="javascript:showMsg()" class="btn btn-sm bg-dark text-white">Add Cart</a>
 			        </c:if> 
 			        <a href="javascript:history.back()" class="btn btn-sm btn-secondary">Continue Shopping</a> 
 			      </form>	
@@ -50,14 +49,32 @@
 
 	</div>
 	<script type="text/javascript">
-		function goCart(pNum){
-			document.prodForm.action = "cartAdd.do?pNum="+PNum;
-			document.prodForm.submit();
+		function goCart(PNum,id){
+			   var pQty = document.getElementById("pQty").value;
+			   var data = {
+					   product_id : PNum,
+					   user_id : id,
+					   product_cnt :pQty
+			   };
+			   
+			   $.ajax({
+				    url : '/jomaltwo/cart/new',
+				    type : 'post',
+				    data : JSON.stringify(data),
+				    contentType : "application/json; charset=utf-8",
+				    success : function(result){
+				     	alert("카트 담기 성공");
+				    },
+				    error : function(){
+				     	alert("카트 담기 실패");
+				    }
+				   });
 		}
+		
 		function showMsg(){
 			alert("로그인이 필요합니다.");
 		}
-	
+		 
 	
 	</script>
 	
