@@ -10,5 +10,7 @@ public interface CartMapper {
 	public int cartInput(CartDTO dto);
 	
 	public List<CartDTO> getCartList(String userId);
+	
+	public int cartUpdate(CartDTO dto);
 
 }

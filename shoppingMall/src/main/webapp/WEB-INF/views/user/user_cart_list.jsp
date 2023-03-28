@@ -39,11 +39,11 @@
 							</td>
 							<td>${cart.product.PName}</td>
 							<td>
-								<form action="cartModify.do" method="post">
-								<input type="hidden" name="pNum" value="${cart.product.PNum}"/>
-								<input type="text" size="3" name="pQty" value="${cart.product_cnt}"/> Pcs<br/>
-								<input type="submit" class="btn btn-sm btn-secondary mt-3" value="Update">
-								</form>
+								<!-- <form action="cartModify.do" method="post"> -->
+								<input type="hidden" id="product_id" name="product_id" value="${cart.product.PNum}"/>
+								<input type="text" id="product_cnt" size="3" name="product_cnt" value="${cart.product_cnt}"/> Pcs<br/>
+								<input type="button" class="btn btn-sm btn-secondary mt-3 updateBtn" value="Update">
+								<!-- </form> -->
 							</td>
 							<td>
 								<fmt:formatNumber value ="${cart.product.price}"/>₩<br/>
@@ -65,7 +65,7 @@
 					</tbody>
 				</table>
 				<div class="text-end">
-					Total Cart Price: <b><fmt:formatNumber value ="${cartTotalPrice}"/></b> ₩</br>
+					Total Cart Price: <b><fmt:formatNumber value ="${cartTotalPrice}"/></b>₩</br>
 					Total Cart Point: <b><fmt:formatNumber value ="${cartTotalPoint}"/></b> Point
 				</div>
 				<div class="text-center mt-5">
@@ -73,6 +73,42 @@
 					<a href="${ctxPath}" class="btn btn-secondary" >Continue Shopping</a>
 				</div>
 			</section>
+			
+			<script>
+		    $('.updateBtn').click(function(e) {
+		        e.preventDefault();
+		        
+		        // 입력한 상품 번호와 수량 가져오기
+				var row = $(this).closest('tr');
+			
+			    // row에서 pNum 요소의 값을 가져옴
+			    var product_id = row.find('#product_id').val();
+			
+			    // row에서 product_cnt 요소의 값을 가져옴
+			    var product_cnt = row.find('#product_cnt').val();
+		        
+        
+		        // PUT 요청 보내기
+		        $.ajax({
+		            type: 'PUT',
+		            url: '/jomaltwo/cart/' + product_id + "/"+ product_cnt,
+		            /* data: JSON.stringify({product_cnt: productCnt}), */
+		            contentType : "application/json; charset=utf-8",
+		            success: function(result) {
+		         
+		            	alert("수정 완료했습니다.");
+		            	window.location.href = "/jomaltwo/cart";
+		            
+		            },
+		            error: function() {
+		            	alert("카트 수정 실패");
+		            }
+		        });
+		        		        
+			});
+			</script>
+			
+			
 
 <%@ include file ="inc/user_footer.jsp"%>
 
