@@ -40,13 +40,12 @@ public class UserCartViewController {
     	System.out.println(cartList);
     	// product에 담기해야함.
     	
-//		for (CartDTO cart : cartList) {
-//			ProductDTO product = pService.getProduct(cart.getProduct_id());
-//			cart.setProduct(product);
-//		}
-    	
-    	
-    	model.addAttribute("pDtos",cartList);
+		for (CartDTO cart : cartList) {
+			ProductDTO product = pService.productInfo(cart.getProduct_id());
+			cart.setProduct(product);
+		}
+    	System.out.println(cartList);
+    	model.addAttribute("cartList",cartList);
         return "user/user_cart_list";
     }
 }

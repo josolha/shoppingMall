@@ -12,7 +12,7 @@
 			 <!-- style ="border:1px solid red" -->	
 			 
 				<h3 class="text-center" style="text-decoration: underline; text-underline-position: under;">Cart List</h3>
-				<table class="table">
+				<table class="table mt-3">
 					<thead>
 						<tr>
 							<th>Img.</th>
@@ -24,58 +24,55 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:if test="${pDtos == null || pDtos.size() ==0 }">
+					<c:if test="${cartList.size() == null || cartList.size() ==0 }">
 						<tr>
 							<td colspan="6">Cart is empty.</td>
 						</tr>
 					</c:if>
-					<c:if test="${pDtos.size() != 0 }">
+					<c:if test="${cartList.size() != 0 }">
 					<c:set var="cartTotalPrice" value="0"/>
 					<c:set var="cartTotalPoint" value="0"/>
-					<c:forEach var="pDto" items="${pDtos}">
+					<c:forEach var="cart" items="${cartList}">
 						<tr>
 							<td>
-								<img src="${ctxPath}/resources/file_repo/${pDto.PImage}" width="80px">
+								<img src="${ctxPath}/resources/file_repo/${cart.product.PImage}" width="80px">
 							</td>
-							<td>${pDto.PName}</td>
+							<td>${cart.product.PName}</td>
 							<td>
 								<form action="cartModify.do" method="post">
-								<input type="hidden" name="pNum" value="${PDto.PNum}"/>
-								<input type="text" size="3" name="pQty" value="${pDto.PQty}"/>개<br/>
-								<input type="submit" class="btn btn-sm btn-secondary mt-3" value="수정">
+								<input type="hidden" name="pNum" value="${cart.product.PNum}"/>
+								<input type="text" size="3" name="pQty" value="${cart.product_cnt}"/> Pcs<br/>
+								<input type="submit" class="btn btn-sm btn-secondary mt-3" value="Update">
 								</form>
 							</td>
 							<td>
-								<fmt:formatNumber value ="${pDto.price}"/>원<br/>
-								<fmt:formatNumber value ="${pDto.PPoint}"/>포인트
+								<fmt:formatNumber value ="${cart.product.price}"/>₩<br/>
+								<fmt:formatNumber value ="${cart.product.PPoint}"/>Point
 							</td>
 							<td>
-								<fmt:formatNumber value ="${pDto.totPrice}"/>원<br/>
-								<fmt:formatNumber value ="${pDto.totPoint}"/>포인트
+								<fmt:formatNumber value ="${cart.product.price * cart.product_cnt}"/>₩<br/>
+								<fmt:formatNumber value ="${cart.product.PPoint * cart.product_cnt}"/>Point
 							</td>
 							<td>
-								<a href="cartDelete.do?pNum=${pDto.PNum}" class="btn btn-sm btn-outline-danger">삭제</a>
+								<a href="cartDelete.do?pNum=${cart.product.PNum}" class="mt-2 btn btn bg-dark text-white">delete</a>
 							</td>
 						</tr>
 						<!--  장바구니 상품 총액 구하기 -->
-						<c:set var="cartTotalPrice" value="${cartTotalPrice + pDto.totPrice}"/>
-						<c:set var="cartTotalPoint" value="${cartTotalPoint + pDto.totPoint}"/>
+						<c:set var="cartTotalPrice" value="${cartTotalPrice + cart.product.price * cart.product_cnt}"/>
+						<c:set var="cartTotalPoint" value="${cartTotalPoint + cart.product.PPoint * cart.product_cnt}"/>
 					</c:forEach>
 					</c:if>
 					</tbody>
 				</table>
 				<div class="text-end">
-					Total Cart Price: <b><fmt:formatNumber value ="${cartTotalPrice}"/></b>₩</br>
-					Total Cart Point: <b><fmt:formatNumber value ="${cartTotalPoint}"/></b>Point
+					Total Cart Price: <b><fmt:formatNumber value ="${cartTotalPrice}"/></b> ₩</br>
+					Total Cart Point: <b><fmt:formatNumber value ="${cartTotalPoint}"/></b> Point
 				</div>
 				<div class="text-center mt-5">
 					<a href="checkOut.do" class="btn btn bg-dark text-white" >Buy</a>
 					<a href="${ctxPath}" class="btn btn-secondary" >Continue Shopping</a>
 				</div>
 			</section>
-
-
-
 
 <%@ include file ="inc/user_footer.jsp"%>
 
