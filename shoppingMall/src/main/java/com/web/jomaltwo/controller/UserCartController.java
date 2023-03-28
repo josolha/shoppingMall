@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +28,7 @@ public class UserCartController {
 	@Autowired
 	private CartService service;
 	
+	//등록
 	@PostMapping("/new")
 	public String cartAdd(@RequestBody CartDTO dto) {
 		
@@ -35,20 +37,22 @@ public class UserCartController {
 		return resultCnt == 1 ? "success" : "fail"; 
 	}
 	
-	
+	//수정
 	@PutMapping("/{product_id}/{product_cnt}")
 	public ResponseEntity<String> updateCart(@PathVariable int product_id, @PathVariable int product_cnt,HttpServletRequest request) {
-	    
-	    System.out.println(product_id);
-	    System.out.println(product_cnt);
-//	    System.out.println(cart.getProduct_cnt());
-	   	    
+	       
 	    int resultCnt = service.cartUpdate(product_id,product_cnt,request);
 	    
-//	    cart.setUser_id(loginDto.getId());
-//	    cart.setProduct_id(pNum);
-	    
-	    
 	    return ResponseEntity.ok().build();
+	}
+	
+	//삭제
+	@DeleteMapping("/{product_id}")
+	public ResponseEntity<String> DeleteCart(@PathVariable int product_id,HttpServletRequest request){
+		
+		System.out.println(product_id);
+		int resultCnt = service.cartDelete(product_id,request);
+		
+		return ResponseEntity.ok().build();
 	}
 }

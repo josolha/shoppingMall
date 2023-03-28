@@ -31,10 +31,11 @@
 		    WHERE user_id = #{user_id}
 		    AND product_id = #{product_id}
 		</update>
-
-
 		
-
+		<delete id="cartDelete"  parameterType="CartDTO">
+			Delete from cart
+			WHERE user_id = #{user_id}
+		    AND product_id = #{product_id}
+		</delete>
    	   	 
-
 </mapper>

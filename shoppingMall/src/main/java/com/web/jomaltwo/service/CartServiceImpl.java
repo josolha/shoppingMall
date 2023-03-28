@@ -48,6 +48,19 @@ public class CartServiceImpl implements CartService {
 		return mapper.cartUpdate(cartDTO);
 	}
 
+	@Override
+	public int cartDelete(int product_id, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		UserDTO loginDto = (UserDTO) session.getAttribute("loginDto");
+		
+		cartDTO.setUser_id(loginDto.getId());
+		cartDTO.setProduct_id(product_id);
+		
+		
+		return mapper.cartDelete(cartDTO);
+	}
+
 	
 
 }

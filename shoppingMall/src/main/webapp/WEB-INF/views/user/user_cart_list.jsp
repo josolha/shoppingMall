@@ -54,7 +54,7 @@
 								<fmt:formatNumber value ="${cart.product.PPoint * cart.product_cnt}"/>Point
 							</td>
 							<td>
-								<a href="cartDelete.do?pNum=${cart.product.PNum}" class="mt-2 btn btn bg-dark text-white">delete</a>
+								<a href="javascript:cartDelete(${cart.product.PNum})" class="mt-2 btn btn bg-dark text-white">delete</a>
 							</td>
 						</tr>
 						<!--  장바구니 상품 총액 구하기 -->
@@ -98,7 +98,6 @@
 		         
 		            	alert("수정 완료했습니다.");
 		            	window.location.href = "/jomaltwo/cart";
-		            
 		            },
 		            error: function() {
 		            	alert("카트 수정 실패");
@@ -106,9 +105,21 @@
 		        });
 		        		        
 			});
+		    function cartDelete(product_id){
+				   $.ajax({
+					    url : '/jomaltwo/cart/'+product_id,
+					    type : 'delete',
+					    success : function(result){
+					     	alert("카트 삭제 성공");
+					     	window.location.href = "/jomaltwo/cart";
+					    },
+					    error : function(){
+					     	alert("카트 삭제 실패");
+					    }
+					   });
+		    }
 			</script>
 			
-			
-
+		
 <%@ include file ="inc/user_footer.jsp"%>
 

@@ -14,5 +14,7 @@ public interface CartService {
 	public List<CartDTO> getCartList(String userId);
 	
 	public int cartUpdate(int product_id, int product_cnt,HttpServletRequest request);
+	
+	public int cartDelete(int product_id,HttpServletRequest request);
 
 }
