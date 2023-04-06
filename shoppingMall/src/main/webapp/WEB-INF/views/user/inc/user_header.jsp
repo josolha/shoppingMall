@@ -60,7 +60,7 @@
 	  					<ul class="dropdown-menu">
 	  						<c:if test="${sessionScope.loginDto.id == null}">
 	    					<li><a class="dropdown-item" href="${ctxPath}/user/login.do">로그인</a></li>
-	    					<li><a class="dropdown-item" href="${ctxPath}/user/login.do">회원가입</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/user/register.do">회원가입</a></li>
 	    					</c:if>
 	    					
 	    					<c:if test="${sessionScope.loginDto.id != null}">    					

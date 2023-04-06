@@ -11,7 +11,6 @@
     				VALUES (#{user_id}, #{product_id}, #{product_cnt})
     		<!--같은 회원이 같은 제품을 선택했을때 수량만 증가 시킴 -->		
     		ON DUPLICATE KEY UPDATE product_cnt = product_cnt + #{product_cnt} 
-    		
    	 </insert>
    	 
 <!--    	 <select id="getCartList" parameterType="String" resultType="CartDTO">

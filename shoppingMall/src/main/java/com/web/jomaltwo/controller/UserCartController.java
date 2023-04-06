@@ -1,5 +1,6 @@
 package com.web.jomaltwo.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,11 +15,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.web.jomaltwo.model.CartDTO;
+import com.web.jomaltwo.model.ProductDTO;
 import com.web.jomaltwo.model.UserDTO;
 import com.web.jomaltwo.service.CartService;
+import com.web.jomaltwo.service.ProductService;
 
 
 @RestController
@@ -28,13 +33,16 @@ public class UserCartController {
 	@Autowired
 	private CartService service;
 	
+    @Autowired
+    private ProductService pService;
+	
 	//등록
 	@PostMapping("/new")
-	public String cartAdd(@RequestBody CartDTO dto) {
+	public ResponseEntity<String> cartAdd(@RequestBody CartDTO dto) {
 		
 		int resultCnt = service.cartAdd(dto);
 		
-		return resultCnt == 1 ? "success" : "fail"; 
+		 return ResponseEntity.ok().build();
 	}
 	
 	//수정
@@ -55,4 +63,38 @@ public class UserCartController {
 		
 		return ResponseEntity.ok().build();
 	}
+	
+	//결제 페이지(여러개) 삭제
+	@PostMapping("/delete")
+	public ResponseEntity<String> deleteProducts(@RequestBody List<String> prodNums,HttpServletRequest request) {
+		
+		//1.SessionAttribute로 바로가져올수있음.
+//		public ResponseEntity<String> deleteProducts(@RequestBody List<String> prodNums,
+//				  @SessionAttribute("userId") String userId) {
+//				  // ...
+//				}	
+		
+		//2.이렇게도 가능
+//		String userId = (String) session.getAttribute("userId");
+		
+		//삭제 처리
+		  for (String prodNum : prodNums) {
+			  int resultCnt = service.cartDelete(Integer.parseInt(prodNum),request);
+		  }
+
+//		HttpSession session = request.getSession();
+//	    UserDTO loginDto = (UserDTO) session.getAttribute("loginDto");
+//	    List<CartDTO> cartList = service.getCartList(loginDto.getId());
+//	    
+//		for (CartDTO cart : cartList) {
+//			ProductDTO product = pService.productInfo(cart.getProduct_id());
+//			cart.setProduct(product);
+//		}
+//	    
+//	    System.out.println(cartList);
+
+	    // 삭제 성공 응답을 반환한다.
+		return ResponseEntity.ok().build();
+	}
+	
 }

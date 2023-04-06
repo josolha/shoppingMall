@@ -28,8 +28,8 @@
    </form>
    <div class= "mt-3 w-100 findIdPw">
    		<div class = "d-flex justify-content-between">
-   			<div><i class="fa fa-lock"></i> <a href="${ctxPath}/user/idPwFind.do?find=id">아이디</a> <a href="${ctxPath}/user/idPwFind.do?find=pw">비밀번호 찾기</a></div>
-   			<div><i class="fa fa-user-plus"></i> <a href="${ctxPath}/user/register.do">회원가입</a></div>
+   			<div><i class="fa fa-lock"></i> <a href="${ctxPath}/user/idpwFind.do?find=id">Find ID</a> <a href="${ctxPath}/user/idpwFind.do?find=pw">PW</a></div>
+   			<div><i class="fa fa-user-plus"></i> <a href="${ctxPath}/user/register.do">Sign Up</a></div>
    		</div>
    </div>
 </div>

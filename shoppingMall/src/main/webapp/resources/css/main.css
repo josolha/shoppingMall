@@ -27,3 +27,27 @@
 	vertical-align: 3px;
 	margin:0 5px;
 }
+.nav.nav-tabs {
+	/* border:1px solid #777; */
+	border-bottom : 1px solid #777;
+}
+
+.nav.nav-tabs .nav-item .nav-link{
+	color : #777;
+	/* border : 1px solid #777; */
+	font-size:14px;
+	background-color: #fcf9ee;
+	border-bottom : 1px solid #777;
+}
+
+.nav.nav-tabs .nav-item .nav-link.active{
+	border: 1px solid #777;
+	border-bottom : 1px solid white;
+	background-color:white;
+}
+
+#rowside .nav-link::after {
+  content: " >";
+  margin-left: 5px;
+  float: right;
+}

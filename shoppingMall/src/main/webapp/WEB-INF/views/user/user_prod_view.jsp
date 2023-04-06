@@ -63,7 +63,7 @@
 				    data : JSON.stringify(data),
 				    contentType : "application/json; charset=utf-8",
 				    success : function(result){
-				     	alert("카트 담기 성공");
+				     	alert("카트 담기를 했습니다.");
 				    },
 				    error : function(){
 				     	alert("카트 담기 실패");

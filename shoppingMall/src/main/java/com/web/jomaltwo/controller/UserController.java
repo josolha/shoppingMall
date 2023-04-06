@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +21,6 @@ import com.web.jomaltwo.model.ProductDTO;
 import com.web.jomaltwo.model.UserDTO;
 import com.web.jomaltwo.service.ProductService;
 import com.web.jomaltwo.service.UserService;
-
 
 import lombok.RequiredArgsConstructor;
 
@@ -68,7 +69,7 @@ public class UserController {
 		
 		session.invalidate(); //session 초기화
 		if(mode.equals("change")) {
-			return "redirect:user/login.do";
+			return "redirect:/user/login.do";
 		}
 		return "redirect:/";
 	}
@@ -102,4 +103,34 @@ public class UserController {
 		
 		return "yes"; // 사용가능 
 	}
+	
+	@PostMapping("/findId.do")
+	@ResponseBody
+	public String findId(UserDTO dto) {
+		System.out.println(dto);
+		String result = uService.getFindId(dto);
+		System.out.println("result :" + result);
+		return result; 
+	}
+	
+	@PostMapping("/findPw.do")
+	@ResponseBody
+	public int findPw(String id, String email) {
+		int n = uService.getFindPw(id,email);
+		return n; 
+	}
+	
+	@RequestMapping("/idpwFind.do")
+	public String idPwFind(String find, Model model) {
+		
+		System.out.println("find :" +find);
+		
+		model.addAttribute("find",find);
+		
+		return "user/login/idpwFind";
+	}
+	
+
+	
+	
 }

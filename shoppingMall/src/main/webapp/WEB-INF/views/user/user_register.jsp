@@ -34,7 +34,7 @@
 	           	 </div>
          	</div>
 	         <input class="form-control mb-2" type="text" id="sample2_address" placeholder="도로명주소" name="road_addr"/>
-         	 <input class="form-control mb-2" type="text" id="jibunAddress" placeholder="지번주소" name="jibun_addr"/>
+         	 <input class="form-control mb-2" type="text" id="sample2_extraAddress" placeholder="지번주소" name="jibun_addr"/>
         	 <input class="form-control" type="text" id="sample2_detailAddress" placeholder="상세주소" name="detail_addr"/>  
             </div>
          
