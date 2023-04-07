@@ -30,7 +30,11 @@ public interface ProductService {
 	
 	public int productModify(ProductDTO dto);
 	
+	public HashMap<String,List<ProductDTO>> productBySpecs(String spec);
+	
 	public HashMap<String,List<ProductDTO>> productBySpecs();
+	
+	public HashMap<String,List<ProductDTO>> productByCategoryName(String categoryName,String spec);
 	
 
 }

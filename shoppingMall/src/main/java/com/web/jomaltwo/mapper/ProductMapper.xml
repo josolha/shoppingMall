@@ -25,8 +25,6 @@
    	 		SELECT * FROM product WHERE pNum = #{pNum}
    	 </select>
    	 
-   	  
-   	 
    	 <delete id="productDelete" parameterType="Integer">
    	 		DELETE FROM product WHERE pNum = #{pNum} 
    	 </delete>
@@ -61,6 +59,35 @@
 	  	</if>
 	  
 	  </sql>
+	  
+  	 <select id="productByCategoryName" parameterType="String" resultType="productDTO">
+   	 		SELECT * FROM product WHERE pCategory_fk = #{categoryCode}
+   	 </select>
    	 
-   
+   	 <select id="getCategoryNameByCode" parameterType="String" resultType="String">
+    	    SELECT cate_name FROM category WHERE code = #{categoryCode}
+	</select>
+	
+	 <select id="productByCategoryNameSpec" parameterType="Map" resultType="productDTO">
+    	    SELECT * FROM product WHERE pCategory_fk = #{param1} AND pSpec = #{param2}
+    	    <!-- <include refid="productBySpec"></include>  -->
+	</select>
+	<!--
+	  <sql id="productBySpec">
+	  
+	  	<if test= "param2 == 'new'.toString()">
+	  		AND pSpec = "NEW"
+	  	</if>
+	  	
+		<if test= "param2 == 'recommend'.toString()">
+	  		AND pSpec = "RECOMMEND"
+	  	</if>
+	  	
+	  	<if test= "param2 == 'hit'.toString()">
+	  		AND pSpec = "HIT"
+	  	</if>
+	  </sql> 
+	  --> 
+   	
+ 
 </mapper>

@@ -124,9 +124,43 @@ public class ProductServiceImpl implements ProductService{
 		for (int i = 0; i < pdSpecs.length; i++) {
 			prodBySpecs.put(pdSpecs[i].toString(),mapper.productBySpec(pdSpecs[i].toString()));
 		}
+		
+		return prodBySpecs;
+	}
+	
+	@Override
+	public HashMap<String, List<ProductDTO>> productBySpecs(String spec) {
+		
+		HashMap<String, List<ProductDTO>> prodBySpecs = new HashMap<>();
+		
+		//spec에 맞는 value 값
+		
+		ProdSpec[] pdSpecs = ProdSpec.values();
+			
+		if(spec.equals("")) {
+			for (int i = 0; i < pdSpecs.length; i++) {
+				prodBySpecs.put(pdSpecs[i].toString(),mapper.productBySpec(pdSpecs[i].toString()));
+			}
+		}else{
+			prodBySpecs.put(spec,mapper.productBySpec(spec));
+			
+		}
 		return prodBySpecs;
 	}
 
-
-
+	@Override
+	public HashMap<String, List<ProductDTO>> productByCategoryName(String categoryCode,String spec) {
+		
+		HashMap<String, List<ProductDTO>> prodByCategoryName = new HashMap<>();
+			String categoryName = mapper.getCategoryNameByCode(categoryCode);	
+		if(spec.equals("all")) {
+			System.out.println(spec);
+			prodByCategoryName.put(categoryName,mapper.productByCategoryName(categoryCode));
+		}else {
+			spec = spec.toUpperCase();
+			prodByCategoryName.put(categoryName,mapper.productByCategoryNameSpec(categoryCode,spec));
+		}
+		return prodByCategoryName;
+	}
+	
 }

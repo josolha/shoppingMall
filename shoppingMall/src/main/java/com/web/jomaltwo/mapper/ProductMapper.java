@@ -22,4 +22,10 @@ public interface ProductMapper {
 	public List<ProductDTO> productBySpec(String spec);
 	
 	public int totalCnt(PageDTO pDto);
+	
+	public String getCategoryNameByCode(String categoryCode);
+	
+	public List<ProductDTO> productByCategoryName(String categoryCode);
+	
+	public List<ProductDTO> productByCategoryNameSpec(String categoryCode,String spec);
 }

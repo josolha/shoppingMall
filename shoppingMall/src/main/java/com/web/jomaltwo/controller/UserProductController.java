@@ -6,36 +6,66 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.web.jomaltwo.model.ProductDTO;
+import com.web.jomaltwo.model.UserDTO;
 import com.web.jomaltwo.service.ProductService;
 
 @Controller
-@RequestMapping("/user")
+//@RequestMapping("/user")
 public class UserProductController {
 	
 	@Autowired
 	private ProductService pService;
 	
+	
+	//모든 상품 보여주는곳 -> 사용자 메인
 	@RequestMapping(value= "products.do", method =RequestMethod.GET)
-	public String UserProductList(Model model) {
-		HashMap<String,List<ProductDTO>> map = pService.productBySpecs();
+	public String UserProductList(Model model, @RequestParam(defaultValue = "") String spec) {
+		
+		HashMap<String,List<ProductDTO>> map = pService.productBySpecs(spec);
+		
 		model.addAttribute("map", map);
 		
 		return "user/user_prod_list";
 		
 	}
-	@RequestMapping(value= "productView.do", method =RequestMethod.GET)
-	public String UserProductView(int pNum,Model model) {
-		
-		ProductDTO pDto =pService.productInfo(pNum);
-		model.addAttribute("pDto",pDto);
-		
-		return "user/user_prod_view";
-		
-	}
+	
+	
+//	@RequestMapping(value= "productView.do", method =RequestMethod.GET)
+//	public String UserProductView(int pNum,Model model) {
+//		
+//		ProductDTO pDto =pService.productInfo(pNum);
+//		model.addAttribute("pDto",pDto);
+//		
+//		return "user/user_prod_view";
+//	}
+	
+	// 카테고리별 상품들
+	@GetMapping("/products/{categoryCode}/{spec}")
+    public String getProductListByCategory(@PathVariable String categoryCode,@PathVariable String spec, Model model) {
+    	
+    	System.out.println(categoryCode);
+    	System.out.println(spec);
+        
+    	HashMap<String,List<ProductDTO>> map = pService.productByCategoryName(categoryCode,spec);
+    	
+    	model.addAttribute("cate_code", categoryCode);
+    	model.addAttribute("map", map);
+    	System.out.println(map);
+    	      
+        return "user/user_prod_list";
+    }
+	
+	
+
+
 	
 	
 	

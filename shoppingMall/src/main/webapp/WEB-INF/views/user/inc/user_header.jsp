@@ -15,8 +15,30 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="${ctxPath}/css/main.css">
   
+     <script>
+		$(document).ready(function(){
+		  $("#productDropdown").click(function(){
+		    $.ajax({
+		      url: "${ctxPath}/categorieSide",
+		      success: function(result){
+		        
+		    	/* alert("성공"); */
+		    	var categories = result;
+		        
+		        var dropdownItems = "";
+		        categories.forEach(function(category) {
+		          dropdownItems += '<a href="${ctxPath}/products/'+ category.code +'/all'+'" class="dropdown-item" href="#">' + category.cate_name + '</a>';
+		        });
+		        $(".dropdown-menu").html(dropdownItems);
+		   		 }
+		      });
+		    });
+		  });
+	</script>
 </head>
 
 <body style="background : #fcf9ee">
