@@ -60,5 +60,17 @@
 .dropdown-toggle::after {
   display: none;
 }
+ .link-btn {
+     border: 1px solid black;
+     padding: 5px 10px;
+     border-radius: 10px;
+     color: black;
+     text-decoration: none;
+     margin-right: 10px;
+ }
 
+ .link-btn:hover {
+     background-color: black;
+     color: white;
+ }
 

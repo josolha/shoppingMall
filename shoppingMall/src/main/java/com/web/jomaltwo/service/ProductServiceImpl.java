@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -14,8 +15,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.web.jomaltwo.mapper.CategoryMapper;
 import com.web.jomaltwo.mapper.ProductMapper;
+import com.web.jomaltwo.model.CartDTO;
 import com.web.jomaltwo.model.PageDTO;
 import com.web.jomaltwo.model.ProductDTO;
+import com.web.jomaltwo.model.ProductViewDTO;
 import com.web.jomaltwo.util.ProdSpec;
 
 @Service
@@ -23,6 +26,7 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Autowired
 	private ProductMapper mapper;
+	
 
 	@Override
 	public int productInsert(ProductDTO dto) {
@@ -148,19 +152,73 @@ public class ProductServiceImpl implements ProductService{
 		return prodBySpecs;
 	}
 
+//	@Override
+//	public HashMap<String, List<ProductDTO>> productByCategoryName(String categoryCode,String spec) {
+//		
+//		HashMap<String, List<ProductDTO>> prodByCategoryName = new HashMap<>();
+//			String categoryName = mapper.getCategoryNameByCode(categoryCode);	
+//		if(spec.equals("all")) {
+//			System.out.println(spec);
+//			prodByCategoryName.put(categoryName,mapper.productByCategoryName(categoryCode));
+//		}else {
+//			spec = spec.toUpperCase();
+//			prodByCategoryName.put(categoryName,mapper.productByCategoryNameSpec(categoryCode,spec));
+//		}
+//		return prodByCategoryName;
+//	}
+
+//	@Override
+//	public ProductViewDTO productView(ProductViewDTO viewDTO) {
+//	    String cate_name = mapper.getCategoryNameByCode(viewDTO.getCate_code());
+//	    String spec = viewDTO.getSpec().toUpperCase();
+//	    String keyword = viewDTO.getKeyWord();
+//
+//	    List<ProductDTO> productList;
+//
+//	    if (spec.equals("ALL")) {
+//	        if (keyword != null && !keyword.isBlank()) {
+//	            productList = mapper.productByCategoryNameWithKeyword(viewDTO.getCate_code(), keyword);
+//	        } else {
+//	            productList = mapper.productByCategoryName(viewDTO.getCate_code());
+//	        }
+//	    } else {
+//	        if (keyword != null && !keyword.isBlank()) {
+//	            productList = mapper.productByCategoryNameSpecWithKeyword(viewDTO.getCate_code(), spec, keyword);
+//	        } else {
+//	            productList = mapper.productByCategoryNameSpec(viewDTO.getCate_code(), spec);
+//	        }
+//	    }
+//	    return ProductViewDTO.builder()
+//	            .cate_code(viewDTO.getCate_code())
+//	            .cate_name(cate_name)
+//	            .spec(spec)
+//	            .keyWord(keyword)
+//	            .product(productList)
+//	            .build();
+//	}
 	@Override
-	public HashMap<String, List<ProductDTO>> productByCategoryName(String categoryCode,String spec) {
-		
-		HashMap<String, List<ProductDTO>> prodByCategoryName = new HashMap<>();
-			String categoryName = mapper.getCategoryNameByCode(categoryCode);	
-		if(spec.equals("all")) {
-			System.out.println(spec);
-			prodByCategoryName.put(categoryName,mapper.productByCategoryName(categoryCode));
-		}else {
-			spec = spec.toUpperCase();
-			prodByCategoryName.put(categoryName,mapper.productByCategoryNameSpec(categoryCode,spec));
+	public ProductViewDTO productView(ProductViewDTO viewDTO) {
+		    String cate_name = mapper.getCategoryNameByCode(viewDTO.getCate_code());
+		    String spec = viewDTO.getSpec().toUpperCase();
+		    String keyword = viewDTO.getKeyWord();
+
+		    Map<String, Object> parameterMap = new HashMap<>();
+		    parameterMap.put("cate_code", viewDTO.getCate_code());
+		    parameterMap.put("spec", spec);
+		    parameterMap.put("keyWord", keyword);
+
+		    System.out.println("parameterMap"+parameterMap);
+		    List<ProductDTO> productList = mapper.productByCategoryNameSpec(parameterMap);
+		    System.out.println("productList"+productList);
+
+		    return ProductViewDTO.builder()
+		            .cate_code(viewDTO.getCate_code())
+		            .cate_name(cate_name)
+		            .spec(spec)
+		            .keyWord(keyword)
+		            .product(productList)
+		            .build();
 		}
-		return prodByCategoryName;
-	}
+
 	
 }

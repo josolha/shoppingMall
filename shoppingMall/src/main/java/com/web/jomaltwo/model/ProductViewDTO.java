@@ -1,11 +1,18 @@
 package com.web.jomaltwo.model;
 
-import lombok.Data;
+import java.util.List;
 
-@Data
+import lombok.Builder;
+import lombok.Getter;
+
+@Getter
+@Builder
 public class ProductViewDTO {
 	private String spec;
-	private String categoryCode;
-	private ProductDTO product;
+	private String cate_code;
+	private String cate_name;
+	private List<ProductDTO> product;
+	private String keyWord;
 
 }
+

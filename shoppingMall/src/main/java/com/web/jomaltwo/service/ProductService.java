@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.web.jomaltwo.model.CategoryDTO;
 import com.web.jomaltwo.model.PageDTO;
 import com.web.jomaltwo.model.ProductDTO;
+import com.web.jomaltwo.model.ProductViewDTO;
 
 public interface ProductService {
 	
@@ -34,7 +35,9 @@ public interface ProductService {
 	
 	public HashMap<String,List<ProductDTO>> productBySpecs();
 	
-	public HashMap<String,List<ProductDTO>> productByCategoryName(String categoryName,String spec);
+//	public HashMap<String,List<ProductDTO>> productByCategoryName(String categoryName,String spec);
+	
+	public ProductViewDTO productView(ProductViewDTO viewDTO);
 	
 
 }

@@ -1,6 +1,9 @@
 package com.web.jomaltwo.mapper;
 
 import java.util.List;
+import java.util.Map;
+
+import org.apache.ibatis.annotations.Param;
 
 import com.web.jomaltwo.model.PageDTO;
 import com.web.jomaltwo.model.ProductDTO;
@@ -27,5 +30,9 @@ public interface ProductMapper {
 	
 	public List<ProductDTO> productByCategoryName(String categoryCode);
 	
-	public List<ProductDTO> productByCategoryNameSpec(String categoryCode,String spec);
+//	public List<ProductDTO> productByCategoryNameSpec(String categoryCode,String spec);
+	
+	public List<ProductDTO> productByCategoryNameSpec(Map<String, Object> parameterMap);
+
+
 }

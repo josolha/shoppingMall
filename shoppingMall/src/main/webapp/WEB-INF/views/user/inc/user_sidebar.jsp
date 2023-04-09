@@ -25,10 +25,6 @@
 	        </a>
 	        	        
 	        <div class="dropdown-menu" aria-labelledby="productDropdown">
-	  <%--         <a href="${ctxPath}/products/0001" class="dropdown-item" href="#">Perfume</a>
-	          <a href="${ctxPath}/products/0002" class="dropdown-item" href="#">Candle</a>
-	          <a href="${ctxPath}/products/0003" class="dropdown-item" href="#">Body</a>
-	          <a href="${ctxPath}/products/0004" class="dropdown-item" href="#">Diffuser</a> --%>
 	        </div>
 	      </li>         
 	              
