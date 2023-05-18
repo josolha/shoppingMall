@@ -11,6 +11,11 @@
 			<typeAlias type="com.web.jomaltwo.model.BoardDTO" alias ="BoardDTO"/>
 			<typeAlias type="com.web.jomaltwo.model.ReplyDTO" alias="ReplyDTO" />
 			<typeAlias type="com.web.jomaltwo.model.CartDTO" alias="CartDTO" />
+			<typeAlias type="com.web.jomaltwo.model.ProductViewDTO" alias="ProductViewDTO" />
+			<typeAlias type="com.web.jomaltwo.model.PaymentInfoDTO" alias="PaymentInfoDTO" />
+			<typeAlias type="com.web.jomaltwo.model.OrderInfoDTO" alias="OrderInfoDTO" />
+			<typeAlias type="com.web.jomaltwo.model.PointDTO" alias="PointDTO" />
+			<typeAlias type="com.web.jomaltwo.model.OrderItemsDTO" alias="OrderItemsDTO" />
 			
 	</typeAliases>
 </configuration>

@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
+
 
 import com.web.jomaltwo.model.ProductDTO;
 import com.web.jomaltwo.model.ProductViewDTO;
-import com.web.jomaltwo.model.UserDTO;
 import com.web.jomaltwo.service.ProductService;
 
 @Controller
@@ -38,8 +37,8 @@ public class UserProductController {
 		
 	}
 	
-	
-@RequestMapping(value= "productView.do", method =RequestMethod.GET)
+	//상품상세 보기
+	@RequestMapping(value= "productView.do", method =RequestMethod.GET)
 	public String UserProductView(int pNum,Model model) {
 
 	ProductDTO pDto =pService.productInfo(pNum);
@@ -48,50 +47,35 @@ public class UserProductController {
 		return "user/user_prod_view";
 	}
 	
-	// 카테고리별 상품들
-//	@GetMapping("/products/{categoryCode}/{spec}")
-//    public String getProductListByCategory(@PathVariable String categoryCode,@PathVariable String spec, Model model) {
-//    	
-//    	System.out.println(categoryCode);
-//    	System.out.println(spec);
-//        
-//    	HashMap<String,List<ProductDTO>> map = pService.productByCategoryName(categoryCode,spec);
-//    	
-//    	model.addAttribute("cate_code", categoryCode);
-//    	model.addAttribute("map", map);
-//    	System.out.println(map);
-//    	      
-//        return "user/user_prod_list";
-//    }
-
 	// 상품 분류하기 (카테코리, 스펙, 키워드 )
 	@GetMapping("/products/{cate_code}/{spec}")
 	public String productView(@PathVariable String cate_code, @PathVariable String spec,
-					@RequestParam(value = "keyword", required = false) String keyword, Model model){
-
-	    ProductViewDTO productView = ProductViewDTO.builder()
-	                                    .cate_code(cate_code)
-	                                    .spec(spec)
-	                                    .keyWord(keyword)
-	                                    .build();
+			 				  @RequestParam(defaultValue = "") String keyWord,
+			 				  @RequestParam(defaultValue = "8") int cntPerPage,
+			 				  @RequestParam(defaultValue = "1") int viewPage,
+			 				  Model model){
+		
+		System.out.println("viewPage :" + viewPage);
+		
+	   ProductViewDTO productView = ProductViewDTO.builder()
+		            		.cate_code(cate_code)
+		            		.spec(spec)
+		            		.keyWord(keyWord)
+		            		.cntPerPage(cntPerPage)
+		            		.viewPage(viewPage)
+		            		.build();
+	   
+	   System.out.println("프로덕트뷰 이전  : "+productView);
+	   
+	   ProductViewDTO result = pService.productView(productView);
 	    
-
-	    ProductViewDTO result = pService.productView(productView);
 	    System.out.println("프로덕트뷰 : "+result);
-
-	    model.addAttribute("map", result);
+	   
+	    model.addAttribute("pdView", result);
+	    
+	    model.addAttribute("pageDto", productView);
 	    model.addAttribute("cate_code", cate_code);
 
 	    return "user/user_prod_list";
 	}
-
-
-	
-	
-
-
-	
-	
-	
-
 }

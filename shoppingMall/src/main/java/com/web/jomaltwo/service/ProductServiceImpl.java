@@ -198,27 +198,32 @@ public class ProductServiceImpl implements ProductService{
 //	}
 	@Override
 	public ProductViewDTO productView(ProductViewDTO viewDTO) {
-		    String cate_name = mapper.getCategoryNameByCode(viewDTO.getCate_code());
-		    String spec = viewDTO.getSpec().toUpperCase();
-		    String keyword = viewDTO.getKeyWord();
-
-		    Map<String, Object> parameterMap = new HashMap<>();
-		    parameterMap.put("cate_code", viewDTO.getCate_code());
-		    parameterMap.put("spec", spec);
-		    parameterMap.put("keyWord", keyword);
-
-		    System.out.println("parameterMap"+parameterMap);
-		    List<ProductDTO> productList = mapper.productByCategoryNameSpec(parameterMap);
-		    System.out.println("productList"+productList);
-
-		    return ProductViewDTO.builder()
-		            .cate_code(viewDTO.getCate_code())
-		            .cate_name(cate_name)
-		            .spec(spec)
-		            .keyWord(keyword)
-		            .product(productList)
-		            .build();
-		}
-
+		
+		int productViewCnt = mapper.productViewCnt(viewDTO);
+		viewDTO.setValue(productViewCnt, viewDTO.getCntPerPage());
+		
+		List<ProductDTO> productList = mapper.productByCategoryNameSpec(viewDTO);
 	
+		
+	    String cate_name = mapper.getCategoryNameByCode(viewDTO.getCate_code());
+	    String spec = viewDTO.getSpec().toUpperCase();
+	    
+	    
+	    ProductViewDTO result = ProductViewDTO.builder()
+                .cate_code(viewDTO.getCate_code())
+                .cate_name(cate_name)
+                .spec(spec)
+                .product(productList)
+                .viewPage(viewDTO.getViewPage())
+                .keyWord(viewDTO.getKeyWord())
+                .build();
+	    		
+	    result.setValue(productViewCnt, viewDTO.getCntPerPage());
+	   
+	    
+
+	    return result;
+
+	}
+
 }

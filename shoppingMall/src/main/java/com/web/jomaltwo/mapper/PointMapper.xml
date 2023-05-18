@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.web.jomaltwo.mapper.PointMapper">
+
+	   <insert id="initInsert" parameterType="String" >
+		 	  INSERT INTO points (member_id)
+  			  VALUES (#{member_id})
+	   </insert>
+	   
+	   <select id="pointCheck" parameterType="String" resultType="Integer" >
+	   		  SELECT SUM(point_amount) AS total_points FROM points where member_id = #{member_id}
+	   </select>		
+	   
+	   
+	   <insert id="pointInsert" parameterType="PointDTO" >
+		 	  INSERT INTO points (member_id,payment_id,point_amount,point_date)
+  			  VALUES (#{member_id},#{payment_id},#{point_amount}, now())
+	   </insert>			
+	   
+	   
+  
+   
+</mapper>

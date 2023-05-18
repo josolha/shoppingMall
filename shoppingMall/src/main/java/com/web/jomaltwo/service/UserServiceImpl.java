@@ -13,6 +13,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.web.jomaltwo.mapper.PointMapper;
 import com.web.jomaltwo.mapper.ProductMapper;
 import com.web.jomaltwo.mapper.UserMapper;
 import com.web.jomaltwo.model.UserDTO;
@@ -28,6 +29,9 @@ public class UserServiceImpl implements UserService {
 	private UserMapper mapper;
 	
 	@Autowired
+	private PointMapper pMapper;
+	
+	@Autowired
     private BCryptPasswordEncoder pwEncoder;
 	
 	
@@ -38,7 +42,9 @@ public class UserServiceImpl implements UserService {
 		String ciperPw = pwEncoder.encode(inputPw);
 		dto.setPw(ciperPw);
 		System.out.println(dto);
-		return mapper.userInput(dto);
+		mapper.userInput(dto);
+		
+		return pMapper.initInsert(dto.getId());
 	}
 
 

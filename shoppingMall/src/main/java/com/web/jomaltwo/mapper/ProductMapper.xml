@@ -60,44 +60,51 @@
 	  
 	  </sql>
 	  
+	  
   	 <select id="productByCategoryName" parameterType="String" resultType="productDTO">
    	 		SELECT * FROM product WHERE pCategory_fk = #{categoryCode}
    	 </select>
    	 
+   	 
    	 <select id="getCategoryNameByCode" parameterType="String" resultType="String">
     	    SELECT cate_name FROM category WHERE code = #{categoryCode}
 	</select>
+
+	  
+	 <select id="productByCategoryNameSpec" parameterType="productViewDTO" resultType="productDTO">
+	    SELECT * FROM product WHERE pCategory_fk = #{cate_code}
+	    
+	    <if test="spec != null and spec != '' and spec != 'all'">
+	        AND pSpec = #{spec}
+	    </if>
+	    <if test="keyWord != null and keyWord != ''">
+	        AND pName LIKE CONCAT('%', #{keyWord}, '%')
+	    </if>
+	    
+	    ORDER BY pNum DESC LIMIT #{startIndex}, #{cntPerPage}
+	    
+	</select>
 	
-<!-- 	 <select id="productByCategoryNameSpec" parameterType="Map" resultType="productDTO">
-    	    SELECT * FROM product WHERE pCategory_fk = #{param1} AND pSpec = #{param2}
-    	    <include refid="productBySpec"></include> 
-	</select> -->
-	<!--
-	  <sql id="productBySpec">
+	 <select id="productViewCnt" parameterType="productViewDTO" resultType="Integer">
 	  
-	  	<if test= "param2 == 'new'.toString()">
-	  		AND pSpec = "NEW"
-	  	</if>
-	  	
-		<if test= "param2 == 'recommend'.toString()">
-	  		AND pSpec = "RECOMMEND"
-	  	</if>
-	  	
-	  	<if test= "param2 == 'hit'.toString()">
-	  		AND pSpec = "HIT"
-	  	</if>
-	  </sql> 
-	  --> 
-	  
-	 <select id="productByCategoryNameSpec" parameterType="Map" resultType="productDTO">
-    SELECT * FROM product WHERE pCategory_fk = #{cate_code}
-    <if test="spec != null and spec != '' and spec != 'ALL'">
-        AND pSpec = #{spec}
-    </if>
-    <if test="keyWord != null and keyWord != ''">
-        AND pName LIKE CONCAT('%', #{keyWord}, '%')
-    </if>
-</select>
+   			SELECT count(*) FROM product WHERE pCategory_fk = #{cate_code}
+	   			
+ 		    <if test="spec != null and spec != '' and spec != 'all'">
+		        AND pSpec = #{spec}
+		    </if>
+		    <if test="keyWord != null and keyWord != ''">
+		        AND pName LIKE CONCAT('%', #{keyWord}, '%')
+		    </if>
+	  </select>
+	
+	
+	 <update id ="decreaseStock" parameterType="orderItemsDTO">
+	 		    UPDATE product
+      			SET pQty = pQty - #{quantity}
+        		WHERE pNum = #{product_id}
+	        
+	 </update>
+	
 	  
    	
  

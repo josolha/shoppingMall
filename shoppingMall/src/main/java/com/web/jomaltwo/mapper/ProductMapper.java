@@ -5,8 +5,10 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
+import com.web.jomaltwo.model.OrderItemsDTO;
 import com.web.jomaltwo.model.PageDTO;
 import com.web.jomaltwo.model.ProductDTO;
+import com.web.jomaltwo.model.ProductViewDTO;
 
 public interface ProductMapper {
 	
@@ -30,9 +32,10 @@ public interface ProductMapper {
 	
 	public List<ProductDTO> productByCategoryName(String categoryCode);
 	
-//	public List<ProductDTO> productByCategoryNameSpec(String categoryCode,String spec);
+	public List<ProductDTO> productByCategoryNameSpec(ProductViewDTO viewDTO);
 	
-	public List<ProductDTO> productByCategoryNameSpec(Map<String, Object> parameterMap);
-
+	public int productViewCnt(ProductViewDTO viewDTO);
+	
+	public int decreaseStock(OrderItemsDTO dto);
 
 }

@@ -21,14 +21,15 @@
 						</tr>
 					</thead>
 					<tbody>
-					<c:if test="${cartList.size() == null || cartList.size() ==0 }">
-						<tr>
-							<td colspan="6">Cart is empty.</td>
-						</tr>
-					</c:if>
+						<c:if test="${cartList.size() == null || cartList.size() ==0 }">
+							<tr>
+								<td colspan="6">Cart is empty.</td>
+							</tr>
+						</c:if>
 						<c:if test="${cartList.size() != 0 }">
 						<c:set var="cartTotalPrice" value="0"/>
 						<c:set var="cartTotalPoint" value="0"/>
+						
 						<c:forEach var="cart" items="${cartList}">
 						<tr>
 							<td>
@@ -50,6 +51,7 @@
 						<c:set var="cartTotalPrice" value="${cartTotalPrice + cart.product.price * cart.product_cnt}"/>
 						<c:set var="cartTotalPoint" value="${cartTotalPoint + cart.product.PPoint * cart.product_cnt}"/>
 						</c:forEach>
+						
 						<tr>
 							<td colspan="5"></td>
 							<td>
@@ -114,7 +116,7 @@
 			</tr>
 			<tr>
 				<td>Phone.</td>
-				<td><input class="form-control mb-2" type="text" placeholder="휴대폰 번호" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required></td>
+				<td><input class="form-control2 mb-2" type="text" placeholder="휴대폰 번호" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required></td>
 
 			</tr>
 					<tr>
@@ -135,7 +137,7 @@
 					/>
 					<input type="checkbox" id="use" onclick="usePoint(this,${cartTotalPoint},${cartTotalPrice})"/>
 					<label for ="use">
-						전액사용[<fmt:formatNumber value="${cartTotalPoint}"/>P]
+						전액사용[<fmt:formatNumber value="${cartTotalPoint+totalPoint}"/>P]
 					</label>
 				</td>
 			</tr>
@@ -221,34 +223,142 @@
 	<script src="${ctxPath}/js/zipcode.js"></script>
 	
 	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+	
  <script>
 	function requestPay() {
+		
+	  
+
+	// 리스트에서 각 항목을 순회하며 데이터 추출
+
+		  
+      var userId = "${UserDto.id}";
+      var name = "${UserDto.name}";
+      var email = "${UserDto.email}"
+      var phone = "${UserDto.phone}"
+      
+      
+      // 주문리스트.
+	  var roadAddr = document.getElementById('sample2_address').value;
+	  var detailAddr = document.getElementById('sample2_detailAddress').value;	
+	  var fullAddress = roadAddr + ' ' + detailAddr;
+      var receiver_name = document.querySelector('.form-control.mb-2.col-4').value;
+      var receiver_phone = document.querySelector('.form-control2.mb-2').value;
+	
+    
+      // 총 가격과 총 포인트
+      var totalCartPrice = ${cartTotalPrice};
+      var totalCartPoint = ${cartTotalPoint};
+      var totalPrice = document.getElementById('cartTotPrice').textContent;
+      
+      
+      // 상품리스트 
+
+      
+      
+      //사용 포인트 
+      var usedPoint = document.querySelector('#point').value.replace(/,/g, "");
+   
+      
+
+      
+      
 	  IMP.init('imp03611203'); //iamport 대신 자신의 "가맹점 식별코드"를 사용
 	  IMP.request_pay({
-	    pg: "KG이니시스.INIBillTst",
+	    pg: "카카오페이 결제창",
 	    pay_method: "card",
 	    merchant_uid : 'merchant_'+new Date().getTime(),
 	    name : '결제테스트',
-	    amount : 14000,
-	    buyer_email : 'iamport@siot.do',
-	    buyer_name : '구매자',
-	    buyer_tel : '010-1234-5678',
-	    buyer_addr : '서울특별시 강남구 삼성동',
+	    amount: parseInt(totalPrice.replace(/[^0-9]/g, '')),
+	    buyer_email : email,
+	    buyer_name : name,
+	    buyer_tel : phone,
+	    buyer_addr : fullAddress,
 	    buyer_postcode : '123-456'
         
-        
 	  }, function (rsp) { // callback
+		  
 	      if (rsp.success) {
-	          var msg = '결제가 완료되었습니다.';
-	          alert(msg);
-	          location.href = "결제 완료 후 이동할 페이지 url"
+	    	  
+	    	  var msg = '결제가 완료되었습니다.';
+	    	  alert(msg);
+	    	  
+	          var cartList = "${orderItems}";
+
+	    	  
+	          var orderItems = [];
+
+	          <c:forEach items="${cartList}" var="cart">
+	          
+	            var orderItem = {
+	              order_id:String(rsp.merchant_uid+"order"),		
+	              product_id: ${cart.product_id},
+	              quantity: ${cart.product_cnt}
+	            };
+	            
+	            orderItems.push(orderItem);
+	          </c:forEach>
+
+	          console.log(orderItems);
+	    	  
+	          var paymentInfo = {
+	        		  
+	        		  //결제정보 
+	                  payment_id: String(rsp.merchant_uid),
+	                  order_id: String(rsp.merchant_uid+"order"),
+	                  payment_date: new Date(), // 결제 일자는 현재 시간으로 설정
+	                  used_points: usedPoint,
+	                  earn_points: totalCartPoint - usedPoint,
+	                  amount: rsp.paid_amount, // 결제된 금액은 아임포트의 paid_amount를 사용
+	                  payment_status: 'PAID', // 결제 상태를 'PAID'로 설정
+	                  
+	                  //주문정보
+                      orderInfo: {
+                    	order_id: String(rsp.merchant_uid+"order"),
+                    	member_id: userId,
+                    	order_date: new Date(),
+                        total_amount: totalCartPrice, // 총 가격
+                        receiver_name: receiver_name,
+                        receiver_phone:	receiver_phone,
+                    	shipping_address: fullAddress  // 사용자가 입력한 주소로 변경
+      	        	  },
+	          
+	          		  //포인트정보
+	          		  pointInfo:{
+	          			  order_id : String(rsp.merchant_uid+"order"),
+		          		  member_id :userId,
+		          		  payment_id :String(rsp.merchant_uid),
+		          		  /* point_amount : usedPoint를 뺸 값으로 업데이트*/
+	          		  },
+	          		
+	          		  //상품아이템정보 
+	          		 orderItems : orderItems
+	                };
+	          
+	          $.ajax({
+	            url: '${ctxPath}/payments',
+	            method: 'POST',
+	            contentType: 'application/json', 
+	            data: JSON.stringify(paymentInfo),
+	            success: function (response) {        
+	              console.log('결제 정보 전송 성공');
+	            },
+	            
+	            error: function (xhr, status, error) {
+	            	 console.log('결제 정보 전송 실패', xhr.responseText); // 수정된 부분
+	            }
+	           });
+	          
+	          location.href = "${ctxPath}/myPage.do"  
+	                    
 	      } else {
     	     var msg = '결제에 실패하였습니다.';
     	      msg += '에러내용 : ' + rsp.error_msg;
     	      alert(msg);
-        
-	      }
+       
+     		 }
 	  });
+	  
 	}
 </script>
 

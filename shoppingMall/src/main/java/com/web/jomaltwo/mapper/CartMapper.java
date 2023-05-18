@@ -14,5 +14,7 @@ public interface CartMapper {
 	public int cartUpdate(CartDTO dto);
 	
 	public int cartDelete(CartDTO dto);
+	
+	public int deleteCartItems(String user_id);
 
 }

@@ -68,46 +68,7 @@ public class ProductController {
 		
 		return "admin/prod_input";
 	}
-	
-	
-//	@RequestMapping("/productAdd.do")
-//	public String productRegister(@RequestParam("file") MultipartFile file, @ModelAttribute ProductDTO dto, HttpServletRequest request, Model model) throws IOException {
-//
-//	    String fileName = file.getOriginalFilename();
-//	    
-//	    if (!fileName.isEmpty()) {
-//	    	
-//    	String UPLOAD_DIR = "resources/file_repo";	
-//    	
-//    	ServletContext servletContext = request.getSession().getServletContext();
-//    	
-//    	System.out.println(servletContext.getRealPath(""));
-//    	
-//    	String uploadPath = servletContext.getRealPath("")+File.separator+UPLOAD_DIR;
-//    	
-//	        File uploadDir = new File(uploadPath);
-//	        
-//	        if (!uploadDir.exists()) {
-//	            uploadDir.mkdirs();
-//	        }
-//	        
-//	        File uploadFile = new File(uploadPath + File.separator + fileName);
-//	        
-//	        if (uploadFile.exists()) {
-//	            fileName = System.currentTimeMillis() + "_" + fileName;
-//	            uploadFile = new File(uploadPath + File.separator + fileName);
-//	        }
-//	        
-//	        file.transferTo(uploadFile);
-//	        
-//		    dto.setPImage(fileName); 
-//		    
-//		    pService.productInsert(dto);
-//		    
-//		    return "redirect:productList.do";
-//    	}
-	
-	    
+		    
     @RequestMapping("/productAdd.do")
     public String productRegister(@RequestParam("file") MultipartFile file, @ModelAttribute ProductDTO dto,HttpServletRequest request, Model model) throws Exception {
         if (!file.isEmpty()) {
