@@ -38,6 +38,10 @@
 				<th scope="row">Phone.</th>
 				<td>${UserDto.phone}</td>
 			</tr>
+			<tr>
+				<th scope="row">My Point.</th>
+				<td>${totalPoint}</td>
+			</tr>
 		</tbody>
 	</table>
 
@@ -171,23 +175,27 @@
 	<table id="payTable" class="table mt-3">
 		<thead>
 			<tr>
-				<th>No.</th>
+				<th>Name.</th>   
 				<th>Date.</th>
+				<th>Quantity.</th>
 				<th>Price.</th>
+				<th>State.</th>
 			</tr>
 		</thead>
 		<tbody>
+		    <c:forEach var="dto" items="${PaymentHistoydto}">	
 			<tr>
-				<td>20220001</td>
-				<td>2022-01-01</td>
-				<td>10,000원</td>
+				<td>${dto.productName}</td> 
+		        <td><fmt:formatDate value="${dto.purchaseDate}" pattern="yyyy-MM-dd"/></td>
+				<td>${dto.purchaseQuantity}</td>
+				<td>${dto.purchasePrice}</td>
+				<td>
+					<button>${dto.purchaseStatus}</button>
+				</td>
 			</tr>
-			<tr>
-				<td>20220002</td>
-				<td>2022-01-15</td>
-				<td>20,000원</td>
-			</tr>
-			<!-- 이하 생략 -->
+			</c:forEach>
+
+	<!-- 이하 생략 -->
 		</tbody>
 	</table>
 

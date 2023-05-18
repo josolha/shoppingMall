@@ -6,8 +6,8 @@
 <mapper namespace="com.web.jomaltwo.mapper.OrderItemsMapper">
 
 	   <insert id="orderItemsInsert" parameterType="OrderItemsDTO" >
-		 	  INSERT INTO order_items (order_id, product_id,quantity )
-  			  VALUES (#{order_id},#{product_id},#{quantity})
+		 	  INSERT INTO order_items (order_id, order_date,product_id,quantity )
+  			  VALUES (#{order_id},now(),#{product_id},#{quantity})
 	   </insert>					
   
    

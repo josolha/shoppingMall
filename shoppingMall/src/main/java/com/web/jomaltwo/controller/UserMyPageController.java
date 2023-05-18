@@ -1,5 +1,8 @@
 package com.web.jomaltwo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +16,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
+import com.web.jomaltwo.model.PaymentHistoryDTO;
 import com.web.jomaltwo.model.UserDTO;
+import com.web.jomaltwo.service.PaymentHistoryService;
+import com.web.jomaltwo.service.PointService;
 import com.web.jomaltwo.service.UserService;
 
 
@@ -23,6 +29,12 @@ public class UserMyPageController {
 	
 		@Autowired
 		private UserService service;
+		
+		@Autowired
+		private PointService pService;
+		
+		@Autowired
+		private PaymentHistoryService hService;
 	
 	
 		@GetMapping("/myPage.do")
@@ -30,6 +42,18 @@ public class UserMyPageController {
 						
 			UserDTO dto = service.userInfo(loginDto.getId());
 			model.addAttribute("UserDto",dto);
+			// 여기에 포인트랑 결제내역 추가해야 함.
+			int totalPoint = pService.checkPoint(loginDto.getId());
+			
+			String paymentId = "merchant_1684422661832"; 
+			List<PaymentHistoryDTO> PaymentHistoydto = hService.getPaymentHistory(paymentId);
+			
+			System.out.println(PaymentHistoydto);
+			
+			model.addAttribute("PaymentHistoydto",PaymentHistoydto);
+			model.addAttribute("totalPoint",totalPoint);
+			
+			
 			
 			return "user/user_myPage";
 	}

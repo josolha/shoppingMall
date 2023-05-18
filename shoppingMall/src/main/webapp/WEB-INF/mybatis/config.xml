@@ -16,6 +16,7 @@
 			<typeAlias type="com.web.jomaltwo.model.OrderInfoDTO" alias="OrderInfoDTO" />
 			<typeAlias type="com.web.jomaltwo.model.PointDTO" alias="PointDTO" />
 			<typeAlias type="com.web.jomaltwo.model.OrderItemsDTO" alias="OrderItemsDTO" />
+			<typeAlias type="com.web.jomaltwo.model.PaymentHistoryDTO" alias="PaymentHistoryDTO" />
 			
 	</typeAliases>
 </configuration>
