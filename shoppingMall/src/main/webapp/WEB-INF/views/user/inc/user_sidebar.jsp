@@ -9,10 +9,10 @@
         
         <!-- css로 맨 item 마다 맨 오른쪽에 > 표시 작성 필요 -->
           <li class="nav-item ml-0">
-  			 <a class="nav-link text-dark" href="${ctxPath}/myPage.do" style="text-decoration:none">My Page</a>  
+  			 <a class="nav-link text-dark" href="${ctxPath}/user/myPage.do" style="text-decoration:none">My Page</a>  
           </li>	
           <li class="nav-item ml-0">
-  			 <a class="nav-link text-dark" href="${ctxPath}/cart" style="text-decoration:none">My Cart</a>  
+  			 <a class="nav-link text-dark" href="${ctxPath}/user/cart" style="text-decoration:none">My Cart</a>  
           </li>
           
   		  <li class="nav-item">
@@ -29,12 +29,11 @@
 	      </li>         
 	              
 			<li class="nav-item order">
-			  <a class="nav-link order-link text-dark" href="${ctxPath}/checkout.do" style="text-decoration:none">Order</a>
+			  <a class="nav-link order-link text-dark" href="${ctxPath}/user/checkout.do" style="text-decoration:none">Order</a>
 			</li>  
          
         </ul>
       </div>
     </nav>
  
-    <div class="container mt-5  col-md-8 mx-auto">
-   <div class="border shadow-sm p-5 mb-3 w-100"> 		
+ 	

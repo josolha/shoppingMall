@@ -24,6 +24,7 @@ import com.web.jomaltwo.service.ProductService;
 import com.web.jomaltwo.service.UserService;
 
 @Controller
+@RequestMapping("/user")
 public class UserCheckOutViewController {
 	
 	@Autowired

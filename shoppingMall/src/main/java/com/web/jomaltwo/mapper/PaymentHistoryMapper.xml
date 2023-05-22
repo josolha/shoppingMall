@@ -6,18 +6,20 @@
 <mapper namespace="com.web.jomaltwo.mapper.PaymentHistoryMapper">
 
 	   <select id="getPaymentHistory" resultType="PaymentHistoryDTO" parameterType="string" >
-		SELECT 
-		    p.pName AS productName,
-		    DATE_FORMAT(o.order_date, '%Y-%m-%d')AS purchaseDate,
-		    oi.quantity AS purchaseQuantity,
-		    p.price * oi.quantity AS purchasePrice,  <!-- 개별 상품에 대한 총 구매 가격 -->
-		    p.price - pa.used_points AS actualPrice, <!-- 실제 지불 가격 -->
-		    o.order_state AS purchaseStatus
-		FROM payments AS pa
-		INNER JOIN orders AS o ON pa.order_id = o.order_id
-		INNER JOIN order_items AS oi ON o.order_id = oi.order_id
-		INNER JOIN product AS p ON oi.product_id = p.pNum
-		WHERE pa.payment_id = #{paymentId}
+	    SELECT
+	        p.pName AS productName,
+	        o.order_date AS purchaseDate,
+	        oi.quantity AS purchaseQuantity,
+	        oi.quantity * p.price AS purchasePrice, <!-- 구매 수량 * 상품 가격 -->
+	        o.order_state AS purchaseStatus
+	    FROM
+	        orders AS o
+	        INNER JOIN order_items AS oi ON o.order_id = oi.order_id
+	        INNER JOIN product AS p ON oi.product_id = p.pNum
+	    WHERE
+	        o.member_id = #{memberId}
+        ORDER BY
+        	o.order_date DESC    
 	    </select>				
   
    

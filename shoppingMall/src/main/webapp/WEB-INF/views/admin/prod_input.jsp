@@ -4,9 +4,11 @@
 
 <%@ include file ="inc/ad_sidebar.jsp"%>
 
-<div class="container mt-5 border shadow-sm p-5 mb-3 w-75">
+<div class="container mt-5  col-md-8 mx-auto">
+   <div class="border shadow-sm p-5 mb-3 w-75 mx-auto"> 
+   
 	<h3 class="text-center" style="text-decoration: underline; text-underline-position : under;" >Product Register</h3>
-	<form action="productAdd.do" method="post" enctype="multipart/form-data">
+	<form action="${ctxPath}/admin/productAdd.do" method="post" enctype="multipart/form-data">
 		<table class="table table-borderless mt-4">
 			<tbody>
 				<tr>
@@ -72,6 +74,7 @@
 				</tbody>			
 			</table>
 		</form>	
+	</div>
 	</div>
 	
 	

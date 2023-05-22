@@ -31,6 +31,7 @@ public class AdminServiceImpl implements AdminService {
 		if(inputPw.equals(dbPw)) { // 비밀번호와 일치
 	
 			session.setAttribute("loginDto", loginDto);
+			session.setAttribute("userType", "admin");
 			
 			return true;
 			

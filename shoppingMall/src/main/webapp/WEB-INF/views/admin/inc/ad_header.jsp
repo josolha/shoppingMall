@@ -14,6 +14,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="${ctxPath}/css/main.css">
   
 </head>
 
@@ -30,13 +31,13 @@
 	    
 	        <ul class="navbar-nav">
 	        	<li class="nav-item">
-	           		<a class="nav-link fs-6" href="${ctxPath}/adminMain.do">Home</a> 
+	           		<a class="nav-link fs-6" href="${ctxPath}/admin/myPage.do">Home</a> 
 	        	</li>
 	        </ul>
 	        
 	        
 			 <div class="col-3 col-md-10 ms-auto"> <!-- 그리드 시스템 추가 -->
-	          <a class="text-black" href="${ctxPath}/adminMain.do" style="text-decoration:none">
+	          <a class="text-black" href="${ctxPath}/admin/myPage.do" style="text-decoration:none">
 	            <p class="text-center mt-2">JO MALTWO</br> SEOUL</p>
 	          </a>
 	        </div>
@@ -53,9 +54,7 @@
 					</div>
 	        	</c:if>  --%>
 	        	
-		        <li class="nav-item">
-		          <a class="nav-link" href="javascript:void(0)"><i class="bi bi-search"style="vertical-align: middle;"></i></a>
-		        </li>
+		       
 		        <%-- <c:if test="${sessionScope.isLogin != null}"> --%>
 	     	    <li class="nav-item ">
 		          <a class="nav-link" href="cartList.do"><i class="bi bi-cart" style="vertical-align: middle;"></i></a>
@@ -67,11 +66,11 @@
 	  				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-person fs-5" style="vertical-align: middle;"></i></a>
 	  					<ul class="dropdown-menu">
 	  						<c:if test="${sessionScope.loginDto.id == null}">
-	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogin.do">관리자 로그인</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/admin/login.do">관리자 로그인</a></li>
 	    					</c:if>
 	    					
 	    					<c:if test="${sessionScope.loginDto.id != null}">    					
-	    					<li><a class="dropdown-item" href="${ctxPath}/adminLogout.do">관리자 로그아웃</a></li>    					
+	    					<li><a class="dropdown-item" href="${ctxPath}/admin/logout.do">관리자 로그아웃</a></li>    					
 	    					</c:if>
 	    					
 	    					<li><a class="dropdown-item" href="">관리자 페이지</a></li>

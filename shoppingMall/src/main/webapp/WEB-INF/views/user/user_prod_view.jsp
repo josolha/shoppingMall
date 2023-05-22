@@ -7,6 +7,8 @@
 <%@ include file ="inc/user_sidebar.jsp"%>
 
 <!--flex는 바로 자식요소에게만 수평배열 -->
+  <div class="container mt-5  col-md-8 mx-auto">
+   <div class="border shadow-sm p-5 mb-3 w-100 mx-auto"> 
 	<div class="container mt-5 d-flex" >
 		<!-- 서브 메뉴 -->
 		
@@ -47,6 +49,8 @@
 			  </div>
 			</section>
 
+	</div>
+	</div>
 	</div>
 	<script type="text/javascript">
 		function goCart(PNum,id){

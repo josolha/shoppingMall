@@ -34,6 +34,7 @@ import org.slf4j.LoggerFactory;
 
 @Slf4j
 @Controller
+@RequestMapping("/admin")
 public class ProductController {
 	
 	@Autowired

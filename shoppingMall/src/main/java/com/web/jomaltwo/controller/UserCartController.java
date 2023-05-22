@@ -27,7 +27,7 @@ import com.web.jomaltwo.service.ProductService;
 
 
 @RestController
-@RequestMapping("/cart")
+@RequestMapping("/user/cart")
 public class UserCartController {
 	
 	@Autowired

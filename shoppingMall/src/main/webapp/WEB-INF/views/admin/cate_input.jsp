@@ -4,9 +4,13 @@
 
 <%@ include file ="inc/ad_sidebar.jsp"%>
 
-	<div class="container mt-5 border shadow-sm p-5 mb-3 w-50">
+
+    <div class="container mt-5  col-md-8 mx-auto">
+   <div class="border shadow-sm p-5 mb-3 w-50 mx-auto"> 
+   
+	<!-- <div class="container mt-5 border shadow-sm p-5 mb-3 w-50"> -->
 		<h3 class ="text-center" style="text-decoration: underline; text-underline-position : under;" >Category Register</h3>
-		<form action="${ctxPath}/categoryAdd.do" method="post" name ="categoryForm">
+		<form action="${ctxPath}/admin/categoryAdd.do" method="post" name ="categoryForm">
 			<div class="mt-3">
 				<label for ="code">Code. </label>
 				<input type="text" class ="form-control" id="code"
@@ -27,6 +31,8 @@
 			
 		</form>
 		
+	</div>
+	
 	</div>
 	
 	

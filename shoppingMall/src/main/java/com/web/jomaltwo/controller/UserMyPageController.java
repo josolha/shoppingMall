@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttribute;
@@ -25,6 +26,7 @@ import com.web.jomaltwo.service.UserService;
 
 
 @Controller
+@RequestMapping("/user")
 public class UserMyPageController {
 	
 		@Autowired
@@ -42,11 +44,11 @@ public class UserMyPageController {
 						
 			UserDTO dto = service.userInfo(loginDto.getId());
 			model.addAttribute("UserDto",dto);
+			
 			// 여기에 포인트랑 결제내역 추가해야 함.
 			int totalPoint = pService.checkPoint(loginDto.getId());
 			
-			String paymentId = "merchant_1684422661832"; 
-			List<PaymentHistoryDTO> PaymentHistoydto = hService.getPaymentHistory(paymentId);
+			List<PaymentHistoryDTO> PaymentHistoydto = hService.getPaymentHistory(loginDto.getId());
 			
 			System.out.println(PaymentHistoydto);
 			

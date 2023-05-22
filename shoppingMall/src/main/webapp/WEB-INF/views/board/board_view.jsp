@@ -3,12 +3,27 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
    
 
-<%@ include file ="../user/inc/user_header.jsp"%>
+<%
+    String userType = (String)session.getAttribute("userType");
 
-<%@ include file ="../user/inc/user_sidebar.jsp"%>
+    if("admin".equals(userType)) {
+%>
+        <%@ include file ="../admin/inc/ad_header.jsp"%>
+        <%@ include file ="../admin/inc/ad_sidebar.jsp"%>
+<%
+    } else { // 일반 유저인 경우 혹은 userType이 설정되지 않은 경우
+%>
+        <%@ include file ="../user/inc/user_header.jsp"%>
+        <%@ include file ="../user/inc/user_sidebar.jsp"%>
+<%
+    }
+%>
+
+		  <div class="container mt-5  col-md-8 mx-auto">
+   		 <div class="border shadow-sm p-5 mb-3 w-100 mx-auto"> 
 
 
-	<div class="w-100 shadow p-5 rounded border">
+	
 		<h3 class="text-center" style="text-decoration: underline; text-underline-position: under;">Board View</h3>
 			<div class="container mt-4">
 			  <div class="row">
@@ -142,6 +157,8 @@
 
     </div>
   </div>
+</div>
+
 </div>
 
 <script src="${ctxPath}/resources/js/reply.js"></script>

@@ -7,6 +7,9 @@
 
 
 		<!-- 서브 메뉴 -->
+		
+		  <div class="container mt-5  col-md-8 mx-auto">
+   		 <div class="border shadow-sm p-5 mb-3 w-100 mx-auto"> 
 	
 			<section class="w-100 ps-5">
 			 <!-- style ="border:1px solid red" -->	
@@ -47,11 +50,11 @@
 							</td>
 							<td>
 								<fmt:formatNumber value ="${cart.product.price}"/>₩<br/>
-								<fmt:formatNumber value ="${cart.product.PPoint}"/>Point
+								<fmt:formatNumber value ="${cart.product.PPoint}"/>P
 							</td>
 							<td>
 								<fmt:formatNumber value ="${cart.product.price * cart.product_cnt}"/>₩<br/>
-								<fmt:formatNumber value ="${cart.product.PPoint * cart.product_cnt}"/>Point
+								<fmt:formatNumber value ="${cart.product.PPoint * cart.product_cnt}"/>P
 							</td>
 							<td>
 								<a href="javascript:cartDelete(${cart.product.PNum})" class="mt-2 btn btn bg-dark text-white">delete</a>
@@ -66,13 +69,15 @@
 				</table>
 				<div class="text-end">
 					Total Cart Price: <b><fmt:formatNumber value ="${cartTotalPrice}"/></b>₩</br>
-					Total Cart Point: <b><fmt:formatNumber value ="${cartTotalPoint}"/></b> Point
+					Total Cart Point: <b><fmt:formatNumber value ="${cartTotalPoint}"/></b> P
 				</div>
 				<div class="text-center mt-5">
 					<a href="${ctxPath}/checkout.do" class="btn btn bg-dark text-white" >Buy</a>
 					<a href="${ctxPath}" class="btn btn-secondary" >Continue Shopping</a>
 				</div>
 			</section>
+			</div>
+			</div>
 			
 			<script>
 		    $('.updateBtn').click(function(e) {

@@ -7,6 +7,9 @@
 
 <%@ include file ="inc/user_sidebar.jsp"%>
 
+  <div class="container mt-5  col-md-8 mx-auto">
+   <div class="border shadow-sm p-5 mb-3 w-100 mx-auto"> 
+
 					
 						<h3 class="text-center text-decoration-underline">${pdView.cate_name}</h3> 		
 							
@@ -89,6 +92,9 @@
 						     <a class="page-link bg-dark text-light" href="${ctxPath}/products/${cate_code}/${spec}?viewPage=${pdView.nextPage}&cntPerPage=${pdView.cntPerPage}&keyWord=${pdView.keyWord}">Next</a>
 						  </li>
 						</ul>
+						
+						</div>
+						</div>
 						
 					<script>	
 					$("#cntPerPage").change(function(e){

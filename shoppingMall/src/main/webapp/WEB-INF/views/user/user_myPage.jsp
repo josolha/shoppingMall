@@ -4,6 +4,10 @@
 <%@ include file="inc/user_header.jsp"%>
 
 <%@ include file="inc/user_sidebar.jsp"%>
+
+  
+  <div class="container mt-5  col-md-8 mx-auto">
+   <div class="border shadow-sm p-5 mb-3 w-100 mx-auto">    
 <section class="w-100 ps-5">
 
 	<h3 class="text-center"
@@ -16,7 +20,7 @@
 		<div>
 			<button type="button" id="edit-btn" class="btn btn-secondary btn-sm me-2"
 				onclick="openModal(this)" >Edit</button>
-			<a href="${ctxPath}/changePw.do"class="btn bg-dark btn-sm text-white">Change
+			<a href="${ctxPath}/user/changePw.do"class="btn bg-dark btn-sm text-white">Change
 				PW</a>
 		</div>
 	</div>
@@ -40,7 +44,7 @@
 			</tr>
 			<tr>
 				<th scope="row">My Point.</th>
-				<td>${totalPoint}</td>
+				<td><fmt:formatNumber value="${totalPoint}"/>P</td>
 			</tr>
 		</tbody>
 	</table>
@@ -183,12 +187,19 @@
 			</tr>
 		</thead>
 		<tbody>
+			<c:if test="${PaymentHistoydto.size() == null || PaymentHistoydto.size() ==0 }">
+						<tr>
+							<td colspan="6">History is empty.</td>
+						</tr>
+			</c:if>
+				
 		    <c:forEach var="dto" items="${PaymentHistoydto}">	
 			<tr>
 				<td>${dto.productName}</td> 
 		        <td><fmt:formatDate value="${dto.purchaseDate}" pattern="yyyy-MM-dd"/></td>
 				<td>${dto.purchaseQuantity}</td>
-				<td>${dto.purchasePrice}</td>
+				
+				<td><fmt:formatNumber value="${dto.purchasePrice}"/>₩</td>
 				<td>
 					<button>${dto.purchaseStatus}</button>
 				</td>
@@ -200,6 +211,8 @@
 	</table>
 
 </section>
+</div>
+</div>
 <script>
 function openModal(button) {
 	

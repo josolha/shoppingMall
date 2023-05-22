@@ -4,7 +4,9 @@
 
 <%@ include file ="inc/user_sidebar.jsp"%>    
 
-<div class="container w-50 shadow rounded border p-5 mt-5">
+	  <div class="container mt-5  col-md-8 mx-auto">
+   		 <div class="border shadow-sm p-5 mb-3 w-50 mx-auto"> 
+	
    
         <h3 class="text-center" style="text-decoration: underline; text-underline-position: under;">Change PassWord</h3>
          <input type="text" id="memberId" value="${sessionScope.loginDto.id}" style="display:none"/> 
@@ -21,6 +23,7 @@
          <div class="mt-3" >
         	 <a href="${ctxPath}/user/idpwFind.do?find=pw" style="font-size:13px">forgot password?</a>
          </div>	
+</div>
 </div>
 
 

@@ -24,7 +24,7 @@
 		$(document).ready(function(){
 		  $("#productDropdown").click(function(){
 		    $.ajax({
-		      url: "${ctxPath}/categorieSide",
+		      url: "${ctxPath}/admin/categorieSide",
 		      success: function(result){
 		        
 		    	/* alert("성공"); */
@@ -55,13 +55,13 @@
 	    
 	        <ul class="navbar-nav">
 	        	<li class="nav-item">
-	           		<a class="nav-link fs-6" href="${ctxPath}/adminMain.do">Home</a> 
+	           		<a class="nav-link fs-6" href="${ctxPath}/">Home</a> 
 	        	</li>
 	        </ul>
 	        
 	        
 			 <div class="col-3 col-md-10 ms-auto"> <!-- 그리드 시스템 추가 -->
-	          <a class="text-black" href="${ctxPath}/adminMain.do" style="text-decoration:none">
+	          <a class="text-black" href="${ctxPath}/admin/myPage.do" style="text-decoration:none">
 	            <p class="text-center mt-2">JO MALTWO</br> SEOUL</p>
 	          </a>
 	        </div>
@@ -69,12 +69,11 @@
 	        
 	        <ul class="navbar-nav">
 	        	
-		        <li class="nav-item">
-		          <a class="nav-link" href="javascript:void(0)"><i class="bi bi-search"style="vertical-align: middle;"></i></a>
-		        </li>
+		  
+		  
 		        <%-- <c:if test="${sessionScope.isLogin != null}"> --%>
 	     	    <li class="nav-item ">
-		          <a class="nav-link" href="cartList.do"><i class="bi bi-cart" style="vertical-align: middle;"></i></a>
+		          <a class="nav-link" href="${ctxPath}/user/cart.do"><i class="bi bi-cart" style="vertical-align: middle;"></i></a>
 		        </li>
 	        
 	        
@@ -82,12 +81,13 @@
 	  				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-person fs-5" style="vertical-align: middle;"></i></a>
 	  					<ul class="dropdown-menu">
 	  						<c:if test="${sessionScope.loginDto.id == null}">
-	    					<li><a class="dropdown-item" href="${ctxPath}/user/login.do">로그인</a></li>
-	    					<li><a class="dropdown-item" href="${ctxPath}/user/register.do">회원가입</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/user/login.do">Login</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/user/register.do">Register</a></li>
 	    					</c:if>
 	    					
 	    					<c:if test="${sessionScope.loginDto.id != null}">    					
-	    					<li><a class="dropdown-item" href="${ctxPath}/user/logout.do">로그아웃</a></li>    					
+	    					<li><a class="dropdown-item" href="${ctxPath}/user/logout.do">Logout</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/user/myPage.do">MyPage</a></li>    					
 	    					</c:if>
 	    					
 	  					</ul>

@@ -7,7 +7,7 @@
 	
 		<h3 class="text-center">Admin Login</h3>
 		
-		<form action="${ctxPath}/adminLogin.do" method="post">
+		<form action="${ctxPath}/admin/login.do" method="post">
 		
 			<div class="my-3">
 				<label>ID : </label>

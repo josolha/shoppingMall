@@ -22,6 +22,8 @@ import com.web.jomaltwo.model.PageDTO;
 import com.web.jomaltwo.service.CategoryService;
 
 @Controller
+
+@RequestMapping("/admin")
 public class CategoryController {
 	
 	@Autowired
@@ -38,7 +40,7 @@ public class CategoryController {
 	@RequestMapping("/categoryAdd.do")
 	public String categoryAdd(CategoryDTO dto) {
 		int cnt = service.categoryAdd(dto);
-		return "redirect:categoryList.do";
+		return "redirect: categoryList.do";
 	}
 	
 	@RequestMapping("/categoryList.do")

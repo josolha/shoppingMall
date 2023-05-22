@@ -70,6 +70,8 @@ public class UserServiceImpl implements UserService {
 			if(pwEncoder.matches(inputPw, dbPw)) { // 입력 비밀번호와 암호화 비밀번호 매칭되면  
 		
 				session.setAttribute("loginDto", loginDto);
+				session.setAttribute("userType", "user");  // 사용자 유형을 'member'로 설정
+
 				
 				return true;
 				

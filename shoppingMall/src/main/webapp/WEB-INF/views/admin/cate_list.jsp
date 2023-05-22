@@ -7,7 +7,8 @@
 <%@ include file ="inc/ad_sidebar.jsp"%>
 
 
-	<div class="container mt-5 border shadow-sm p-5 mb-3 w-100">
+	<div class="container mt-5  col-md-8 mx-auto">
+   <div class="border shadow-sm p-5 mb-3 w-100 mx-auto"> 
 		<h3 class ="text-center" style="text-decoration: underline; text-underline-position : under;">Category List</h3>
 		
 		<div class="mt-5 d-flex justify-content-between">
@@ -106,7 +107,7 @@
 									       "rowNum": "${rowNum}"
 									       	}'>Modify</button>
 									       	
-					<a href="${ctxPath}/categoryDel.do?cate_num=${cDto.cate_num}" class="btn btn-sm text-white" style="background-color: black;">Delete</a></td>
+					<a href="${ctxPath}/admin/categoryDel.do?cate_num=${cDto.cate_num}" class="btn btn-sm text-white" style="background-color: black;">Delete</a></td>
 				</tr>
 				<c:set var="rowNum" value="${rowNum-1}"/>
 			</c:forEach>
@@ -143,7 +144,7 @@
 			      </div>
 			
 			      <!-- Modal Body -->
-			      <form action="${ctxPath}/categoryUpdate.do" method="get">
+			      <form action="${ctxPath}/admin/categoryUpdate.do" method="get">
 			        <div class="modal-body p-4">
 			        
 					   <div class="mb-3">
@@ -173,6 +174,7 @@
 			
 			    </div>
 			  </div>
+			</div>
 			</div>
 			
 			

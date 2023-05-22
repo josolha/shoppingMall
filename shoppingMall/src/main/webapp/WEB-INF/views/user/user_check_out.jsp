@@ -4,6 +4,8 @@
 <%@ include file ="inc/user_header.jsp"%>
 
 <%@ include file ="inc/user_sidebar.jsp"%>    
+  <div class="container mt-5  col-md-8 mx-auto">
+   <div class="border shadow-sm p-5 mb-3 w-100 mx-auto"> 
     
     	<section class="w-100 ps-5">
 			 <!-- style ="border:1px solid red" -->	
@@ -218,6 +220,9 @@
 		</div>
 	
 	</section>
+	
+	</div>
+	</div>
 	<script src="${ctxPath}/resources/js/checkOut.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="${ctxPath}/js/zipcode.js"></script>

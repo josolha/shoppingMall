@@ -11,7 +11,8 @@
 </c:if>
 
 
-      <div class="container mt-5 border shadow-sm p-5 mb-3 w-100">
+      <div class="container mt-5  col-md-8 mx-auto">
+   <div class="border shadow-sm p-5 mb-3 w-100 mx-auto"> 
         <h3 class="text-center" style="text-decoration: underline; text-underline-position: under;">Product List</h3>
         <div class="mt-5 d-flex justify-content-between">
 		
@@ -142,6 +143,7 @@
 			     <a class="page-link bg-dark text-light" href="productList.do?viewPage=${pageDto.nextPage}&cntPerPage=${pageDto.cntPerPage}">Next</a>
 			  </li>
 			</ul>
+      </div>
       </div>
    
   

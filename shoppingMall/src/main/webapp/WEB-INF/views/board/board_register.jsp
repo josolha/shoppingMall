@@ -3,9 +3,25 @@
 
 
 
-<%@ include file ="../user/inc/user_header.jsp"%>
+<%
+    String userType = (String)session.getAttribute("userType");
 
-<%@ include file ="../user/inc/user_sidebar.jsp"%>
+    if("admin".equals(userType)) {
+%>
+        <%@ include file ="../admin/inc/ad_header.jsp"%>
+        <%@ include file ="../admin/inc/ad_sidebar.jsp"%>
+<%
+    } else { // 일반 유저인 경우 혹은 userType이 설정되지 않은 경우
+%>
+        <%@ include file ="../user/inc/user_header.jsp"%>
+        <%@ include file ="../user/inc/user_sidebar.jsp"%>
+<%
+    }
+%>
+
+  <div class="container mt-5  col-md-8 mx-auto">
+   		 <div class="border shadow-sm p-5 mb-3 w-100 mx-auto"> 
+
 
 	
 		<h3 class ="text-center" style="text-decoration: underline; text-underline-position : under;" >Write Board</h3>
@@ -35,6 +51,8 @@
 			<button class="btn btn bg-dark text-white">Register</button>	
 			</div>
 		</form>
+		</div>
+		</div>
 	
 
 <%@ include file ="../user/inc/user_footer.jsp"%>

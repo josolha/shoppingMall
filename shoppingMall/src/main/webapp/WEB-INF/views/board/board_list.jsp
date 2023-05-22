@@ -1,8 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file ="../user/inc/user_header.jsp"%>
+    
+    
+<%
+    String userType = (String)session.getAttribute("userType");
 
-<%@ include file ="../user/inc/user_sidebar.jsp"%>
+    if("admin".equals(userType)) {
+%>
+        <%@ include file ="../admin/inc/ad_header.jsp"%>
+        <%@ include file ="../admin/inc/ad_sidebar.jsp"%>
+<%
+    } else { // 일반 유저인 경우 혹은 userType이 설정되지 않은 경우
+%>
+        <%@ include file ="../user/inc/user_header.jsp"%>
+        <%@ include file ="../user/inc/user_sidebar.jsp"%>
+<%
+    }
+%>
 
 <c:if test="${requestScope.msg !=null}">
 <script>
@@ -11,7 +25,9 @@
 </c:if>
 
 
-      
+        <div class="container mt-5  col-md-8 mx-auto">
+   <div class="border shadow-sm p-5 mb-3 w-100 mx-auto"> 
+   
         <h3 class="text-center" style="text-decoration: underline; text-underline-position: under;">Board List</h3>
         <div class="mt-5 d-flex justify-content-between">
 		
@@ -143,6 +159,9 @@
 			     <a class="page-link bg-dark text-light" href="${ctxPath}/board/list.do?viewPage=${pageDto.nextPage}&cntPerPage=${pageDto.cntPerPage}">Next</a>
 			  </li>
 			</ul>
+			
+			</div>
+			</div>
 
 <script>
 	$(document).ready(function(){
