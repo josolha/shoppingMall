@@ -1,7 +1,10 @@
 package com.web.jomaltwo.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
+import com.web.jomaltwo.model.PageDTO;
 import com.web.jomaltwo.model.UserDTO;
 
 
@@ -28,4 +31,8 @@ public interface UserService {
 	public String userPwCheck(String pw, UserDTO dto);
 	
 	public int userPwModify(UserDTO dto);
+	
+	public List<UserDTO> usersList(PageDTO pDto);
+	
+	public int usersDelete(int no);
 }

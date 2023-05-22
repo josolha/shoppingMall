@@ -47,5 +47,43 @@
 	<update id="userPwUpdate" parameterType="UserDTO">
    		UPDATE shop_member SET pw=#{pw} WHERE id=#{id}
     </update> 
+    
+      <select id="usersList" resultType="UserDTO">
+		SELECT * FROM shop_member
+	</select>
+	
+	
+	
+	 <select id="totalCnt" resultType="Integer">
+   		SELECT count(*) FROM shop_member
+   		<include refid="usersBySearch"></include> 
+	  </select>
+	  
+	  
+	  <sql id="usersBySearch">
+	  
+	  	<if test= 'searchType == "I"'>
+	  		WHERE id LIKE CONCAT('%',#{keyWord},'%')
+	  	</if>
+	  	
+		<if test= "searchType == 'N'.toString()">
+	  		WHERE name LIKE CONCAT('%',#{keyWord},'%')
+	  	</if>
+	  
+	  </sql>
+	  
+	  
+	   <select id="usersShow" resultType="UserDTO">
+   	 		SELECT * FROM shop_member
+   	 		<include refid="usersBySearch"></include>  
+   	 		ORDER BY no DESC LIMIT #{startIndex}, #{cntPerPage}
+   	 		
+   	 	</select>
+   	 		
+  	   <delete id="usersDelete" parameterType="Integer">
+   	 		DELETE FROM shop_member WHERE no = #{no}
+   	 </delete>
+   	   
+   	   
 	
 </mapper> 

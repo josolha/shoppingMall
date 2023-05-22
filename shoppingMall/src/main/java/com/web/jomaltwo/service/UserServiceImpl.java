@@ -1,5 +1,6 @@
 package com.web.jomaltwo.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.mail.Message.RecipientType;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 import com.web.jomaltwo.mapper.PointMapper;
 import com.web.jomaltwo.mapper.ProductMapper;
 import com.web.jomaltwo.mapper.UserMapper;
+import com.web.jomaltwo.model.PageDTO;
 import com.web.jomaltwo.model.UserDTO;
 
 @Service
@@ -177,5 +179,27 @@ public class UserServiceImpl implements UserService {
 		
 		return n;
 		
+	}
+
+	@Override
+	public List<UserDTO> usersList(PageDTO pDto) {
+		
+		int totalCnt = mapper.totalCnt(pDto);
+		
+		pDto.setValue(totalCnt, pDto.getCntPerPage());
+		System.out.println("cntper" +pDto.getCntPerPage());
+		System.out.println("start : " +pDto.getStartIndex());
+		System.out.println("totalcnt : " +pDto.getTotalCnt());
+		System.out.println("start row  : " +pDto.getStartRowNum());
+		
+		
+		return mapper.usersShow(pDto);
+	}
+
+
+	@Override
+	public int usersDelete(int no) {
+		// TODO Auto-generated method stub
+		return mapper.usersDelete(no);
 	}
 }

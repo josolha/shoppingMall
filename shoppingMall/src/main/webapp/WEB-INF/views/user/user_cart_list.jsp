@@ -72,7 +72,7 @@
 					Total Cart Point: <b><fmt:formatNumber value ="${cartTotalPoint}"/></b> P
 				</div>
 				<div class="text-center mt-5">
-					<a href="${ctxPath}/checkout.do" class="btn btn bg-dark text-white" >Buy</a>
+					<a href="${ctxPath}/user/checkout.do" class="btn btn bg-dark text-white" >Buy</a>
 					<a href="${ctxPath}" class="btn btn-secondary" >Continue Shopping</a>
 				</div>
 			</section>

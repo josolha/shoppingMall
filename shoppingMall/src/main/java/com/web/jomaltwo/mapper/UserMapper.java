@@ -1,5 +1,9 @@
 package com.web.jomaltwo.mapper;
 
+import java.util.List;
+
+import com.web.jomaltwo.model.PageDTO;
+import com.web.jomaltwo.model.ProductDTO;
 import com.web.jomaltwo.model.UserDTO;
 
 
@@ -24,4 +28,13 @@ public interface UserMapper {
 	public int userAddressUpdate(UserDTO dto);
 	
 	public int userPwUpdate(UserDTO dto);
+	
+	public List<UserDTO> usersList();
+	
+	public int totalCnt(PageDTO dto);
+	
+	public List<UserDTO> usersShow(PageDTO pDto);
+	
+	public int usersDelete(int no);
+	
 }

@@ -55,7 +55,7 @@
 	    
 	        <ul class="navbar-nav">
 	        	<li class="nav-item">
-	           		<a class="nav-link fs-6" href="${ctxPath}/">Home</a> 
+	           		<a class="nav-link fs-6" href="${ctxPath}/products/0001/all">Home</a> 
 	        	</li>
 	        </ul>
 	        

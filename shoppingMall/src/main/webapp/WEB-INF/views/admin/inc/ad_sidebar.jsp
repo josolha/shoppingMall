@@ -49,38 +49,45 @@
         
         <!-- css로 맨 item 마다 맨 오른쪽에 > 표시 작성 필요 -->
           <li class="nav-item ml-0">
-  			 <a class="nav-link text-dark" href="${ctxPath}/admin/myPage.do" style="text-decoration:none">My Page</a>  
+  			 <a class="nav-link text-dark" href="${ctxPath}/admin/users.do" style="text-decoration:none">Users</a>  
           </li>	
-          <li class="nav-item ml-0">
-  			 <a class="nav-link text-dark" href="${ctxPath}/admin/categoryInput.do" style="text-decoration:none">Category Reg</a>  
-          </li>
           
-  		  <li class="nav-item">
-            <a class="nav-link text-dark" href="${ctxPath}/admin/categoryList.do" style="text-decoration:none">Category List</a>
-          </li>
           
-           <li class="nav-item">
-            <a class="nav-link text-dark" href="${ctxPath}/admin/productInput.do" style="text-decoration:none">Product Reg</a>
-          </li>
+	     <li class="nav-item dropdown">
+		    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+		        Category &nbsp; ▼
+		    </a>
+		    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        <a class="dropdown-item" href="${ctxPath}/admin/categoryInput.do">Register</a>
+		        <a class="dropdown-item" href="${ctxPath}/admin/categoryList.do">List</a>
+		    </div>
+		 </li>
+		 
+		 
+		   <li class="nav-item dropdown">
+		    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: black;">
+		        Product &nbsp;  &nbsp; ▼
+		    </a>
+		    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		        <a class="dropdown-item" href="${ctxPath}/admin/productInput.do">Register</a>
+		        <a class="dropdown-item" href="${ctxPath}/admin/productList.do">List</a>
+		    </div>
+		 </li>
           
-          <li class="nav-item">
-            <a class="nav-link text-dark" href="${ctxPath}/admin/productList.do" style="text-decoration:none">Product List</a>
-          </li>
           
            <li class="nav-item">
             <a class="nav-link text-dark" href="${ctxPath}/board/list.do" style="text-decoration:none">Board</a>
           </li>
           
           <li class="nav-item">
-            <a class="nav-link text-dark" href="${ctxPath}/admin/orderList.do" style="text-decoration:none">Order</a>
+            <a class="nav-link text-dark" href="${ctxPath}/admin/orderList.do" style="text-decoration:none">Orders</a>
           </li>
           
-       
-	            
-         
         </ul>
       </div>
     </nav>
+    </div>
+    </div>
  
 		
     		
