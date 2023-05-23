@@ -61,10 +61,22 @@
 			</div>
 
 		  
-		<div class="form-group d-flex justify-content-end mt-4 text-center">
-		    <button type="button" id="btn-modify" class="btn btn-secondary me-2">Modify</button>
-		    <button type="button" id="btn-remove" class="btn btn bg-dark text-white me-2">Delete</button>
-		</div>
+		<c:choose>
+		    <c:when test="${sessionScope.userType eq 'admin'}">
+		        <div class="form-group d-flex justify-content-end mt-4 text-center">
+		            <button type="button" id="btn-remove" class="btn btn bg-dark text-white me-2">Delete</button>
+		        </div>
+		    </c:when>
+		    <c:otherwise>
+		        <c:if test="${sessionScope.loginDto.id eq dto.writer}">
+		            <div class="form-group d-flex justify-content-end mt-4 text-center">
+		                <button type="button" id="btn-modify" class="btn btn-secondary me-2">Modify</button>
+		                <button type="button" id="btn-remove" class="btn btn bg-dark text-white me-2">Delete</button>
+		            </div>
+		        </c:if>
+		    </c:otherwise>
+		</c:choose>
+
 		<hr/>
 				
 		

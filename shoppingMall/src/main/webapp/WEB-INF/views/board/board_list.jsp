@@ -141,7 +141,9 @@
         </table>
         	
         	<ul class="pagination justify-content-center mt-4">
+        	 <c:if test="${sessionScope.userType eq 'user' or sessionScope.userType eq 'admin'}">
         		<button class="btn btn bg-dark text-light" id="btn-write">Write</button>
+        	</c:if>
         	</ul>
         		
 			<ul class="pagination justify-content-center mt-4">

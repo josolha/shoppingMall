@@ -201,7 +201,7 @@
 				
 				<td><fmt:formatNumber value="${dto.purchasePrice}"/>₩</td>
 				<td>
-					<button>${dto.purchaseStatus}</button>
+					<button class="btn btn-secondary btn-sm">${dto.purchaseStatus}</button>
 				</td>
 			</tr>
 			</c:forEach>

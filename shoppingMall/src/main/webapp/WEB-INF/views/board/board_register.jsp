@@ -31,7 +31,7 @@
 		 <div class="col-md-1">	 
 			<div class="mt-3">
 			<label for ="writer">writer. </label>
-				<input type="text" class ="form-control" id="writer" value="${sessionScope.loginDto.name}"
+				<input type="text" class ="form-control" id="writer" value="${sessionScope.loginDto.id}"
 					 name="writer" readonly/>
 			</div>
 		 </div>

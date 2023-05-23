@@ -156,8 +156,13 @@
 	function checkDates() {
 	    var startDate = document.getElementById('start_date').value;
 	    var endDate = document.getElementById('end_date').value;
+	    var currentDate = new Date().toISOString().split('T')[0]; // Get current date
 	
-	    if (startDate && endDate && startDate > endDate) {
+	    if ((startDate && startDate > currentDate) || (endDate && endDate > currentDate)) {
+	        alert('미래 날짜를 선택할 수 없습니다.');
+	        document.getElementById('start_date').value = '';
+	        document.getElementById('end_date').value = '';
+	    } else if (startDate && endDate && startDate > endDate) {
 	        alert('시작 날짜가 종료 날짜보다 늦을 수 없습니다.');
 	        document.getElementById('start_date').value = '';
 	        document.getElementById('end_date').value = '';

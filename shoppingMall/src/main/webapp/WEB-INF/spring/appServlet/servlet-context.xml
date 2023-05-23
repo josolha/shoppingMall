@@ -44,9 +44,9 @@
 		          <mapping path="/user/myPage**"/>
 		          <mapping path="/user/cart**"/>
 		          <mapping path="/user/checkout**"/> 
-		          <mapping path="/board/register.do"/> 
+		          <!-- <mapping path="/board/register.do"/> --> 
 		          
-		        <mapping path="/admin/myPage.do"/>
+		          <mapping path="/admin/myPage.do"/>
 		        
 		        <!-- <exclude-mapping path="/user/login.do"/> -->
 		        <!-- <exclude-mapping path="/adminLogin.do"/> -->

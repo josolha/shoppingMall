@@ -35,10 +35,8 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		
-		HashMap<String,List<ProductDTO>> map = pService.productBySpecs();
-		model.addAttribute("map", map);
 		
-		return "user/user_prod_list";
+		return "redirect:/products/0001/all";
 	}
 	
 }

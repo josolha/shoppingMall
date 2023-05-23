@@ -19,7 +19,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 
 	    String uri = request.getRequestURI();
 	    
-		//로그인 안한 경우
 	    //로그인 안한 경우
 	    if(dtoObj == null) {
 	        session.setAttribute("loginMsg", "This service requires login");
