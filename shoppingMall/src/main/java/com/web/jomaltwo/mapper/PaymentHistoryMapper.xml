@@ -21,6 +21,66 @@
         ORDER BY
         	o.order_date DESC    
 	    </select>				
-  
-   
+  		
+		 <select id="totalCnt" resultType="Integer">
+		    SELECT
+		        COUNT(oi.product_id)
+		    FROM
+		        orders AS o
+		        LEFT JOIN order_items AS oi ON o.order_id = oi.order_id
+		        LEFT JOIN product AS p ON oi.product_id = p.pNum
+		 
+	         <where>
+	            <include refid="PaymentHistoryBySearch"></include>
+    			<if test="start_date != null and end_date != null">
+     			 AND o.order_date BETWEEN #{start_date, jdbcType=DATE, javaType=java.time.LocalDate} AND #{end_date, jdbcType=DATE, javaType=java.time.LocalDate}
+    			</if>
+  			</where>
+       		
+		</select>
+   		
+   		
+   		<select id="getAllPaymentHistory" resultType="PaymentHistoryDTO">
+		  SELECT
+		        o.member_id AS memberId,
+		        p.pName AS productName,
+		        o.order_date AS purchaseDate,
+		        oi.quantity AS purchaseQuantity,
+		        oi.quantity * p.price AS purchasePrice,
+		        o.order_state AS purchaseStatus,
+		        o.shipping_address AS shippingAddress
+    		FROM
+        		orders AS o
+        		LEFT JOIN order_items AS oi ON o.order_id = oi.order_id
+        		LEFT JOIN product AS p ON oi.product_id = p.pNum
+		    
+		    
+		     <where>
+		     	<include refid="PaymentHistoryBySearch"></include>    
+   				 <if test="start_date != null and end_date != null">
+     				 AND o.order_date BETWEEN #{start_date, jdbcType=DATE, javaType=java.time.LocalDate} AND #{end_date, jdbcType=DATE, javaType=java.time.LocalDate}
+   				 </if>
+  			</where>
+		    
+		     ORDER BY
+		        o.order_date DESC LIMIT #{startIndex}, #{cntPerPage}   
+		</select>
+		
+		
+		<sql id="PaymentHistoryBySearch">
+	  
+		  	<if test= 'searchType == "I"'>
+		  		o.member_id LIKE CONCAT('%',#{keyWord},'%')
+		  	</if>
+		  	
+			<if test= "searchType == 'N'.toString()">
+		  		p.pName LIKE CONCAT('%',#{keyWord},'%')
+		  	</if>
+	  
+	   </sql>
+	   
+ 
+   		
+   		
+   		
 </mapper>

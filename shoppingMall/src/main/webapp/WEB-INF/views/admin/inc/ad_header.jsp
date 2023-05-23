@@ -33,7 +33,7 @@
 	    
 	        <ul class="navbar-nav">
 	        	<li class="nav-item">
-	           		<a class="nav-link fs-6" href="${ctxPath}/admin/myPage.do">Home</a> 
+	           		<a class="nav-link fs-6" href="${ctxPath}/admin/orderList.do">Home</a> 
 	        	</li>
 	        </ul>
 	        

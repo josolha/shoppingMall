@@ -354,7 +354,7 @@
 	            }
 	           });
 	          
-	          location.href = "${ctxPath}/myPage.do"  
+	          location.href = "${ctxPath}/user/myPage.do"  
 	                    
 	      } else {
     	     var msg = '결제에 실패하였습니다.';

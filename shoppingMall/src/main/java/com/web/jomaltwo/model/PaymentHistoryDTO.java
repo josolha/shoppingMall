@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class PaymentHistoryDTO {
 	
+	private String memberId;
 	private String productName;
 	private Date purchaseDate;
 	private int purchaseQuantity;

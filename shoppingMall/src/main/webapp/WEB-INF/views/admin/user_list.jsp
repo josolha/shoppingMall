@@ -28,7 +28,7 @@
 			         	<!-- 선택을 꼭 하게 js 설정 필요 -->
 			         	
 			            <option value="">선택</option>
-			            <option value="I" <c:out value="${pageDto.searchType == 'C' ? 'selected' : ''}"/>>ID.</option>
+			            <option value="I" <c:out value="${pageDto.searchType == 'I' ? 'selected' : ''}"/>>ID.</option>
 			            <option value="N" <c:out value="${pageDto.searchType == 'N' ? 'selected' : ''}"/>>Name.</option>
 			         </select>
 			         

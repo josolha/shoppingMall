@@ -187,10 +187,7 @@ public class UserServiceImpl implements UserService {
 		int totalCnt = mapper.totalCnt(pDto);
 		
 		pDto.setValue(totalCnt, pDto.getCntPerPage());
-		System.out.println("cntper" +pDto.getCntPerPage());
-		System.out.println("start : " +pDto.getStartIndex());
-		System.out.println("totalcnt : " +pDto.getTotalCnt());
-		System.out.println("start row  : " +pDto.getStartRowNum());
+		
 		
 		
 		return mapper.usersShow(pDto);

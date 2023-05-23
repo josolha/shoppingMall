@@ -1,5 +1,8 @@
 package com.web.jomaltwo.model;
 
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -24,6 +27,11 @@ public class PageDTO {
 	/////검색/////
 	private String searchType;
 	private String keyWord;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate start_date; // 시작 날짜
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate end_date; // 종료 날짜
 
 
 	public void setValue(int totalCnt, int cntPerPage) {

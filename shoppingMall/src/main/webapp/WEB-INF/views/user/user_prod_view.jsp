@@ -62,7 +62,7 @@
 			   };
 			   
 			   $.ajax({
-				    url : '/jomaltwo/cart/new',
+				    url : '/jomaltwo/user/cart/new',
 				    type : 'post',
 				    data : JSON.stringify(data),
 				    contentType : "application/json; charset=utf-8",
