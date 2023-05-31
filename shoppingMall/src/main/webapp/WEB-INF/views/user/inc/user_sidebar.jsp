@@ -24,7 +24,7 @@
 	          Product  &nbsp; ▼
 	        </a>
 	        	        
-	        <div class="dropdown-menu" aria-labelledby="productDropdown">
+	        <div class="dropdown-menu" id="drop" aria-labelledby="productDropdown">
 	        </div>
 	      </li>         
 	              

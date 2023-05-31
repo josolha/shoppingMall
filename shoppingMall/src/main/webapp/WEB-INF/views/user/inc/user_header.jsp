@@ -34,7 +34,7 @@
 		        categories.forEach(function(category) {
 		          dropdownItems += '<a href="${ctxPath}/products/'+ category.code +'/all'+'" class="dropdown-item" href="#">' + category.cate_name + '</a>';
 		        });
-		        $(".dropdown-menu").html(dropdownItems);
+		        $("#drop").html(dropdownItems);
 		   		 }
 		      });
 		    });
@@ -60,8 +60,8 @@
 	        </ul>
 	        
 	        
-			 <div class="col-3 col-md-10 ms-auto"> <!-- 그리드 시스템 추가 -->
-	          <a class="text-black" href="${ctxPath}/admin/myPage.do" style="text-decoration:none">
+			 <div class="col-3 col-md-10 me-auto" style="padding-left:140px;"> <!-- 그리드 시스템 추가 -->
+	          <a class="text-black" href="${ctxPath}" style="text-decoration:none">
 	            <p class="text-center mt-2">JO MALTWO</br> SEOUL</p>
 	          </a>
 	        </div>

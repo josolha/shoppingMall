@@ -33,12 +33,12 @@
 	    
 	        <ul class="navbar-nav">
 	        	<li class="nav-item">
-	           		<a class="nav-link fs-6" href="${ctxPath}/admin/orderList.do">Home</a> 
+	           		<a class="nav-link fs-6" href="${ctxPath}/admin/myPage.do">Home</a> 
 	        	</li>
 	        </ul>
 	        
 	        
-			 <div class="col-3 col-md-10 ms-auto"> <!-- 그리드 시스템 추가 -->
+			 <div class="col-3 col-md-10 me-auto" style="padding-left:90px;"> <!-- 그리드 시스템 추가 -->
 	          <a class="text-black" href="${ctxPath}/admin/myPage.do" style="text-decoration:none">
 	            <p class="text-center mt-2">JO MALTWO</br> SEOUL</p>
 	          </a>
@@ -46,36 +46,16 @@
 		        
 	        
 	        <ul class="navbar-nav">
-	<%--     		<c:if test="${sessionScope.loginDto.id != null}">	        	
-					<div class="navbar-nav ms-auto">
-					  <li class="nav-item mt-3">
-					    <span class="nav-link" style="color:black; line-height:40px; margin-right: 15px">
-					      </i>안녕하세요 ${sessionScope.loginDto.name}님
-					    </span>
-					  </li>
-					</div>
-	        	</c:if>  --%>
-	        	
-		       
-		        <%-- <c:if test="${sessionScope.isLogin != null}"> --%>
-	     	    <li class="nav-item ">
-		          <a class="nav-link" href="cartList.do"><i class="bi bi-cart" style="vertical-align: middle;"></i></a>
-		        </li>
-	        
-	        
-	        <!--ms - start,  me - end   -->
 		        <li class="nav-item dropdown">
 	  				<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><i class="bi bi-person fs-5" style="vertical-align: middle;"></i></a>
 	  					<ul class="dropdown-menu">
 	  						<c:if test="${sessionScope.loginDto.id == null}">
-	    					<li><a class="dropdown-item" href="${ctxPath}/admin/login.do">관리자 로그인</a></li>
+	    					<li><a class="dropdown-item" href="${ctxPath}/admin/login.do">Admin login</a></li>
 	    					</c:if>
 	    					
 	    					<c:if test="${sessionScope.loginDto.id != null}">    					
-	    					<li><a class="dropdown-item" href="${ctxPath}/admin/logout.do">관리자 로그아웃</a></li>    					
+	    					<li><a class="dropdown-item" href="${ctxPath}/admin/logout.do">Admin logout</a></li>    					
 	    					</c:if>
-	    					
-	    					<li><a class="dropdown-item" href="">관리자 페이지</a></li>
 	  					</ul>
 				</li>
 	      </ul>

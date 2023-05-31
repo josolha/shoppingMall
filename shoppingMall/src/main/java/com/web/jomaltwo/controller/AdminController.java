@@ -36,9 +36,9 @@ public class AdminController {
 		
 		if(!result) { // 로그인 실패 
 			rttr.addFlashAttribute("result", 0); // 값을 전달하고 사라짐 <-> forward는 자동으로 model로 값을 보냄
-			return "redirect:admin/login.do"; // redirect는 get 방식이므로 위로 올라감 
+			return "redirect: login.do"; // redirect는 get 방식이므로 위로 올라감 
 		}
-		return "redirect:/";
+		return "redirect: myPage.do";
 	}
 	
 //    @PostMapping("/login")
@@ -55,7 +55,7 @@ public class AdminController {
 		
 		session.invalidate(); //session 초기화
 		
-		return "redirect:/";
+		return "redirect: login.do";
 	}
 	@RequestMapping("/myPage.do")
 	public String adminMain() {

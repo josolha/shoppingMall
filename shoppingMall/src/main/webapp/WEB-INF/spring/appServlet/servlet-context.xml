@@ -40,16 +40,15 @@
    <!-- 입터셉터 설정 -->
    <interceptors>
    	 	<interceptor>
-   	 	         <!-- <mapping path="/list.do"/> -->
-		          <mapping path="/user/myPage**"/>
+   	 	
+		          <mapping path="/admin/**"/>
+		          <mapping path="/user/myPage.do**"/>
 		          <mapping path="/user/cart**"/>
-		          <mapping path="/user/checkout**"/> 
-		          <!-- <mapping path="/board/register.do"/> --> 
+		          <mapping path="/user/checkout.do**"/>
 		          
-		          <mapping path="/admin/myPage.do"/>
-		        
-		        <!-- <exclude-mapping path="/user/login.do"/> -->
-		        <!-- <exclude-mapping path="/adminLogin.do"/> -->
+		          <exclude-mapping path="/user/login.do**"/>
+		          <exclude-mapping path="/admin/categorieSide**"/>
+		          <exclude-mapping path="/admin/login.do**"/>
    	 	         
    	 	         
          		 <beans:ref bean="LoginInterceptor"/>
