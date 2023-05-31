@@ -9,7 +9,7 @@
       <h3 class="text-center mb-4">Login</h3>      
 		
 		 <c:if test = "${result ==0}">
-		 	<p class="text-center text-danger">사용자 아이디 또는 비밀번호를 다시 확인하세요.</p>
+		 	<p class="text-center text-danger">Please check your user ID or password again..</p>
   		 </c:if>
   		 
   		 <c:if test = "${loginMsg != null}">
@@ -38,17 +38,17 @@
 <script>
 function inputChk(){
    if(document.joinForm.id.value.length == 0){
-      alert("아이디를 입력하세요.");
+      alert("Please enter your ID.");
       joinForm.id.focus();
       return;
    }
    if(document.joinForm.pw.value.length == 0){
-      alert("비밀번호를 입력하세요.");
+      alert("Please enter your PW.");
       joinForm.pw.focus();
       return;
    }
    if(document.joinForm.pw.value != document.joinForm.pwConfirm.value){
-      alert("비밀번호가 일치하지 않습니다.");
+      alert("The passwords do not match.");
       joinForm.pwConfirm.focus();
       return;
    }
