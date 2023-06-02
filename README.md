@@ -11,18 +11,25 @@
 이 프로젝트를 통해 저는 웹 개발에 필요한 다양한 기술을 실제로 적용해보고, 웹사이트 구축에 대한 이해를 높일 수 있었습니다. 그 과정에서 겪은 어려움과 그것을 해결한 경험은 저에게 소중한 배움으로 남았습니다. -->
 
 ## Skill    
-Language : <img align="center" src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white" />
+Languages : <img align="center" src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white" /> <img align="center" src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" /> <img align="center" src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" /> <img align="center" src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />   
 
 Library : <img align="center" src="https://img.shields.io/badge/MyBatis-%232BA9E1.svg?style=for-the-badge&logoColor=white" />
 
-Framework :  
-Server :  
-Database :  
+Build tool : <img align="center" src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven&logoColor=white" />
 
-Environment : 
 
-IDE : <img align="center" src="https://img.shields.io/badge/Spring_Tool_Suite-6DB33F?style=for-the-badge&logo=spring&logoColor=white" />
+Version Control : 
+<img align="center" src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
 
+Cloud Services : 
+<img align="center" src= "https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white"/>
+
+Virtual Server : 
+<img align="center" src="https://img.shields.io/badge/AWS Ec2-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" />
+
+Framework : <img align="center" src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white" />
+
+IDE : <img align="center" src="https://img.shields.io/badge/IntelliJ_IDEA-000000?style=for-the-badge&logo=intellij-idea&logoColor=white" />
 
 ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
 ![Apache Maven](https://img.shields.io/badge/Apache%20Maven-C71A36?style=for-the-badge&logo=Apache%20Maven&logoColor=white)
