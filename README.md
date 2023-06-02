@@ -84,11 +84,11 @@
 ## 관리자 화면구성
 |회원 관리|카테고리 관리|
 | :--------: |:--------: |
-|<img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/9bfb7221-6f86-4e27-899a-34943b400c77"> | <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/8770bef9-5a89-4df4-aef0-c8c6a0e5ae40">|
+|<img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/36af05e8-b152-42f9-aefa-d712bd5b08fe"> | <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/3476cfc2-07d0-4c14-9e18-6e9df3982b5b">|
 
 |상품 관리|주문 관리|
 | :--------: |:--------: |
-|<img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/aa41fcbb-c9d2-4d41-83ce-24262cc574db"> | <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/cda920ce-d91a-4a44-bbfb-2f175a339988">|
+|<img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/2869fc51-c154-47bd-8c86-70e73ce30e62"> | <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/0d0d3b07-2fc6-4e0b-a1dd-78700a61cdbc">|
 
 ## 관리자 주요기능
 - **회원 관리:** 시스템의 모든 사용자 계정 검색/삭제 기능.
