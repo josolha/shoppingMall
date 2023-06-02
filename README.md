@@ -4,7 +4,7 @@
 
 | JO MALONE (모티브 사이트) | JO MALTWO(제작한 사이트) |
 | :--------: | :--------: |
-| <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/29099e82-19b7-43bc-b194-481d2a3824ca"> |<img width="500" height="400" alt="스크린샷 2023-06-02 오후 3 57 43" src="https://github.com/josolha/shoppingMall/assets/74632395/e419e7a8-306b-43b6-817b-fa76853cba53">|
+| <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/a26b36ec-3a00-47e4-8faf-9d8319dccbfd"> |<img width="500" height="400" alt="스크린샷 2023-06-02 오후 3 57 43" src="https://github.com/josolha/shoppingMall/assets/74632395/d0442b94-1bae-4df2-9bc9-d0a6da859bbc">|
 
 이 프로젝트는 제가 개인적으로 향수에 대한 큰 관심을 바탕으로 시작되었습니다.  
 특히, 제가 좋아하는 브랜드인 '조 말론'의 공식 웹사이트를 모티브로 삼아, 이를 모방하여 개인 프로젝트를 진행했습니다.  
