@@ -41,7 +41,9 @@
 - **다음 주소 검색**: 배송지 주소 입력을 돕기 위해 사용하였습니다. <img align="center" src="https://img.shields.io/badge/Daum-FFCD00?style=for-the-badge&logo=kakao&logoColor=black" />
 
 
-## ERD
+## ERD Diagram
+<img src="https://github.com/josolha/shoppingMall/blob/master/shoppingMall/src/main/java/com/web/jomaltwo/model/ERD.png" width="1000">
+
 
 ## 주요기능
 
