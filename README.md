@@ -53,13 +53,34 @@
 
 사용자
 
-| 사용자 로그인|
+| 로그인 및 회원가입|
 | :--------: |
 | ![ezgif com-video-to-gif](https://github.com/josolha/shoppingMall/assets/74632395/5700d502-8be3-4674-8fe8-df2bf01174a4) |
 
 
+| 상품 목록 및 상세보기|
+| :--------: |
+|  |
+
+| 장바구니 담기, 변경, 삭제|
+| :--------: |
+|![ezgif com-gif-maker (1)](https://github.com/josolha/shoppingMall/assets/74632395/2d248a80-cd83-4484-aedf-47c546bbfdbc)|
+
+| 결제 및 마이페이지|
+| :--------: |
+|   |
+
 
 관리자
+
+카테고리 관리 (등록,수정,삭제)
+
+상품 관리 (등록, 수정, 삭제)
+
+주문 관리 (주문 목록, )
+
+회원 관리 (회원 목록, 회원 정보 관리)
+
 
 
 ## 주요기능
