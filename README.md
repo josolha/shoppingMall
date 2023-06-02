@@ -70,11 +70,11 @@
 
 |회원 관리|카테고리 관리|
 | :--------: |:--------: |
-| | |
+|<img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/9bfb7221-6f86-4e27-899a-34943b400c77"> | <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/8770bef9-5a89-4df4-aef0-c8c6a0e5ae40">|
 
 |상품 관리|주문 관리|
 | :--------: |:--------: |
-| | |
+|<img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/aa41fcbb-c9d2-4d41-83ce-24262cc574db"> | <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/cda920ce-d91a-4a44-bbfb-2f175a339988">|
 
 
 
