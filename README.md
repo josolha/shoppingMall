@@ -50,37 +50,31 @@
 <img src="https://github.com/josolha/shoppingMall/blob/master/shoppingMall/src/main/java/com/web/jomaltwo/model/ERD.png" width="1000">
 
 ## 화면구성
+<h4 align="center">사용자 화면</h4>
 
-사용자
-
-| 로그인 및 회원가입 |상품 목록 및 상세보기|
+| 로그인 | 회원가입|
 | :--------: |:--------: |
-| <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/5700d502-8be3-4674-8fe8-df2bf01174a4">|<img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/5700d502-8be3-4674-8fe8-df2bf01174a4">|
+| <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/5700d502-8be3-4674-8fe8-df2bf01174a4">|<img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/faf2c41b-bf99-4ddd-bd6d-862c095b0144">|
 
-  
 
-| 장바구니 담기, 변경, 삭제| 결제 및 마이페이지|
+| 상품 탐색 및 장바구니 | 결제 및 마이페이지|
 | :--------: |:--------: |
-|![ezgif com-gif-maker (1)](https://github.com/josolha/shoppingMall/assets/74632395/2d248a80-cd83-4484-aedf-47c546bbfdbc)||
+| <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/9b7220b1-48c7-4fa5-b64a-615e4aedb612">|<img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/c6f92b83-03b1-41f8-b3c7-fb4332a8c386">|
 
 
-관리자
-
-|회원 관리|
+| 게시판 등록 및 댓글달기 |
 | :--------: |
-| |
+| <img width="500" height="400" alt="스크린샷 2023-06-02 오후 4 11 10" src="https://github.com/josolha/shoppingMall/assets/74632395/67a007f1-af74-4b70-a562-235b0ea098b7">|
 
-|카테고리 관리|
-| :--------: |
-| |
+<h4 align="center">관리자 화면</h4>
 
-|상품 관리|
-| :--------: |
-| |
+|회원 관리|카테고리 관리|
+| :--------: |:--------: |
+| | |
 
-|주문 관리|
-| :--------: |
-| |
+|상품 관리|주문 관리|
+| :--------: |:--------: |
+| | |
 
 
 
